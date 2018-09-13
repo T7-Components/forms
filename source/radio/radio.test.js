@@ -3,10 +3,10 @@ import React from 'react'
 import T from 'react-dom/test-utils'
 
 // UI components.
-import Checkbox from '.'
+import { Radio } from '../'
 
 // Describe `<Component/>` name.
-describe('Checkbox', () => {
+describe('Radio', () => {
   const disabled = true
   const id = 'example_id'
   const label = 'example_label'
@@ -21,7 +21,7 @@ describe('Checkbox', () => {
 
   // Insert the component into DOM.
   const el = T.renderIntoDocument(
-    <Checkbox
+    <Radio
       disabled={disabled}
       id={id}
       label={label}
@@ -36,8 +36,8 @@ describe('Checkbox', () => {
   // Get parent label.
   const parent = T.findRenderedDOMComponentWithTag(el, 'label')
 
-  // Get checkbox.
-  const checkbox = parent.querySelector('input[type="checkbox"]')
+  // Get radio.
+  const radio = parent.querySelector('input[type="radio"]')
 
   // ===================
   // Test for existence.
@@ -52,41 +52,41 @@ describe('Checkbox', () => {
   // ===============
 
   it('has associated label', () => {
-    expect(parent.htmlFor).toBe(checkbox.id)
+    expect(parent.htmlFor).toBe(radio.id)
     expect(parent.textContent.trim()).toBe('example_label')
   })
 
-  // ==================
-  // Test for checkbox.
-  // ==================
+  // ===============
+  // Test for radio.
+  // ===============
 
   it('is not checked', () => {
-    expect(checkbox.checked).toBe(false)
+    expect(radio.checked).toBe(false)
   })
 
   it('is disabled', () => {
-    expect(checkbox.disabled).toBe(true)
+    expect(radio.disabled).toBe(true)
   })
 
   it('has correct ID', () => {
-    expect(checkbox.id).toBe('example_id')
+    expect(radio.id).toBe('example_id')
   })
 
   it('has correct name', () => {
-    expect(checkbox.name).toBe('example_name')
+    expect(radio.name).toBe('example_name')
   })
 
   it('has correct value', () => {
-    expect(checkbox.value).toBe('example_value')
+    expect(radio.value).toBe('example_value')
   })
 
   it('is required', () => {
-    expect(checkbox.hasAttribute('required')).toBe(true)
+    expect(radio.hasAttribute('required')).toBe(true)
   })
 
   it('responds to clicks', () => {
     // Fake click to check.
-    T.Simulate.change(checkbox, {
+    T.Simulate.change(radio, {
       target: {
         checked: true
       }

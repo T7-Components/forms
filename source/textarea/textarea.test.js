@@ -3,7 +3,7 @@ import React from 'react'
 import T from 'react-dom/test-utils'
 
 // UI components.
-import Textarea from './'
+import { Textarea } from '../'
 
 // Describe `<Component/>` name.
 describe('Textarea', () => {

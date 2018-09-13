@@ -3,7 +3,7 @@ import React from 'react'
 import T from 'react-dom/test-utils'
 
 // UI components.
-import Button from '.'
+import { Button } from '../'
 
 // Describe `<Component/>` name.
 describe('Button', () => {
