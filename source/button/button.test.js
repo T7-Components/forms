@@ -24,8 +24,9 @@ describe('Button', () => {
     />
   )
 
-  // Get button.
-  const button = T.findRenderedDOMComponentWithClass(el, 't7-form__button')
+  // Get content.
+  const button =
+    T.findRenderedDOMComponentWithClass(el, 't7-form__button')
 
   // ===================
   // Test for existence.

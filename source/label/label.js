@@ -18,7 +18,10 @@ class Label extends React.Component {
     return (
       <Render if={label}>
 
-        <label htmlFor={id}>
+        <label
+          className='t7-form__label'
+          htmlFor={id}
+        >
 
           {label}
 
@@ -26,6 +29,7 @@ class Label extends React.Component {
             {' '}
             <abbr
               children='*'
+              className='t7-form__label__abbr'
               title='Required'
             />
           </Render>
