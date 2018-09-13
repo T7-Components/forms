@@ -102,7 +102,7 @@ describe('Textarea', () => {
   // Test for change.
   // ================
 
-  it('responds to change', () => {
+  it('handles "change" event', () => {
     // Dummy value.
     const BEFORE = ' FOO \n \n BAR '
     const AFTER = 'FOO \n\n BAR'

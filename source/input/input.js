@@ -3,7 +3,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // Utility methods.
-import utils from '@t7/utils'
+import {
+  bind,
+  exists,
+  trim,
+  unique
+} from '@t7/utils'
 
 // Define class.
 class Input extends React.Component {
@@ -12,7 +17,7 @@ class Input extends React.Component {
     super(props)
 
     // Bind context.
-    utils.bind(this)
+    bind(this)
 
     // Get default state.
     this.defaultState()
@@ -20,86 +25,87 @@ class Input extends React.Component {
 
   // Set default state.
   defaultState () {
-    let value = this.props.value
-
-    // Ensure a real value.
-    if (!utils.exists(value)) {
-      value = this.props.defaultValue || ''
-    }
+    // Props.
+    const {
+      id = unique(),
+      value = ''
+    } = this.props
 
     this.state = {
-      id: this.props.id || utils.unique(),
-      value: value
+      id,
+      value
     }
   }
 
-  // Force state change.
-  componentWillReceiveProps (nextProps) {
-    const newValue = nextProps.value
-    const oldValue = this.props.value
+  // Update state.
+  static getDerivedStateFromProps (props, state) {
+    // Get values.
+    const newValue = props.value
+    const oldValue = state.value
 
-    const isValid =
-      utils.exists(newValue) &&
+    // Set in conditional.
+    let newState = null
+
+    // Update?
+    if (
+      exists(newValue) &&
       newValue !== oldValue
-
-    if (isValid) {
-      this.setState({
+    ) {
+      newState = {
         value: newValue
-      })
+      }
     }
+
+    // Expose object.
+    return newState
   }
 
-  // Input loses focus.
-  handleBlur (e) {
-    // Props.
-    const handleChange = this.props.handleChange
-
-    // Trim value.
-    const value = utils.trim(e.target.value)
-
-    // Update value.
-    this.setState({ value })
-
-    // Fire callback.
-    if (typeof handleChange === 'function') {
-      handleChange(e, value)
-    }
-  }
-
-  // Input value change.
-  handleChange (e) {
-    // Props.
-    const handleChange = this.props.handleChange
+  // Change event.
+  handleChange (e = {}) {
+    // Get target.
+    const {
+      type,
+      target = {}
+    } = e
 
     // Get value.
-    const value = e.target.value
+    let {
+      value = ''
+    } = target
 
-    // Update value.
-    this.setState({ value })
-
-    // Fire callback.
-    if (typeof handleChange === 'function') {
-      handleChange(e, value)
+    // Clean up.
+    if (type === 'blur') {
+      value = trim(value)
     }
+
+    // Callback.
+    this.props.handleChange(e, value)
   }
 
   // Render method.
   render () {
-    // State driven.
-    const id = this.state.id
-    const value = this.state.value
+    // State.
+    const {
+      id,
+      value
+    } = this.state
 
-    // Props driven.
-    const autofocus = this.props.autofocus
-    const disabled = this.props.disabled
-    const maxlength = this.props.maxlength
-    const name = this.props.name || id
-    const placeholder = this.props.placeholder
-    const readonly = this.props.readonly
-    const required = this.props.required
-    const size = this.props.size
-    const type = this.props.type
-    const width = this.props.width
+    // Props.
+    const {
+      autofocus,
+      disabled,
+      maxlength,
+      name,
+      placeholder,
+      readonly,
+      required,
+      size,
+      type,
+      width
+    } = this.props
+
+    // Events.
+    const { handleChange } = this
 
     // Default class name.
     let className = ['t7-form__input']
@@ -110,27 +116,28 @@ class Input extends React.Component {
 
     className = className.join(' ')
 
-    // Events.
-    const handleBlur = this.handleBlur
-    const handleChange = this.handleChange
+    // Bundle.
+    const bundle = {
+      className,
+      disabled,
+      id,
+      name,
+      placeholder,
+      required,
+      size,
+      type,
+      value,
+      autoFocus: autofocus,
+      maxLength: maxlength,
+      onBlur: handleChange,
+      onChange: handleChange,
+      readOnly: readonly
+    }
 
+    // Expose UI.
     return (
       <input
-        autoFocus={autofocus}
-        className={className}
-        disabled={disabled}
-        id={id}
-        maxLength={maxlength}
-        name={name}
-        placeholder={placeholder}
-        readOnly={readonly}
-        required={required}
-        size={size}
-        type={type}
-
-        value={value}
-        onBlur={handleBlur}
-        onChange={handleChange}
+        {...bundle}
       />
     )
   }
@@ -146,17 +153,14 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   readonly: PropTypes.bool,
   required: PropTypes.bool,
-  size: PropTypes.string,
   type: PropTypes.string,
   width: PropTypes.string,
 
-  // Default value.
-  defaultValue: PropTypes.oneOfType([
+  size: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number
   ]),
 
-  // Forced value.
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number
@@ -168,7 +172,10 @@ Input.propTypes = {
 
 // Prop defaults.
 Input.defaultProps = {
-  type: 'text'
+  type: 'text',
+
+  // Events.
+  handleChange: () => {}
 }
 
 // Export.

@@ -14,10 +14,9 @@ The benefit of using a `<Textdiv/>` component is that it grows with its content,
   name={name}
   placeholder={placeholder}
   required={required}
-
-  defaultValue={defaultValue}
   value={value}
 
+  // Events.
   handleChange={handleChange}
 />
 ```

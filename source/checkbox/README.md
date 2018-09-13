@@ -22,13 +22,7 @@ const value = '...' // Uses label, if blank.
 
 // Checked state.
 const checked = true // Default: false.
-const defaultChecked = true // Default: false.
 ```
-
-**Note:** There is a difference between `checked` and `defaultChecked`. For more info, see the React documentation for…
-
-* [Controlled Components](https://facebook.github.io/react/docs/forms.html#controlled-components)
-* [Uncontrolled Components](https://facebook.github.io/react/docs/forms.html#uncontrolled-components)
 
 To use the component, pass these props.
 
@@ -36,7 +30,6 @@ To use the component, pass these props.
 <Checkbox
   autofocus={autofocus}
   checked={checked}
-  defaultChecked={defaultChecked}
   disabled={disabled}
   id={id}
   label={label}
@@ -44,6 +37,7 @@ To use the component, pass these props.
   required={required}
   value={value}
 
+  // Events.
   handleChange={handleChange}
 />
 ```

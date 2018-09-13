@@ -13,19 +13,13 @@ const handleChange = (e, value) => {
 const autofocus = true // Default: false.
 const disabled = true // Default: false.
 const id = '...' // Ensured unique, if blank.
-const name = '...' // Uses id, if blank.
-const placeholder = '...' // Default: null.
+const name = '...' // Default: blank.
+const placeholder = '...' // Default: blank.
 const required = true // Default: false.
 
 // Determine pre-filled text.
-const defaultValue = '...' // Default: null.
-const value = '...' // Default: null.
+const value = '...' // Default: blank.
 ```
-
-**Note:** There is a difference between `value` and `defaultValue`. For more info, see the React documentation for…
-
-* [Controlled Components](https://facebook.github.io/react/docs/forms.html#controlled-components)
-* [Uncontrolled Components](https://facebook.github.io/react/docs/forms.html#uncontrolled-components)
 
 To use the component, pass these props.
 
@@ -37,10 +31,9 @@ To use the component, pass these props.
   name={name}
   placeholder={placeholder}
   required={required}
-
-  defaultValue={defaultValue}
   value={value}
 
+  // Events.
   handleChange={handleChange}
 />
 ```

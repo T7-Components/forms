@@ -42,6 +42,7 @@ To use the component, pass these props.
   size={size}
   width={width}
 
+  // Events.
   handleChange={handleChange}
 />
 ```
