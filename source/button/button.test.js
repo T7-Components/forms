@@ -32,7 +32,7 @@ describe('Button', () => {
 
   // Get content.
   const button =
-    T.findRenderedDOMComponentWithClass(el, 't7-form__button')
+    T.findRenderedDOMComponentWithClass(el, 't7-button')
 
   // =============
   // Test for tag.
@@ -141,7 +141,7 @@ describe('Button -- link', () => {
 
   // Get button.
   const button =
-    T.findRenderedDOMComponentWithClass(el, 't7-form__button')
+    T.findRenderedDOMComponentWithClass(el, 't7-button')
 
   // =============
   // Test for tag.

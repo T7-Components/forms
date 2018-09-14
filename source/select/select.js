@@ -131,10 +131,10 @@ class Select extends React.Component {
     const { handleChange } = this
 
     // Default class="…".
-    let className = ['t7-form__select']
+    let className = ['t7-select']
 
     if (width === 'auto') {
-      className.push('t7-form__select--width-auto')
+      className.push('t7-select--width-auto')
     }
 
     // Convert to string.

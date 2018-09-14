@@ -209,7 +209,7 @@ class Textdiv extends React.Component {
       required,
       value,
       autoFocus: autofocus,
-      className: 't7-form__textarea',
+      className: 't7-textarea',
       contentEditable: !disabled,
       onBlur: handleBlur,
       onFocus: handleFocus,

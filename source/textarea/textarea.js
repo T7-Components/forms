@@ -124,7 +124,7 @@ class Textarea extends React.Component {
       required,
       value,
       autoFocus: autofocus,
-      className: 't7-form__textarea',
+      className: 't7-textarea',
       maxLength: maxlength,
       onBlur: handleChange,
       onChange: handleChange,

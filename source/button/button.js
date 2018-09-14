@@ -69,7 +69,7 @@ class Button extends React.Component {
       title,
 
       // Class name.
-      className: 't7-form__button',
+      className: 't7-button',
 
       // Mode.
       'data-mode': mode,

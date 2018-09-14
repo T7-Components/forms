@@ -120,7 +120,7 @@ describe('Select', () => {
 
   it('has auto width', () => {
     expect(select.className)
-      .toContain('t7-form__select--width-auto')
+      .toContain('t7-select--width-auto')
   })
 
   // ========================

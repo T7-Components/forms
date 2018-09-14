@@ -112,7 +112,7 @@ describe('Input', () => {
 
   it('has auto width', () => {
     expect(input.className)
-      .toContain('t7-form__input--width-auto')
+      .toContain('t7-input--width-auto')
   })
 
   // ========================

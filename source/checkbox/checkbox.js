@@ -107,15 +107,15 @@ class Checkbox extends React.Component {
 
     // Checkbox?
     if (type === 'checkbox') {
-      inputClassName = 't7-form__checkbox'
-      labelClassName = 't7-form__checkbox__label'
-      spanClassName = 't7-form__checkbox__fake'
+      inputClassName = 't7-checkbox'
+      labelClassName = 't7-checkbox__label'
+      spanClassName = 't7-checkbox__fake'
 
     // Radio?
     } else if (type === 'radio') {
-      inputClassName = 't7-form__radio'
-      labelClassName = 't7-form__radio__label'
-      spanClassName = 't7-form__radio__fake'
+      inputClassName = 't7-radio'
+      labelClassName = 't7-radio__label'
+      spanClassName = 't7-radio__fake'
     }
 
     // Bundle.

@@ -114,13 +114,13 @@ class Input extends React.Component {
     const { handleChange } = this
 
     // Default class name.
-    let className = ['t7-form__input']
+    let className = ['t7-input']
 
     if (
       size ||
       width === 'auto'
     ) {
-      className.push('t7-form__input--width-auto')
+      className.push('t7-input--width-auto')
     }
 
     // Convert to string.

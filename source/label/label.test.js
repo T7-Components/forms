@@ -23,10 +23,10 @@ describe('Label', () => {
 
   // Get content.
   const label =
-    T.findRenderedDOMComponentWithClass(el, 't7-form__label')
+    T.findRenderedDOMComponentWithClass(el, 't7-label')
 
   const abbr =
-    label.querySelector('.t7-form__label__abbr')
+    label.querySelector('.t7-label__abbr')
 
   // ============
   // Test for ID.
