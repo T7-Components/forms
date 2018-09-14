@@ -116,7 +116,10 @@ class Input extends React.Component {
     // Default class name.
     let className = ['t7-form__input']
 
-    if (width === 'auto') {
+    if (
+      size ||
+      width === 'auto'
+    ) {
       className.push('t7-form__input--width-auto')
     }
 

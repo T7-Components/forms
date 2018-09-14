@@ -26,19 +26,13 @@ const placeholder = 'string'
 // Default: none.
 const required = true
 
+// Default: none.
+const size = 10
+
 // Default: "text".
 const type = 'password'
 
-/*
-  Note: If you want to set an input to
-  a particular character width, you must
-  pass `width = 'auto'` and the size.
-*/
-
-// Default: none.
-const size = '10'
-
-// 100% wide, without.
+// Default: 100% wide.
 const width = 'auto'
 
 // Event callback.

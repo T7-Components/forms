@@ -19,7 +19,7 @@ const name = 'string'
 // Default: false.
 const required = true
 
-// 100% wide, without.
+// Default: 100% wide.
 const width = 'auto'
 
 // Default: none.
