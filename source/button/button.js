@@ -3,7 +3,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // Utility methods.
-import utils from '@t7/utils'
+import {
+  bind
+} from '@t7/utils'
 
 // Define class.
 class Button extends React.Component {
@@ -12,7 +14,7 @@ class Button extends React.Component {
     super(props)
 
     // Bind context.
-    utils.bind(this)
+    bind(this)
   }
 
   // Button click.
