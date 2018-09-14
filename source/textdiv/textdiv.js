@@ -225,6 +225,7 @@ class Textdiv extends React.Component {
 
         <Label
           {...this.props}
+          id={id}
         />
 
         <div

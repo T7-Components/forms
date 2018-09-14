@@ -149,7 +149,10 @@ class Checkbox extends React.Component {
         <input
           {...bundle}
         />
-        <span className={spanClassName} />
+        <span
+          aria-hidden // true
+          className={spanClassName}
+        />
         {label}
       </label>
     )

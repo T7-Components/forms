@@ -137,6 +137,7 @@ class Textarea extends React.Component {
 
         <Label
           {...this.props}
+          id={id}
         />
 
         <textarea
