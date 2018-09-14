@@ -31,12 +31,6 @@ class Demo extends React.Component {
         </h1>
 
         <p>
-          <a href='./coverage/lcov-report/index.html'>
-            View test coverage
-          </a>
-        </p>
-
-        <p>
           <Input
             required // true
             label='Input'
