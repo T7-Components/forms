@@ -16,19 +16,22 @@ const autofocus = true
 const disabled = true
 
 // Ensured unique, if blank.
-const id = '...'
+const id = 'string'
 
 // Default: none.
-const name = '...'
+const label = 'string'
 
 // Default: none.
-const placeholder = '...'
+const name = 'string'
+
+// Default: none.
+const placeholder = 'string'
 
 // Default: none.
 const required = true
 
 // Default: none.
-const value = '...'
+const value = 'string'
 
 // Event callback.
 const handleChange = (e, value) => {

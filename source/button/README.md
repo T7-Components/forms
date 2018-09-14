@@ -6,7 +6,7 @@ By passing `href`, the component will be used as an `<a>` link, otherwise a `<bu
 
 ```js
 // Default: none.
-const ariaControls = '...'
+const ariaControls = 'string'
 
 // Default: none.
 const disabled = true
@@ -27,7 +27,7 @@ const text = 'Button text'
 const target = '_blank | ...'
 
 // Default: none.
-const title = '...'
+const title = 'string'
 
 // Default: "button".
 const type = 'submit | reset'

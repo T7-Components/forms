@@ -10,19 +10,19 @@ const autofocus = true
 const disabled = true
 
 // Ensured unique, if blank.
-const id = '...'
+const id = 'string'
 
 // Default: none.
 const label = 'Radio label'
 
 // Default: none.
-const name = '...'
+const name = 'string'
 
 // Default: none.
 const required = true
 
 // Default: none.
-const value = '...'
+const value = 'string'
 
 // Default: false.
 const checked = true

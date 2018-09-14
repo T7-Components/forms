@@ -8,10 +8,13 @@ const autofocus = true
 const disabled = true
 
 // Ensured unique, if blank.
-const id = '...'
+const id = 'string'
 
 // Default: none.
-const name = '...'
+const label = 'string'
+
+// Default: none.
+const name = 'string'
 
 // Default: false.
 const required = true
@@ -20,7 +23,7 @@ const required = true
 const width = 'auto'
 
 // Default: none.
-const value = '...'
+const value = 'string'
 
 // Drives the `<options>`.
 const options = [
