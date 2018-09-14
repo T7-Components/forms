@@ -1,4 +1,4 @@
-```
+```js
 import { Label } from '@t7/forms'
 ```
 
@@ -8,7 +8,7 @@ It is typically included alongside a form element, with the parent `props` sprea
 
 It accepts the following `props`.
 
-```
+```js
 // Default: none.
 const id = 'string'
 

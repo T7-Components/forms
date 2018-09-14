@@ -1,4 +1,4 @@
-```
+```js
 import { Textdiv } from '@t7/forms'
 ```
 

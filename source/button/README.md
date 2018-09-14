@@ -1,4 +1,4 @@
-```
+```js
 import { Button } from '@t7/forms'
 ```
 

@@ -1,4 +1,4 @@
-```
+```js
 import { Checkbox } from '@t7/forms'
 ```
 

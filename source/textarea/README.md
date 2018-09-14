@@ -1,4 +1,4 @@
-```
+```js
 import { Textarea } from '@t7/forms'
 ```
 

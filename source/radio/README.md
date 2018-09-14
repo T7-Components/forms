@@ -1,4 +1,4 @@
-```
+```js
 import { Radio } from '@t7/forms'
 ```
 

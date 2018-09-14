@@ -1,4 +1,4 @@
-```
+```js
 import { Select } from '@t7/forms'
 ```
 
