@@ -1,3 +1,7 @@
+```
+import { Input } from '@t7/forms'
+```
+
 This is a multi-purpose component for all textual inputs.
 
 By changing the `type` you can use it as `"text"`, `"password"`, etc.

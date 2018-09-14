@@ -1,3 +1,7 @@
+```
+import { Textarea } from '@t7/forms'
+```
+
 This component is a typical `<textarea>`. When the `blur` event fires, it will trim the content, and ensure that all unnecessary whitespace is removed, while still retaining `\n\n` as a visual "paragraph."
 
 It accepts the following `props`.

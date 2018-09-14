@@ -1,3 +1,7 @@
+```
+import { Checkbox } from '@t7/forms'
+```
+
 This component has custom UI, but fuctions like a regular `<input>`.
 
 It accepts the following `props`.

@@ -1,3 +1,7 @@
+```
+import { Textdiv } from '@t7/forms'
+```
+
 **Note:** This uses the same props as the `<Textarea>` component, but has a different tag name.
 
 While they are functionally similar, there is quite a bit more going on "under the hood" of `<Textdiv>`.

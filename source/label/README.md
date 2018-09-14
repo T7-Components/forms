@@ -1,10 +1,21 @@
+```
+import { Label } from '@t7/forms'
+```
+
 The `<Label>` component is used by other form element components. It is typically included alongside a form element, with the parent `props` spread.
 
 It accepts the following `props`.
 
-- `id` (string)
-- `label` (string)
-- `required` (boolean)
+```
+// Default: none.
+const id = 'string'
+
+// Default: none.
+const label = 'string'
+
+// Default: none.
+const required = true
+```
 
 ```jsx
 return (

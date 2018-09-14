@@ -1,3 +1,7 @@
+```
+import { Select } from '@t7/forms'
+```
+
 This component accepts the following `props`.
 
 ```js

@@ -1,3 +1,7 @@
+```
+import { Button } from '@t7/forms'
+```
+
 The `<Button>` component can be used as a form element (typical use case) or as a link.
 
 Below is an example of all the props that it can use, though some are mutually exclusive. For instance, you could specify the `type` of button as `submit`, but wouldn't set the `type` of a link.
