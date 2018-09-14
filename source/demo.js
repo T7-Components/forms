@@ -28,14 +28,64 @@ class Demo extends React.Component {
 
         <p>
           <Input
-            label='Input label'
+            required // true
+            label='Input'
             placeholder='Input placeholder'
           />
         </p>
 
         <p>
+          <Input
+            disabled // true
+            label='Input (disabled)'
+            placeholder='Input placeholder'
+          />
+        </p>
+
+        <p>
+          <Select
+            required // true
+            label='Select'
+          />
+        </p>
+
+        <p>
+          <Select
+            disabled // true
+            label='Select (disabled)'
+          />
+        </p>
+
+        <p>
+          <Textarea
+            required // true
+            label='Textarea'
+            placeholder='Textarea placeholder'
+          />
+        </p>
+
+        <p>
+          <Textarea
+            disabled // true
+            label='Textarea (disabled)'
+            placeholder='Textarea placeholder'
+          />
+        </p>
+
+        <Textdiv
+          label='Textdiv'
+          placeholder='Textdiv placeholder'
+        />
+
+        <Textdiv
+          disabled // true
+          label='Textdiv (disabled)'
+          placeholder='Textdiv placeholder'
+        />
+
+        <p>
           <Checkbox
-            label='Checkbox label'
+            label='Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label '
           />
         </p>
 
@@ -54,22 +104,20 @@ class Demo extends React.Component {
         </p>
 
         <p>
-          <Select
-            label='Select label'
+          Example <code>&lt;a&gt;</code> tag, styled as a button:
+        </p>
+
+        <p>
+          <Button
+            href='https://example.com/'
+            target='_blank'
+            text='Go to Example.com'
           />
         </p>
 
         <p>
-          <Textarea
-            label='Textarea label'
-            placeholder='Textarea placeholder'
-          />
+          All permutations of <code>&lt;button&gt;</code>:
         </p>
-
-        <Textdiv
-          label='Textdiv label'
-          placeholder='Textdiv placeholder'
-        />
 
         <p>
           <Button

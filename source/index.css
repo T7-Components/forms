@@ -30,7 +30,7 @@ Form element "reset."
   outline: 0;
   padding: 0;
 
-  font-size: 13px;
+  font-size: inherit;
   vertical-align: middle;
 }
 
@@ -82,6 +82,7 @@ Form element "reset."
 .t7-form__textarea::-webkit-input-placeholder,
 .t7-form__textarea[data-has-placeholder="true"] {
   color: #ccc;
+  opacity: 1;
 }
 
 .t7-form__input::-moz-placeholder,
@@ -93,6 +94,7 @@ Form element "reset."
 .t7-form__input:-ms-input-placeholder,
 .t7-form__textarea:-ms-input-placeholder {
   color: #ccc;
+  opacity: 1;
 }
 
 .t7-form__input,
@@ -110,6 +112,25 @@ Form element "reset."
   text-transform: none;
   width: auto;
   white-space: nowrap;
+}
+
+/*
+Labels.
+============================================================
+*/
+
+.t7-form__label {
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.t7-form__label__abbr[title="Required"] {
+  color: #c96;
+  font-family: "Courier New", monospace;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 0;
+  text-decoration: none;
 }
 
 /*
@@ -131,7 +152,7 @@ Shared styles.
 .t7-form__input,
 .t7-form__select {
   display: inline-block;
-  height: 25px;
+  height: 2em;
 }
 
 .t7-form__input:not([disabled]):active,
@@ -209,8 +230,8 @@ Button.
 .t7-form__button {
   border-radius: 3px;
 
-  line-height: 25px;
-  height: 25px;
+  line-height: 2em;
+  height: 2em;
 
   padding-left: 10px;
   padding-right: 10px;
@@ -242,18 +263,12 @@ Button sizes.
 .t7-form__button[data-size="small"] {
   font-size: 11px;
 
-  line-height: 20px;
-  height: 20px;
-
   padding-left: 7px;
   padding-right: 7px;
 }
 
 .t7-form__button[data-size="big"] {
   font-size: 20px;
-
-  line-height: 35px;
-  height: 35px;
 }
 
 /*
@@ -315,6 +330,8 @@ Button mode.
 .t7-form__radio__label,
 .t7-form__checkbox__label {
   display: inline-block;
+  line-height: 1.5;
+  min-height: 24px;
 
   margin: -2px;
   padding: 2px;
@@ -337,7 +354,7 @@ Button mode.
   height: 18px;
 
   position: absolute;
-  top: 3px;
+  top: 0.25em;
   left: 2px;
 
   transition: background-size 150ms;
@@ -412,4 +429,14 @@ Disabled state.
 .t7-form__checkbox[disabled] + .t7-form__checkbox__fake {
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+.t7-form__input[disabled],
+.t7-form__select[disabled],
+.t7-form__textarea[disabled] {
+  background-color: #eee;
+}
+
+.t7-form__textarea[disabled] {
+  resize: none;
 }
