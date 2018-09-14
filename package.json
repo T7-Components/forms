@@ -33,7 +33,8 @@
     "lint": "eslint 'source/**/*.js' --fix",
     "pretest": "npm run lint",
     "test": "jest --coverage",
-    "prepush": "npm test",
+    "test_without_coverage": "jest",
+    "prepush": "npm test_without_coverage",
     "postmerge": "npm install",
     "start": "webpack-dev-server --mode development --open"
   },
