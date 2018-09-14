@@ -151,18 +151,6 @@ Shared styles.
   width: auto;
 }
 
-br + .t7-form__input,
-br + .t7-form__select,
-br + .t7-form__textarea {
-  margin-top: 5px;
-}
-
-*[class*="t7-form__"] + .t7-form__button,
-*[class*="t7-form__"] + .t7-form__input,
-*[class*="t7-form__"] + .t7-form__select {
-  margin-left: 10px;
-}
-
 /*
 Text area.
 ============================================================

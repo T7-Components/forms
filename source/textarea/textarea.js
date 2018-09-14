@@ -96,7 +96,10 @@ class Textarea extends React.Component {
   // Render method.
   render () {
     // State.
-    const { id } = this.state
+    const {
+      id,
+      value
+    } = this.state
 
     // Props.
     const {
@@ -106,8 +109,7 @@ class Textarea extends React.Component {
       name,
       placeholder,
       readonly,
-      required,
-      value
+      required
     } = this.props
 
     // Events.
@@ -172,9 +174,6 @@ Textarea.propTypes = {
 
 // Defaults.
 Textarea.defaultProps = {
-  placeholder: '',
-  value: '',
-
   // Events.
   handleChange: () => {}
 }

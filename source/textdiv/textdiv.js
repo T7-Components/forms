@@ -257,9 +257,6 @@ Textdiv.propTypes = {
 
 // Prop defaults.
 Textdiv.defaultProps = {
-  placeholder: '',
-  value: '',
-
   // Events.
   handleChange: () => {}
 }

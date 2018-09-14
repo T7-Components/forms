@@ -26,8 +26,8 @@ class Checkbox extends React.Component {
   defaultState () {
     // Props.
     const {
-      id = unique(),
-      checked = ''
+      checked,
+      id = unique()
     } = this.props
 
     this.state = {
@@ -173,7 +173,6 @@ Checkbox.propTypes = {
 
 // Prop defaults.
 Checkbox.defaultProps = {
-  checked: false,
   type: 'checkbox',
 
   // Events.
