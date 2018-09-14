@@ -85,7 +85,14 @@ class Demo extends React.Component {
 
         <p>
           <Checkbox
-            label='Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label Checkbox label '
+            disabled // true
+            label='Checkbox (disabled)'
+          />
+        </p>
+
+        <p>
+          <Checkbox
+            label='By submitting this form, you hereby grant ACME Corp. the right to conduct a background check. If you are found to be falsifying information, you will be prosecuted to the fullest extent of intergalactic law. You also acknowledge that should you be accepted to the training program, we reserve the right to eject you (into space) if you are a danger to the rest of the crew. If you are captured during any covert missions, the United States will disavow all knowledge of your official involvement, and you will be branded as a rogue agent.'
           />
         </p>
 
@@ -96,9 +103,18 @@ class Demo extends React.Component {
             name='radio_list'
           />
         </p>
+
         <p>
           <Radio
             label='Radio label 2'
+            name='radio_list'
+          />
+        </p>
+
+        <p>
+          <Radio
+            disabled // true
+            label='Radio label 3 (disabled)'
             name='radio_list'
           />
         </p>
@@ -116,7 +132,7 @@ class Demo extends React.Component {
         </p>
 
         <p>
-          All permutations of <code>&lt;button&gt;</code>:
+          All <code>&lt;button&gt;</code> permutations:
         </p>
 
         <p>
