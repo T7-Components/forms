@@ -1,4 +1,4 @@
-The `<Button/>` component can be used as a form input (the typical use case) or as a link.
+The `<Button>` component can be used as a form element (typical use case) or as a link.
 
 Below is an example of all the props that it can use, though some are mutually exclusive. For instance, you could specify the `type` of button as `submit`, but wouldn't set the `type` of a link.
 
@@ -17,14 +17,14 @@ const handleClick = (e, buttonData) => {
   */
 }
 
-const ariaControls = '...' // Default: null.
-const disabled = true // Default: false.
-const href = 'http://example.com/' // Default: null.
+const ariaControls = '...' // Default: none.
+const disabled = true // Default: none.
+const href = 'http://example.com/' // Default: none.
 const mode = 'info | negative | positive | warn' // Default: "default".
-const size = 'small | big' // Default: null.
-const text = 'Button Text'
-const target = '_blank | ...' // Default: null.
-const title = '...' // Default: null.
+const size = 'small | big' // Default: "default".
+const text = 'Button Text' // Default: none.
+const target = '_blank | ...' // Default: none.
+const title = '...' // Default: none.
 const type = 'submit | reset' // Default: "button".
 
 /*
@@ -42,12 +42,17 @@ To use the component, pass these props.
 ```jsx
 // Link.
 <Button
+  buttonData={buttonData}
+  disabled={disabled}
   href={href}
   mode={mode}
   size={size}
   text={text}
   target={target}
   title={title}
+
+  // Events.
+  handleClick={handleClick}
 />
 
 // Button.
@@ -61,6 +66,7 @@ To use the component, pass these props.
   title={title}
   type={type}
 
+  // Events.
   handleClick={handleClick}
 />
 ```
