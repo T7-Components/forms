@@ -10,6 +10,9 @@ import {
   unique
 } from '@t7/utils'
 
+// UI components.
+import { Label } from '../'
+
 // Define class.
 class Input extends React.Component {
   constructor (props) {
@@ -78,6 +81,9 @@ class Input extends React.Component {
       value = trim(value)
     }
 
+    // Update state.
+    this.setState({ value })
+
     // Callback.
     this.props.handleChange(e, value)
   }
@@ -114,6 +120,7 @@ class Input extends React.Component {
       className.push('t7-form__input--width-auto')
     }
 
+    // Convert to string.
     className = className.join(' ')
 
     // Bundle.
@@ -136,9 +143,17 @@ class Input extends React.Component {
 
     // Expose UI.
     return (
-      <input
-        {...bundle}
-      />
+      <React.Fragment>
+
+        <Label
+          {...this.props}
+        />
+
+        <input
+          {...bundle}
+        />
+
+      </React.Fragment>
     )
   }
 }

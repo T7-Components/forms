@@ -7,110 +7,159 @@ import { Select } from '../'
 
 // Describe `<Component/>` name.
 describe('Select', () => {
-  const options = [
-    {
-      value: 'value_0',
-      name: 'name_0'
-    },
-    {
-      value: 'value_1',
-      name: 'name_1'
-    }
-  ]
+  // Dummy props.
+  const props = {
+    disabled: true,
+    id: 'example_id',
+    name: 'example_name',
+    required: true,
+    value: 'value_1',
+    width: 'auto',
 
-  const ariaControls = 'example_aria'
-  const disabled = true
-  const id = 'example_id'
-  const name = 'example_name'
-  const required = true
-  const defaultValue = 'value_1'
+    options: [
+      {
+        value: 'value_0',
+        name: 'name_0'
+      },
+      {
+        value: 'value_1',
+        name: 'name_1'
+      }
+    ],
 
-  // Called from `responds to change`.
-  const handleChange = (e, value) => {
-    expect(value).toBe('value_0')
+    // Events.
+    handleChange: jest.fn()
   }
 
   // Insert the component into DOM.
   const el = T.renderIntoDocument(
     <Select
-      ariaControls={ariaControls}
-      disabled={disabled}
-      id={id}
-      name={name}
-      options={options}
-      required={required}
-
-      defaultValue={defaultValue}
-
-      handleChange={handleChange}
+      {...props}
     />
   )
 
   // Get the `<select>`.
-  const select = T.findRenderedDOMComponentWithTag(el, 'select')
+  const select =
+    T.findRenderedDOMComponentWithTag(el, 'select')
 
   // Get options.
-  const _options = select.querySelectorAll('option')
-
-  // ===================
-  // Test for existence.
-  // ===================
-
-  it('exists in the page', () => {
-    expect(T.isCompositeComponent(el)).toBe(true)
-  })
+  const options =
+    select.querySelectorAll('option')
 
   // =================
   // Test for options.
   // =================
 
   it('has correct options', () => {
-    expect(_options.length).toBe(2)
+    expect(options.length)
+      .toBe(2)
 
     // First option.
-    expect(_options[0].value).toBe('value_0')
-    expect(_options[0].innerHTML).toBe('name_0')
+    expect(options[0].value)
+      .toBe(props.options[0].value)
+
+    expect(options[0].innerHTML)
+      .toBe(props.options[0].name)
 
     // Second option.
-    expect(_options[1].value).toBe('value_1')
-    expect(_options[1].innerHTML).toBe('name_1')
+    expect(options[1].value)
+      .toBe(props.options[1].value)
+
+    expect(options[1].innerHTML)
+      .toBe(props.options[1].name)
   })
 
-  // ================
-  // Test for select.
-  // ================
-
-  it('has correct ARIA', () => {
-    const x = select.getAttribute('aria-controls')
-
-    expect(x).toBe('example_aria')
-  })
+  // ===============
+  // Test for value.
+  // ===============
 
   it('has correct value', () => {
-    expect(select.value).toBe('value_1')
+    expect(select.value)
+      .toBe(props.value)
   })
+
+  // ==================
+  // Test for disabled.
+  // ==================
 
   it('is disabled', () => {
-    expect(select.disabled).toBe(true)
+    expect(select.disabled)
+      .toBe(true)
   })
+
+  // ============
+  // Test for ID.
+  // ============
 
   it('has correct ID', () => {
-    expect(select.id).toBe('example_id')
+    expect(select.id)
+      .toBe(props.id)
   })
+
+  // ==============
+  // Test for name.
+  // ==============
 
   it('has correct name', () => {
-    expect(select.name).toBe('example_name')
+    expect(select.name)
+      .toBe(props.name)
   })
+
+  // ==================
+  // Test for required.
+  // ==================
 
   it('is required', () => {
-    expect(select.hasAttribute('required')).toBe(true)
+    expect(select.hasAttribute('required'))
+      .toBe(true)
   })
 
-  it('responds to change', () => {
-    T.Simulate.change(select, {
+  // ====================
+  // Test for auto width.
+  // ====================
+
+  it('has auto width', () => {
+    expect(select.className)
+      .toContain('t7-form__select--width-auto')
+  })
+
+  // ========================
+  // Test for "change" event.
+  // ========================
+
+  it('handles "change" event', () => {
+    // Dummy event.
+    const e = {
       target: {
-        value: 'value_0'
+        value: props.options[1].value
       }
-    })
+    }
+
+    // Dummy object.
+    const o = expect.any(Object)
+
+    // Fire event.
+    el.handleChange(e)
+
+    expect(props.handleChange)
+      .toBeCalledWith(o, e.target.value)
+  })
+
+  // =====================
+  // Test for props/state.
+  // =====================
+
+  it('handles props/state change', () => {
+    // Dummy state.
+    const state = {
+      value: 'old_value'
+    }
+
+    // Fire event.
+    const newState =
+      Select.getDerivedStateFromProps(props, state)
+
+    expect(newState.value)
+      .toBe(props.value)
   })
 })

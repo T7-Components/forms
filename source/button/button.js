@@ -138,7 +138,7 @@ class Button extends React.Component {
       )
     }
 
-    // Build the string.
+    // Convert to string.
     className = className.join(' ')
 
     // Presuppose `<button>`.

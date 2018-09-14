@@ -86,6 +86,9 @@ class Textarea extends React.Component {
       value = trimMultiLine(value)
     }
 
+    // Update state.
+    this.setState({ value })
+
     // Callback.
     this.props.handleChange(e, value)
   }

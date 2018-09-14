@@ -115,9 +115,9 @@ describe('Input', () => {
       .toContain('t7-form__input--width-auto')
   })
 
-  // ================
-  // Test for change.
-  // ================
+  // ========================
+  // Test for "change" event.
+  // ========================
 
   it('handles "change" event', () => {
     // Dummy value.

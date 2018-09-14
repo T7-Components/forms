@@ -3,7 +3,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // Utility methods.
-import utils from '@t7/utils'
+import {
+  bind,
+  exists,
+  unique
+} from '@t7/utils'
+
+// UI components.
+import { Label } from '../'
 
 // Define class.
 class Select extends React.Component {
@@ -12,7 +19,7 @@ class Select extends React.Component {
     super(props)
 
     // Bind context.
-    utils.bind(this)
+    bind(this)
 
     // Get default state.
     this.defaultState()
@@ -20,70 +27,108 @@ class Select extends React.Component {
 
   // Set default state.
   defaultState () {
-    let value = this.props.value
-
-    // Ensure a real value.
-    if (!utils.exists(value)) {
-      value = this.props.defaultValue || ''
-    }
+    // Props.
+    const {
+      id = unique(),
+      value = ''
+    } = this.props
 
     this.state = {
-      id: this.props.id || utils.unique(),
-      value: value
+      id,
+      value
     }
   }
 
-  // Force state change.
-  componentWillReceiveProps (nextProps) {
-    const newValue = nextProps.value
-    const oldValue = this.props.value
+  // Update state.
+  static getDerivedStateFromProps (props, state) {
+    // Get values.
+    const newValue = props.value
+    const oldValue = state.value
 
-    const isValid =
-      utils.exists(newValue) &&
+    // Set in conditional.
+    let newState = null
+
+    // Update?
+    if (
+      exists(newValue) &&
       newValue !== oldValue
-
-    if (isValid) {
-      this.setState({
+    ) {
+      newState = {
         value: newValue
-      })
+      }
     }
+
+    // Expose object.
+    return newState
   }
 
-  // Input value change.
-  handleChange (e) {
-    const value = e.target.value
+  // Change event.
+  handleChange (e = {}) {
+    // Get target.
+    const {
+      target = {}
+    } = e
 
-    this.setState({
-      value: value
+    // Get value.
+    const {
+      value = ''
+    } = target
+
+    // Update state.
+    this.setState({ value })
+
+    // Callback.
+    this.props.handleChange(e, value)
+  }
+
+  // Build list.
+  buildList () {
+    // Props.
+    const { options } = this.props
+
+    // Build list.
+    const list = options.map((o = {}, i) => {
+      // Peel apart.
+      const {
+        name,
+        value
+      } = o
+
+      // Expose UI.
+      return (
+        <option
+          key={i}
+          value={value}
+        >
+          {name}
+        </option>
+      )
     })
 
-    // Change callback.
-    const handleChange = this.props.handleChange
-
-    // Does callback exist?
-    if (typeof handleChange === 'function') {
-      handleChange(e, value)
-    }
+    // Expose array.
+    return list
   }
 
   // Render method.
   render () {
-    // State driven.
-    const id = this.state.id
-    const value = this.state.value
+    // State.
+    const {
+      id,
+      value
+    } = this.state
 
-    // Props driven.
-    const autofocus = this.props.autofocus
-    const ariaControls = this.props.ariaControls
-    const disabled = this.props.disabled
-    const name = this.props.name || id
-    const options = this.props.options
-    const readonly = this.props.readonly
-    const required = this.props.required
-    const width = this.props.width
+    // Props.
+    const {
+      autofocus,
+      disabled,
+      name,
+      readonly,
+      required,
+      width
+    } = this.props
 
     // Events.
-    const handleChange = this.handleChange
+    const { handleChange } = this
 
     // Default class="…".
     let className = ['t7-form__select']
@@ -95,50 +140,38 @@ class Select extends React.Component {
     // Convert to string.
     className = className.join(' ')
 
-    // Build list.
-    const listItems = options.map((o, i) => {
-      const value =
-        utils.exists(o.value)
-          ? o.value
-          : o.id
-
-      const name = o.name
-
-      return (
-        <option
-          key={i}
-          value={value}
-        >
-          {name}
-        </option>
-      )
-    })
+    // Bundle.
+    const bundle = {
+      className,
+      disabled,
+      id,
+      name,
+      required,
+      value,
+      autoFocus: autofocus,
+      onChange: handleChange,
+      readOnly: readonly
+    }
 
     // Expose UI.
     return (
-      <select
-        aria-controls={ariaControls}
-        autoFocus={autofocus}
-        className={className}
-        disabled={disabled}
-        id={id}
-        name={name}
-        readOnly={readonly}
-        required={required}
+      <React.Fragment>
 
-        value={value}
+        <Label
+          {...this.props}
+        />
 
-        onChange={handleChange}
-      >
-        {listItems}
-      </select>
+        <select {...bundle}>
+          {this.buildList()}
+        </select>
+
+      </React.Fragment>
     )
   }
 }
 
 // Validation.
 Select.propTypes = {
-  ariaControls: PropTypes.string,
   autofocus: PropTypes.bool,
   disabled: PropTypes.bool,
   id: PropTypes.string,
@@ -147,12 +180,6 @@ Select.propTypes = {
   readonly: PropTypes.bool,
   required: PropTypes.bool,
   width: PropTypes.string,
-
-  // Default value.
-  defaultValue: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
 
   // Forced value.
   value: PropTypes.oneOfType([
@@ -178,12 +205,11 @@ Select.defaultProps = {
     {
       value: '2',
       name: 'Dos'
-    },
-    {
-      value: '3',
-      name: 'Tres'
     }
-  ]
+  ],
+
+  // Events.
+  handleChange: () => {}
 }
 
 // Export.
