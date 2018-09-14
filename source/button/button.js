@@ -40,14 +40,11 @@ class Button extends React.Component {
     } = this.props
 
     // Events.
-    const {
-      handleClick: f
-    } = this
+    const { handleClick } = this
 
     // Set in conditional.
     let rel
     let tabIndex
-    let handleClick
 
     // Not disabled?
     if (!disabled) {
@@ -57,9 +54,6 @@ class Button extends React.Component {
       if (href && target) {
         rel = 'noopener noreferrer'
       }
-
-      // Assign function.
-      handleClick = f
     }
 
     // Bundle.
@@ -78,15 +72,27 @@ class Button extends React.Component {
       'data-size': size,
 
       // Events.
-      onClick: handleClick
+      onClick: (
+        disabled
+          ? null
+          : handleClick
+      )
     }
 
     // Link props.
     const linkProps = {
       ...bundle,
-      href,
       rel,
-      target
+      href: (
+        disabled
+          ? null
+          : href
+      ),
+      target: (
+        disabled
+          ? null
+          : target
+      )
     }
 
     // Button props.

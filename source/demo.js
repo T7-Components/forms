@@ -99,7 +99,7 @@ class Demo extends React.Component {
 
         <p>
           <Checkbox
-            label='By submitting this form, you hereby grant ACME Corp. the right to conduct a background check. If you are found to be falsifying information, you will be prosecuted to the fullest extent of intergalactic law. You also acknowledge that should you be accepted to the training program, we reserve the right to eject you (into space) if you are a danger to the rest of the crew. If you are captured during any covert missions, the United States will disavow all knowledge of your official involvement, and you will be branded as a rogue agent.'
+            label='By submitting this form, you hereby grant ACME Corp. the right to conduct a background check. If you are found to be falsifying information, you will be prosecuted to the fullest extent of intergalactic law. You also acknowledge that should you be accepted to the training program, we reserve the right to eject you (into space) if you are a danger to the rest of the crew. If you are captured during any covert missions, Space Force will disavow all knowledge of your official involvement, and you will be branded as a rogue agent.'
           />
         </p>
 
@@ -130,13 +130,23 @@ class Demo extends React.Component {
           Example <code>&lt;a&gt;</code> tag, styled as a button:
         </p>
 
-        <p>
-          <Button
-            href='https://example.com/'
-            target='_blank'
-            text='Go to Example.com'
-          />
-        </p>
+        <ListInline>
+          <li>
+            <Button
+              href='https://example.com/'
+              target='_blank'
+              text='Open example.com'
+            />
+          </li>
+          <li>
+            <Button
+              disabled // true
+              href='https://example.com/'
+              target='_blank'
+              text='Open example.com'
+            />
+          </li>
+        </ListInline>
 
         <p>
           All <code>&lt;button&gt;</code> permutations:
@@ -146,35 +156,35 @@ class Demo extends React.Component {
           <li>
             <Button
               size='small'
-              text='Button text'
+              text='Button'
             />
           </li>
           <li>
             <Button
               mode='primary'
               size='small'
-              text='Button text'
+              text='Button'
             />
           </li>
           <li>
             <Button
               mode='positive'
               size='small'
-              text='Button text'
+              text='Button'
             />
           </li>
           <li>
             <Button
               mode='negative'
               size='small'
-              text='Button text'
+              text='Button'
             />
           </li>
           <li>
             <Button
               mode='warn'
               size='small'
-              text='Button text'
+              text='Button'
             />
           </li>
         </ListInline>
@@ -182,31 +192,110 @@ class Demo extends React.Component {
         <ListInline>
           <li>
             <Button
-              text='Button text'
+              disabled // true
+              size='small'
+              text='Button'
+            />
+          </li>
+          <li>
+            <Button
+              disabled // true
+              mode='primary'
+              size='small'
+              text='Button'
+            />
+          </li>
+          <li>
+            <Button
+              disabled // true
+              mode='positive'
+              size='small'
+              text='Button'
+            />
+          </li>
+          <li>
+            <Button
+              disabled // true
+              mode='negative'
+              size='small'
+              text='Button'
+            />
+          </li>
+          <li>
+            <Button
+              disabled // true
+              mode='warn'
+              size='small'
+              text='Button'
+            />
+          </li>
+        </ListInline>
+
+        <ListInline>
+          <li>
+            <Button
+              text='Button'
             />
           </li>
           <li>
             <Button
               mode='primary'
-              text='Button text'
+              text='Button'
             />
           </li>
           <li>
             <Button
               mode='positive'
-              text='Button text'
+              text='Button'
             />
           </li>
           <li>
             <Button
               mode='negative'
-              text='Button text'
+              text='Button'
             />
           </li>
           <li>
             <Button
               mode='warn'
-              text='Button text'
+              text='Button'
+            />
+          </li>
+        </ListInline>
+
+        <ListInline>
+          <li>
+            <Button
+              disabled // true
+              text='Button'
+            />
+          </li>
+          <li>
+            <Button
+              disabled // true
+              mode='primary'
+              text='Button'
+            />
+          </li>
+          <li>
+            <Button
+              disabled // true
+              mode='positive'
+              text='Button'
+            />
+          </li>
+          <li>
+            <Button
+              disabled // true
+              mode='negative'
+              text='Button'
+            />
+          </li>
+          <li>
+            <Button
+              disabled // true
+              mode='warn'
+              text='Button'
             />
           </li>
         </ListInline>
@@ -215,35 +304,77 @@ class Demo extends React.Component {
           <li>
             <Button
               size='big'
-              text='Button text'
+              text='Button'
             />
           </li>
           <li>
             <Button
               mode='primary'
               size='big'
-              text='Button text'
+              text='Button'
             />
           </li>
           <li>
             <Button
               mode='positive'
               size='big'
-              text='Button text'
+              text='Button'
             />
           </li>
           <li>
             <Button
               mode='negative'
               size='big'
-              text='Button text'
+              text='Button'
             />
           </li>
           <li>
             <Button
               mode='warn'
               size='big'
-              text='Button text'
+              text='Button'
+            />
+          </li>
+        </ListInline>
+
+        <ListInline>
+          <li>
+            <Button
+              disabled // true
+              size='big'
+              text='Button'
+            />
+          </li>
+          <li>
+            <Button
+              disabled // true
+              mode='primary'
+              size='big'
+              text='Button'
+            />
+          </li>
+          <li>
+            <Button
+              disabled // true
+              mode='positive'
+              size='big'
+              text='Button'
+            />
+          </li>
+          <li>
+            <Button
+              disabled // true
+              mode='negative'
+              size='big'
+              text='Button'
+            />
+          </li>
+          <li>
+            <Button
+              disabled // true
+              mode='warn'
+              size='big'
+              text='Button'
             />
           </li>
         </ListInline>

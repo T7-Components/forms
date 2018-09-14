@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1536957579838" clover="3.2.0">
-  <project timestamp="1536957579839" name="All files">
-    <metrics statements="186" coveredstatements="186" conditionals="79" coveredconditionals="46" methods="44" coveredmethods="38" elements="309" coveredelements="270" complexity="0" loc="186" ncloc="186" packages="9" files="9" classes="9">
+<coverage generated="1536963543294" clover="3.2.0">
+  <project timestamp="1536963543294" name="All files">
+    <metrics statements="185" coveredstatements="185" conditionals="85" coveredconditionals="52" methods="44" coveredmethods="38" elements="314" coveredelements="275" complexity="0" loc="185" ncloc="185" packages="9" files="9" classes="9">
       <package name="source">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="index.js" path="/Users/tandemseven/T7/t7-components/forms/source/index.js">
@@ -9,29 +9,28 @@
         </file>
       </package>
       <package name="source.button">
-        <metrics statements="20" coveredstatements="20" conditionals="9" coveredconditionals="7" methods="4" coveredmethods="3"/>
+        <metrics statements="19" coveredstatements="19" conditionals="15" coveredconditionals="13" methods="4" coveredmethods="3"/>
         <file name="button.js" path="/Users/tandemseven/T7/t7-components/forms/source/button/button.js">
-          <metrics statements="20" coveredstatements="20" conditionals="9" coveredconditionals="7" methods="4" coveredmethods="3"/>
+          <metrics statements="19" coveredstatements="19" conditionals="15" coveredconditionals="13" methods="4" coveredmethods="3"/>
           <line num="12" count="2" type="stmt"/>
           <line num="15" count="2" type="stmt"/>
           <line num="21" count="1" type="stmt"/>
           <line num="24" count="1" type="stmt"/>
           <line num="40" count="2" type="stmt"/>
-          <line num="45" count="2" type="stmt"/>
-          <line num="53" count="2" type="cond" truecount="2" falsecount="0"/>
-          <line num="54" count="1" type="stmt"/>
-          <line num="57" count="1" type="cond" truecount="3" falsecount="1"/>
-          <line num="58" count="1" type="stmt"/>
-          <line num="62" count="1" type="stmt"/>
-          <line num="66" count="2" type="stmt"/>
-          <line num="85" count="2" type="stmt"/>
-          <line num="93" count="2" type="stmt"/>
-          <line num="101" count="2" type="stmt"/>
-          <line num="107" count="2" type="cond" truecount="2" falsecount="0"/>
-          <line num="109" count="1" type="stmt"/>
-          <line num="117" count="2" type="stmt"/>
-          <line num="122" count="9" type="stmt"/>
-          <line num="139" count="9" type="stmt"/>
+          <line num="43" count="2" type="stmt"/>
+          <line num="50" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="51" count="1" type="stmt"/>
+          <line num="54" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="55" count="1" type="stmt"/>
+          <line num="60" count="2" type="stmt"/>
+          <line num="83" count="2" type="stmt"/>
+          <line num="99" count="2" type="stmt"/>
+          <line num="107" count="2" type="stmt"/>
+          <line num="113" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="115" count="1" type="stmt"/>
+          <line num="123" count="2" type="stmt"/>
+          <line num="128" count="9" type="stmt"/>
+          <line num="145" count="9" type="stmt"/>
         </file>
       </package>
       <package name="source.checkbox">
