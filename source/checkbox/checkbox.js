@@ -3,7 +3,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // Utility methods.
-import utils from '@t7/utils'
+import {
+  bind,
+  exists,
+  unique
+} from '@t7/utils'
 
 // Define class.
 class Checkbox extends React.Component {
@@ -12,7 +16,7 @@ class Checkbox extends React.Component {
     super(props)
 
     // Bind context.
-    utils.bind(this)
+    bind(this)
 
     // Get default state.
     this.defaultState()
@@ -20,87 +24,124 @@ class Checkbox extends React.Component {
 
   // Set default state.
   defaultState () {
-    let checked = this.props.checked
-
-    // Ensure a real boolean.
-    if (!utils.exists(checked)) {
-      checked = this.props.defaultChecked || false
-    }
+    // Props.
+    const {
+      id = unique(),
+      checked = ''
+    } = this.props
 
     this.state = {
-      checked: checked,
-      id: this.props.id || utils.unique()
+      id,
+      checked: !!checked
     }
   }
 
-  // Force state change.
-  componentWillReceiveProps (nextProps) {
-    const newChecked = nextProps.checked
-    const oldChecked = this.props.checked
+  // Update state.
+  static getDerivedStateFromProps (props, state) {
+    // Get values.
+    const newChecked = props.checked
+    const oldChecked = state.checked
 
-    const isValid =
-      utils.exists(newChecked) &&
+    // Set in conditional.
+    let newState = null
+
+    // Update?
+    if (
+      exists(newChecked) &&
       newChecked !== oldChecked
-
-    if (isValid) {
-      this.setState({
+    ) {
+      newState = {
         checked: newChecked
-      })
+      }
     }
+
+    // Expose object.
+    return newState
   }
 
-  handleChange (e) {
-    const el = e.target
-    const checked = el.checked
-    const value = utils.trim(el.value)
-    const handleChange = this.props.handleChange
+  // Change event.
+  handleChange (e = {}) {
+    // Get target.
+    const { target } = e
+
+    // Get value.
+    const {
+      checked,
+      value = ''
+    } = target
 
     this.setState({
-      checked: checked
+      checked: !!checked
     })
 
-    // Exit, if no callback.
-    if (typeof handleChange === 'function') {
-      handleChange(e, value, checked)
-    }
+    // Callback.
+    this.props.handleChange(e, value, checked)
   }
 
   // Render method.
   render () {
-    // State driven.
-    const checked = this.state.checked
-    const id = this.state.id
+    // State.
+    const {
+      checked,
+      id
+    } = this.state
 
-    // Props driven.
-    const autofocus = this.props.autofocus
-    const disabled = this.props.disabled
-    const label = this.props.label
-    const name = this.props.name || id
-    const required = this.props.required
-    const value = this.props.value || label
+    // Props
+    const {
+      autofocus,
+      disabled,
+      label,
+      name,
+      required,
+      type,
+      value
+    } = this.props
 
     // Events.
-    const handleChange = this.handleChange
+    const { handleChange } = this
 
+    // Set in conditional.
+    let inputClassName
+    let labelClassName
+    let spanClassName
+
+    // Checkbox?
+    if (type === 'checkbox') {
+      inputClassName = 't7-form__checkbox'
+      labelClassName = 't7-form__checkbox__label'
+      spanClassName = 't7-form__checkbox__fake'
+
+    // Radio?
+    } else if (type === 'radio') {
+      inputClassName = 't7-form__radio'
+      labelClassName = 't7-form__radio__label'
+      spanClassName = 't7-form__radio__fake'
+    }
+
+    // Bundle.
+    const bundle = {
+      checked,
+      disabled,
+      id,
+      name,
+      required,
+      type,
+      value,
+      autoFocus: autofocus,
+      className: inputClassName,
+      onChange: handleChange
+    }
+
+    // Expose UI.
     return (
       <label
         htmlFor={id}
-        className='t7-form__checkbox__label'
+        className={labelClassName}
       >
         <input
-          autoFocus={autofocus}
-          className='t7-form__checkbox'
-          disabled={disabled}
-          id={id}
-          name={name}
-          required={required}
-          type='checkbox'
-          value={value}
-
-          checked={checked}
-          onChange={handleChange}
+          {...bundle}
         />
-        <span className='t7-form__checkbox__fake' />
+        <span className={spanClassName} />
         {label}
       </label>
     )
@@ -115,6 +156,7 @@ Checkbox.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   required: PropTypes.bool,
+  type: PropTypes.string,
 
   // Alphanumeric.
   value: PropTypes.oneOfType([
@@ -123,7 +165,6 @@ Checkbox.propTypes = {
   ]),
 
   // Control checked state.
-  defaultChecked: PropTypes.bool,
   checked: PropTypes.bool,
 
   // Events.
@@ -132,7 +173,11 @@ Checkbox.propTypes = {
 
 // Prop defaults.
 Checkbox.defaultProps = {
-  label: 'Individual checkbox label'
+  checked: false,
+  type: 'checkbox',
+
+  // Events.
+  handleChange: () => {}
 }
 
 // Export.
