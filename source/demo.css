@@ -3,9 +3,12 @@ Body.
 ==================================================
 */
 
-body {
+html {
   font-family: sans-serif;
   font-size: 15px;
+}
+
+body {
   padding: 20px;
 }
 

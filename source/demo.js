@@ -1,8 +1,10 @@
 // Dependencies.
 import React from 'react'
 import ReactDOM from 'react-dom'
+import ListInline from '@t7/list-inline'
 
 // CSS.
+import '../node_modules/@t7/list-inline/dist/index.css'
 import './sanitize.css'
 import './demo.css'
 import './index.css'
@@ -139,93 +141,111 @@ class Demo extends React.Component {
           All <code>&lt;button&gt;</code> permutations:
         </p>
 
-        <p>
-          <Button
-            size='small'
-            text='Button text'
-          />
-          {' '}
-          <Button
-            mode='primary'
-            size='small'
-            text='Button text'
-          />
-          {' '}
-          <Button
-            mode='positive'
-            size='small'
-            text='Button text'
-          />
-          {' '}
-          <Button
-            mode='negative'
-            size='small'
-            text='Button text'
-          />
-          {' '}
-          <Button
-            mode='warn'
-            size='small'
-            text='Button text'
-          />
-        </p>
+        <ListInline>
+          <li>
+            <Button
+              size='small'
+              text='Button text'
+            />
+          </li>
+          <li>
+            <Button
+              mode='primary'
+              size='small'
+              text='Button text'
+            />
+          </li>
+          <li>
+            <Button
+              mode='positive'
+              size='small'
+              text='Button text'
+            />
+          </li>
+          <li>
+            <Button
+              mode='negative'
+              size='small'
+              text='Button text'
+            />
+          </li>
+          <li>
+            <Button
+              mode='warn'
+              size='small'
+              text='Button text'
+            />
+          </li>
+        </ListInline>
 
-        <p>
-          <Button
-            text='Button text'
-          />
-          {' '}
-          <Button
-            mode='primary'
-            text='Button text'
-          />
-          {' '}
-          <Button
-            mode='positive'
-            text='Button text'
-          />
-          {' '}
-          <Button
-            mode='negative'
-            text='Button text'
-          />
-          {' '}
-          <Button
-            mode='warn'
-            text='Button text'
-          />
-        </p>
+        <ListInline>
+          <li>
+            <Button
+              text='Button text'
+            />
+          </li>
+          <li>
+            <Button
+              mode='primary'
+              text='Button text'
+            />
+          </li>
+          <li>
+            <Button
+              mode='positive'
+              text='Button text'
+            />
+          </li>
+          <li>
+            <Button
+              mode='negative'
+              text='Button text'
+            />
+          </li>
+          <li>
+            <Button
+              mode='warn'
+              text='Button text'
+            />
+          </li>
+        </ListInline>
 
-        <p>
-          <Button
-            size='big'
-            text='Button text'
-          />
-          {' '}
-          <Button
-            mode='primary'
-            size='big'
-            text='Button text'
-          />
-          {' '}
-          <Button
-            mode='positive'
-            size='big'
-            text='Button text'
-          />
-          {' '}
-          <Button
-            mode='negative'
-            size='big'
-            text='Button text'
-          />
-          {' '}
-          <Button
-            mode='warn'
-            size='big'
-            text='Button text'
-          />
-        </p>
+        <ListInline>
+          <li>
+            <Button
+              size='big'
+              text='Button text'
+            />
+          </li>
+          <li>
+            <Button
+              mode='primary'
+              size='big'
+              text='Button text'
+            />
+          </li>
+          <li>
+            <Button
+              mode='positive'
+              size='big'
+              text='Button text'
+            />
+          </li>
+          <li>
+            <Button
+              mode='negative'
+              size='big'
+              text='Button text'
+            />
+          </li>
+          <li>
+            <Button
+              mode='warn'
+              size='big'
+              text='Button text'
+            />
+          </li>
+        </ListInline>
 
       </React.Fragment>
     )

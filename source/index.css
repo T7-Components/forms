@@ -261,11 +261,11 @@ Button sizes.
 */
 
 .t7-form__button[data-size="small"] {
-  font-size: 11px;
+  font-size: 80%;
 }
 
 .t7-form__button[data-size="big"] {
-  font-size: 20px;
+  font-size: 120%;
 }
 
 /*
