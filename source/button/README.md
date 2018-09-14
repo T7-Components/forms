@@ -44,7 +44,7 @@ const buttonData = {
 // Event callback.
 const handleClick = (e, buttonData) => {
   /*
-    `e` is the event.
+    `e` = browser event.
 
     `buttonData` is your custom data.
   */

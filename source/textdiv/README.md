@@ -33,7 +33,7 @@ const value = '...'
 // Event callback.
 const handleChange = (e, value) => {
   /*
-    `e` is the event.
+    `e` = browser event.
 
     `value` = string value of the input.
   */

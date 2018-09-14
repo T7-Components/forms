@@ -1,33 +1,50 @@
-This component can be used like so.
+This is a multi-purpose component for all textual inputs. By changing the `type` you can make use it as a `"text"`, `"password"`, etc.
+
+It accepts the following `props`.
 
 ```js
-// Event callback.
-const handleChange = (e, value) => {
-  /*
-    `e` is the event.
+// Default: none.
+const autofocus = true
 
-    `value` is the *.value of the input.
-  */
-}
+// Default: none.
+const disabled = true
 
-const autofocus = true // Default: false.
-const disabled = true // Default: none.
-const id = '...' // Ensured unique, if blank.
-const name = '...' // Uses id, if blank.
-const placeholder = '...' // Default: null.
-const required = true // Default: false.
-const type = 'text' // Default: "text".
+// Ensured unique, if blank.
+const id = '...'
+
+// Default: none.
+const name = '...'
+
+// Default: none.
+const placeholder = '...'
+
+// Default: none.
+const required = true
+
+// Default: "text".
+const type = 'password'
 
 /*
   Note: If you want to set an input to
   a particular character width, you must
   pass `width = 'auto'` and the size.
 */
-const size = '10' // Default: null.
-const width = 'auto' // Default: 100%.
-```
 
-To use the component, pass these props.
+// Default: none.
+const size = '10'
+
+// 100% wide, without.
+const width = 'auto'
+
+// Event callback.
+const handleChange = (e, value) => {
+  /*
+    `e` = browser event.
+
+    `value` = string value of the input.
+  */
+}
+```
 
 ```jsx
 <Input
@@ -39,6 +56,7 @@ To use the component, pass these props.
   required={required}
   type={type}
 
+  // Width overrides.
   size={size}
   width={width}
 

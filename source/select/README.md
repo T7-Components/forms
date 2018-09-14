@@ -16,7 +16,7 @@ const name = '...'
 // Default: false.
 const required = true
 
-// Default: 100% wide.
+// 100% wide, without.
 const width = 'auto'
 
 // Default: none.
@@ -41,7 +41,7 @@ const options = [
 // Event callback.
 const handleChange = (e, value) => {
   /*
-    `e` is the event.
+    `e` = browser event.
 
     `value` is the *.value of the select.
   */
