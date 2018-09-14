@@ -28,16 +28,16 @@ View test coverage:
 
 Documentation for each component:
 
-- [Button](https://github.com/T7-Components/forms/tree/master/source/button)
+- [Button](https://github.com/t7-components/forms/tree/master/source/button/README.md)
 
-- [Checkbox](https://github.com/T7-Components/forms/tree/master/source/checkbox)
+- [Checkbox](https://github.com/t7-components/forms/tree/master/source/checkbox/README.md)
 
-- [Input](https://github.com/T7-Components/forms/tree/master/source/input)
+- [Input](https://github.com/t7-components/forms/tree/master/source/input/README.md)
 
-- [Label](https://github.com/T7-Components/forms/tree/master/source/label)
+- [Label](https://github.com/t7-components/forms/tree/master/source/label/README.md)
 
-- [Radio](https://github.com/T7-Components/forms/tree/master/source/radio)
+- [Radio](https://github.com/t7-components/forms/tree/master/source/radio/README.md)
 
-- [Textarea](https://github.com/T7-Components/forms/tree/master/source/textarea)
+- [Textarea](https://github.com/t7-components/forms/tree/master/source/textarea/README.md)
 
-- [Textdiv](https://github.com/T7-Components/forms/tree/master/source/textdiv)
+- [Textdiv](https://github.com/t7-components/forms/tree/master/source/textdiv/README.md)
