@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1536937468193" clover="3.2.0">
-  <project timestamp="1536937468193" name="All files">
-    <metrics statements="186" coveredstatements="186" conditionals="77" coveredconditionals="45" methods="44" coveredmethods="38" elements="307" coveredelements="269" complexity="0" loc="186" ncloc="186" packages="9" files="9" classes="9">
+<coverage generated="1536952648367" clover="3.2.0">
+  <project timestamp="1536952648367" name="All files">
+    <metrics statements="186" coveredstatements="186" conditionals="79" coveredconditionals="46" methods="44" coveredmethods="38" elements="309" coveredelements="270" complexity="0" loc="186" ncloc="186" packages="9" files="9" classes="9">
       <package name="source">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="index.js" path="/Users/tandemseven/T7/t7-components/forms/source/index.js">
@@ -74,9 +74,9 @@
         </file>
       </package>
       <package name="source.input">
-        <metrics statements="28" coveredstatements="28" conditionals="13" coveredconditionals="6" methods="6" coveredmethods="5"/>
+        <metrics statements="28" coveredstatements="28" conditionals="15" coveredconditionals="7" methods="6" coveredmethods="5"/>
         <file name="input.js" path="/Users/tandemseven/T7/t7-components/forms/source/input/input.js">
-          <metrics statements="28" coveredstatements="28" conditionals="13" coveredconditionals="6" methods="6" coveredmethods="5"/>
+          <metrics statements="28" coveredstatements="28" conditionals="15" coveredconditionals="7" methods="6" coveredmethods="5"/>
           <line num="20" count="1" type="stmt"/>
           <line num="23" count="1" type="stmt"/>
           <line num="26" count="1" type="stmt"/>
@@ -99,12 +99,12 @@
           <line num="114" count="2" type="stmt"/>
           <line num="117" count="2" type="stmt"/>
           <line num="119" count="2" type="cond" truecount="1" falsecount="1"/>
-          <line num="120" count="2" type="stmt"/>
-          <line num="124" count="2" type="stmt"/>
+          <line num="123" count="2" type="stmt"/>
           <line num="127" count="2" type="stmt"/>
-          <line num="145" count="2" type="stmt"/>
-          <line num="162" count="8" type="stmt"/>
-          <line num="189" count="8" type="stmt"/>
+          <line num="130" count="2" type="stmt"/>
+          <line num="148" count="2" type="stmt"/>
+          <line num="165" count="8" type="stmt"/>
+          <line num="192" count="8" type="stmt"/>
         </file>
       </package>
       <package name="source.label">
