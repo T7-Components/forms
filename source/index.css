@@ -251,7 +251,7 @@ Button sizes.
 ============================================================
 */
 
-.t7-form__button--small {
+.t7-form__button[data-size="small"] {
   font-size: 11px;
 
   line-height: 20px;
@@ -261,7 +261,7 @@ Button sizes.
   padding-right: 7px;
 }
 
-.t7-form__button--big {
+.t7-form__button[data-size="big"] {
   font-size: 20px;
 
   line-height: 35px;
@@ -273,43 +273,43 @@ Button mode.
 ============================================================
 */
 
-.t7-form__button--default {
+.t7-form__button[data-mode="default"] {
   background: #888;
 }
 
-.t7-form__button--default:not([disabled]):active {
+.t7-form__button[data-mode="default"]:not([disabled]):active {
   background: #555;
 }
 
-.t7-form__button--primary {
+.t7-form__button[data-mode="primary"] {
   background: #69c;
 }
 
-.t7-form__button--primary:not([disabled]):active {
+.t7-form__button[data-mode="primary"]:not([disabled]):active {
   background: #369;
 }
 
-.t7-form__button--positive {
+.t7-form__button[data-mode="positive"] {
   background: #693;
 }
 
-.t7-form__button--positive:not([disabled]):active {
+.t7-form__button[data-mode="positive"]:not([disabled]):active {
   background: #360;
 }
 
-.t7-form__button--negative {
+.t7-form__button[data-mode="negative"] {
   background: #c66;
 }
 
-.t7-form__button--negative:not([disabled]):active {
+.t7-form__button[data-mode="negative"]:not([disabled]):active {
   background: #933;
 }
 
-.t7-form__button--warn {
+.t7-form__button[data-mode="warn"] {
   background: #c96;
 }
 
-.t7-form__button--warn:not([disabled]):active {
+.t7-form__button[data-mode="warn"]:not([disabled]):active {
   background: #963;
 }
 

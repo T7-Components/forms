@@ -5,22 +5,28 @@ import T from 'react-dom/test-utils'
 // UI components.
 import { Button } from '../'
 
-// Describe `<Component/>` name.
+// =========== //
+// =========== //
+// Button tag. //
+// =========== //
+// =========== //
+
 describe('Button', () => {
-  const ariaControls = 'example_id'
-  const disabled = true
-  const text = 'GO'
-  const title = 'Example Title'
-  const type = 'submit'
+  // Dummy props.
+  const props = {
+    ariaControls: 'example_id',
+    disabled: true,
+    mode: 'warn',
+    size: 'small',
+    text: 'GO',
+    title: 'example_title',
+    type: 'submit'
+  }
 
   // Insert the component into DOM.
   const el = T.renderIntoDocument(
     <Button
-      ariaControls={ariaControls}
-      disabled={disabled}
-      text={text}
-      title={title}
-      type={type}
+      {...props}
     />
   )
 
@@ -28,12 +34,13 @@ describe('Button', () => {
   const button =
     T.findRenderedDOMComponentWithClass(el, 't7-form__button')
 
-  // ===================
-  // Test for existence.
-  // ===================
+  // =============
+  // Test for tag.
+  // =============
 
-  it('exists in the page', () => {
-    expect(T.isCompositeComponent(el)).toBe(true)
+  it('has `<button>` tag', () => {
+    expect(button.tagName.toLowerCase())
+      .toBe('button')
   })
 
   // ==============
@@ -41,19 +48,17 @@ describe('Button', () => {
   // ==============
 
   it('has correct ARIA', () => {
-    const x = button.getAttribute('aria-controls')
-
-    expect(x).toBe('example_id')
+    expect(button.getAttribute('aria-controls'))
+      .toBe('example_id')
   })
 
   // ====================
   // Test disabled state.
   // ====================
 
-  it('has correct state', () => {
-    const x = button.disabled
-
-    expect(x).toBe(true)
+  it('has correct disabled', () => {
+    expect(button.disabled)
+      .toBe(true)
   })
 
   // ==============
@@ -61,9 +66,8 @@ describe('Button', () => {
   // ==============
 
   it('has correct text', () => {
-    const x = button.innerHTML
-
-    expect(x).toBe('GO')
+    expect(button.textContent)
+      .toBe(props.text)
   })
 
   // ===============
@@ -71,9 +75,26 @@ describe('Button', () => {
   // ===============
 
   it('has correct title', () => {
-    const x = button.getAttribute('title')
+    expect(button.title)
+      .toBe(props.title)
+  })
 
-    expect(x).toBe('Example Title')
+  // ==============
+  // Test for mode.
+  // ==============
+
+  it('has correct mode', () => {
+    expect(button.getAttribute('data-mode'))
+      .toBe(props.mode)
+  })
+
+  // ==============
+  // Test for size.
+  // ==============
+
+  it('has correct size', () => {
+    expect(button.getAttribute('data-size'))
+      .toBe(props.size)
   })
 
   // ==============
@@ -81,48 +102,54 @@ describe('Button', () => {
   // ==============
 
   it('has correct type', () => {
-    const x = button.getAttribute('type')
-
-    expect(x).toBe('submit')
+    expect(button.type)
+      .toBe(props.type)
   })
 })
 
-// Describe `<Component/>` name.
+// ================== //
+// ================== //
+// Button: Link mode. //
+// ================== //
+// ================== //
+
 describe('Button -- link', () => {
-  const href = 'http://example.com/'
-  const target = '_blank'
-  const text = 'GO'
-  const title = 'Example Title'
+  // Dummy props.
+  const props = {
+    href: 'https://example.com',
+    mode: 'positive',
+    size: 'big',
+    target: '_blank',
+    text: 'GO',
+    title: 'example_title',
+
+    // Button data.
+    buttonData: {
+      fakeData: true
+    },
+
+    // Events.
+    handleClick: jest.fn()
+  }
 
   // Insert the component into DOM.
   const el = T.renderIntoDocument(
     <Button
-      href={href}
-      target={target}
-      text={text}
-      title={title}
+      {...props}
     />
   )
 
   // Get button.
-  const button = T.findRenderedDOMComponentWithClass(el, 't7-form__button')
-
-  // ===================
-  // Test for existence.
-  // ===================
-
-  it('exists in the page', () => {
-    expect(T.isCompositeComponent(el)).toBe(true)
-  })
+  const button =
+    T.findRenderedDOMComponentWithClass(el, 't7-form__button')
 
   // =============
   // Test for tag.
   // =============
 
-  it('is a link tag', () => {
-    const x = button.tagName.toLowerCase()
-
-    expect(x).toBe('a')
+  it('is `<a>` tag', () => {
+    expect(button.tagName.toLowerCase())
+      .toBe('a')
   })
 
   // ==============
@@ -130,19 +157,29 @@ describe('Button -- link', () => {
   // ==============
 
   it('has correct href', () => {
-    const x = button.getAttribute('href')
-
-    expect(x).toBe('http://example.com/')
+    expect(button.getAttribute('href'))
+      .toBe(props.href)
   })
 
   // ================
   // Test for target.
   // ================
 
-  it('is a link tag', () => {
-    const x = button.getAttribute('target')
+  it('has correct target', () => {
+    expect(button.target)
+      .toBe(props.target)
+  })
 
-    expect(x).toBe('_blank')
+  // =============
+  // Test for rel.
+  // =============
+
+  it('has correct rel', () => {
+    expect(button.rel)
+      .toContain('noopener')
+
+    expect(button.rel)
+      .toContain('noreferrer')
   })
 
   // ==============
@@ -150,9 +187,8 @@ describe('Button -- link', () => {
   // ==============
 
   it('has correct text', () => {
-    const x = button.innerHTML
-
-    expect(x).toBe('GO')
+    expect(button.textContent)
+      .toBe(props.text)
   })
 
   // ===============
@@ -160,8 +196,42 @@ describe('Button -- link', () => {
   // ===============
 
   it('has correct title', () => {
-    const x = button.getAttribute('title')
+    expect(button.title)
+      .toBe(props.title)
+  })
 
-    expect(x).toBe('Example Title')
+  // ==============
+  // Test for mode.
+  // ==============
+
+  it('has correct mode', () => {
+    expect(button.getAttribute('data-mode'))
+      .toBe(props.mode)
+  })
+
+  // ==============
+  // Test for size.
+  // ==============
+
+  it('has correct size', () => {
+    expect(button.getAttribute('data-size'))
+      .toBe(props.size)
+  })
+
+  // =======================
+  // Test for "click" event.
+  // =======================
+
+  it('handles "click" event', () => {
+    // Dummy event.
+    const e = {
+      fakeEvent: true
+    }
+
+    // Fire event.
+    el.handleClick(e)
+
+    expect(props.handleClick)
+      .toBeCalledWith(e, props.buttonData)
   })
 })
