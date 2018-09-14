@@ -46,10 +46,7 @@ const handleClick = (e, buttonData) => {
   /*
     `e` is the event.
 
-    `buttonData` is whatever you have defined.
-
-    If nothing is set, then it will just be
-    the string of "Button Data" passed back.
+    `buttonData` is your custom data.
   */
 }
 ```

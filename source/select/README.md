@@ -1,26 +1,28 @@
-This component can be used like so.
+This component accepts the following `props`.
 
 ```js
-// Event callback.
-const handleChange = (e, value) => {
-  /*
-    `e` is the event.
+// Default: none.
+const autofocus = true
 
-    `value` is the *.value of the select.
-  */
-}
+// Default: none.
+const disabled = true
 
-const ariaControls = '...' // Default: null.
-const autofocus = true // Default: false.
-const disabled = true // Default: false.
-const id = '...' // Ensured unique, if blank.
-const name = '...' // Uses id, if blank.
-const required = true // Default: false.
-const width = 'auto' // Default: 100%.
+// Ensured unique, if blank.
+const id = '...'
 
-// Determines selected option.
-const value = '...' // Default: none.
+// Default: none.
+const name = '...'
 
+// Default: false.
+const required = true
+
+// Default: 100% wide.
+const width = 'auto'
+
+// Default: none.
+const value = '...'
+
+// Drives the `<options>`.
 const options = [
   {
     value: '',
@@ -33,15 +35,18 @@ const options = [
   {
     value: '2',
     name: 'Dos'
-  },
-  {
-    value: '3',
-    name: 'Tres'
   }
 ]
-```
 
-To use the component, pass these props.
+// Event callback.
+const handleChange = (e, value) => {
+  /*
+    `e` is the event.
+
+    `value` is the *.value of the select.
+  */
+}
+```
 
 ```jsx
 <Select

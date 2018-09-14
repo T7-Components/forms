@@ -1,24 +1,37 @@
-This component can be used like so.
+This component is a typical `<textarea>`. When the `blur` event fires, it will trim the content, and ensure that all unnecessary whitespace is removed, while still retaining `\n\n` as a visual "paragraph."
+
+It accepts the following `props`.
 
 ```js
+// Default: none.
+const autofocus = true
+
+// Default: none.
+const disabled = true
+
+// Ensured unique, if blank.
+const id = '...'
+
+// Default: none.
+const name = '...'
+
+// Default: none.
+const placeholder = '...'
+
+// Default: none.
+const required = true
+
+// Default: none.
+const value = '...'
+
 // Event callback.
 const handleChange = (e, value) => {
   /*
     `e` is the event.
 
-    `value` is the *.value of the textarea.
+    `value` = string value of the input.
   */
 }
-
-const autofocus = true // Default: false.
-const disabled = true // Default: false.
-const id = '...' // Ensured unique, if blank.
-const name = '...' // Default: none.
-const placeholder = '...' // Default: none.
-const required = true // Default: false.
-
-// Determine pre-filled text.
-const value = '...' // Default: none.
 ```
 
 To use the component, pass these props.
