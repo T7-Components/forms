@@ -1,7 +1,7 @@
 # @t7/forms
 
 ```
-npm install @t7forms --save-dev
+npm install @t7/forms --save-dev
 ```
 
 https://www.npmjs.com/package/@t7/forms
