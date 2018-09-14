@@ -120,7 +120,6 @@ class Checkbox extends React.Component {
 
     // Bundle.
     const bundle = {
-      checked,
       disabled,
       id,
       name,
@@ -130,6 +129,15 @@ class Checkbox extends React.Component {
       autoFocus: autofocus,
       className: inputClassName,
       onChange: handleChange
+    }
+
+    // Radio?
+    if (type === 'radio') {
+      bundle.defaultChecked = checked
+
+    // Checkbox?
+    } else {
+      bundle.checked = checked
     }
 
     // Expose UI.

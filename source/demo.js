@@ -41,6 +41,7 @@ class Demo extends React.Component {
 
         <p>
           <Radio
+            checked // true
             label='Radio label 1'
             name='radio_list'
           />
