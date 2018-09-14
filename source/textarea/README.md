@@ -23,7 +23,7 @@ const value = '...' // Default: none.
 
 To use the component, pass these props.
 
-```xml
+```jsx
 <Textarea
   autofocus={autofocus}
   disabled={disabled}

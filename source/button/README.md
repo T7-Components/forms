@@ -54,8 +54,6 @@ const handleClick = (e, buttonData) => {
 }
 ```
 
-To use the component, pass these props.
-
 ```jsx
 // Link.
 <Button

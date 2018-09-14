@@ -43,7 +43,7 @@ const options = [
 
 To use the component, pass these props.
 
-```xml
+```jsx
 <Select
   ariaControls={ariaControls}
   autofocus={autofocus}

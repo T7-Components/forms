@@ -39,7 +39,7 @@ const handleChange = (e, value, checked) => {
 }
 ```
 
-```xml
+```jsx
 <Checkbox
   autofocus={autofocus}
   checked={checked}

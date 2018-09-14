@@ -29,7 +29,7 @@ const width = 'auto' // Default: 100%.
 
 To use the component, pass these props.
 
-```xml
+```jsx
 <Input
   autofocus={autofocus}
   disabled={disabled}

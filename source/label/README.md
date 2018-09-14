@@ -6,7 +6,7 @@ It uses the following `props`:
 - `label` (string)
 - `required` (boolean)
 
-```xml
+```jsx
 return (
   <React.Fragment>
 
