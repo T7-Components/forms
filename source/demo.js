@@ -27,21 +27,15 @@ class Demo extends React.Component {
       <React.Fragment>
 
         <p>
-          <Button
-            text='Button text'
+          <Input
+            label='Input label'
+            placeholder='Input placeholder'
           />
         </p>
 
         <p>
           <Checkbox
             label='Checkbox label'
-          />
-        </p>
-
-        <p>
-          <Input
-            label='Input label'
-            placeholder='Input placeholder'
           />
         </p>
 
@@ -75,6 +69,94 @@ class Demo extends React.Component {
           label='Textdiv label'
           placeholder='Textdiv placeholder'
         />
+
+        <p>
+          <Button
+            size='small'
+            text='Button text'
+          />
+          {' '}
+          <Button
+            mode='primary'
+            size='small'
+            text='Button text'
+          />
+          {' '}
+          <Button
+            mode='positive'
+            size='small'
+            text='Button text'
+          />
+          {' '}
+          <Button
+            mode='negative'
+            size='small'
+            text='Button text'
+          />
+          {' '}
+          <Button
+            mode='warn'
+            size='small'
+            text='Button text'
+          />
+        </p>
+
+        <p>
+          <Button
+            text='Button text'
+          />
+          {' '}
+          <Button
+            mode='primary'
+            text='Button text'
+          />
+          {' '}
+          <Button
+            mode='positive'
+            text='Button text'
+          />
+          {' '}
+          <Button
+            mode='negative'
+            text='Button text'
+          />
+          {' '}
+          <Button
+            mode='warn'
+            text='Button text'
+          />
+        </p>
+
+        <p>
+          <Button
+            size='big'
+            text='Button text'
+          />
+          {' '}
+          <Button
+            mode='primary'
+            size='big'
+            text='Button text'
+          />
+          {' '}
+          <Button
+            mode='positive'
+            size='big'
+            text='Button text'
+          />
+          {' '}
+          <Button
+            mode='negative'
+            size='big'
+            text='Button text'
+          />
+          {' '}
+          <Button
+            mode='warn'
+            size='big'
+            text='Button text'
+          />
+        </p>
 
       </React.Fragment>
     )
