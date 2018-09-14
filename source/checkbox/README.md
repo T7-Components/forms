@@ -1,6 +1,32 @@
-This component can be used like so.
+This component has custom UI, but fuctions like a regular `<input>`.
+
+It accepts the following `props`.
 
 ```js
+// Default: none.
+const autofocus = true
+
+// Default: none.
+const disabled = true
+
+// Ensured unique, if blank.
+const id = '...'
+
+// Default: none.
+const label = 'Radio label'
+
+// Default: none.
+const name = '...'
+
+// Default: none.
+const required = true
+
+// Default: none.
+const value = '...'
+
+// Default: false.
+const checked = true
+
 // Event callback.
 const handleChange = (e, value, checked) => {
   /*
@@ -11,20 +37,7 @@ const handleChange = (e, value, checked) => {
     `checked` is a boolean.
   */
 }
-
-const autofocus = true // Default: false.
-const disabled = true // Default: false.
-const id = '...' // Ensured unique, if blank.
-const label = 'Checkbox label' // Text for `label`.
-const name = '...' // Default: blank.
-const required = true // Default: false.
-const value = '...' // Default: blank.
-
-// Checked state.
-const checked = true // Default: false.
 ```
-
-To use the component, pass these props.
 
 ```xml
 <Checkbox

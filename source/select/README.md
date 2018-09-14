@@ -19,7 +19,7 @@ const required = true // Default: false.
 const width = 'auto' // Default: 100%.
 
 // Determines selected option.
-const value = '...' // Default: blank.
+const value = '...' // Default: none.
 
 const options = [
   {

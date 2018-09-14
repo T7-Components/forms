@@ -12,7 +12,7 @@ const ariaControls = '...'
 const disabled = true
 
 // Default: none.
-const href = 'http://example.com/'
+const href = 'https://example.com/'
 
 // Default: "default".
 const mode = 'info | negative | positive | warn'

@@ -13,12 +13,12 @@ const handleChange = (e, value) => {
 const autofocus = true // Default: false.
 const disabled = true // Default: false.
 const id = '...' // Ensured unique, if blank.
-const name = '...' // Default: blank.
-const placeholder = '...' // Default: blank.
+const name = '...' // Default: none.
+const placeholder = '...' // Default: none.
 const required = true // Default: false.
 
 // Determine pre-filled text.
-const value = '...' // Default: blank.
+const value = '...' // Default: none.
 ```
 
 To use the component, pass these props.
