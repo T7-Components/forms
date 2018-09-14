@@ -14,19 +14,19 @@ View on NPM:
 
 ---
 
-View demo page:
+Demo page:
 
 [https://t7-components.github.io/forms/build/](https://t7-components.github.io/forms/build/)
 
 ---
 
-View test coverage:
+Test coverage:
 
 [https://t7-components.github.io/forms/coverage/lcov-report/](https://t7-components.github.io/forms/coverage/lcov-report/)
 
 ---
 
-Documentation for each component:
+Component documentation:
 
 - [Button](https://github.com/t7-components/forms/tree/master/source/button/README.md)
 
