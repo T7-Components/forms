@@ -17,15 +17,32 @@ const handleClick = (e, buttonData) => {
   */
 }
 
-const ariaControls = '...' // Default: none.
-const disabled = true // Default: none.
-const href = 'http://example.com/' // Default: none.
-const mode = 'info | negative | positive | warn' // Default: "default".
-const size = 'small | big' // Default: "default".
-const text = 'Button Text' // Default: none.
-const target = '_blank | ...' // Default: none.
-const title = '...' // Default: none.
-const type = 'submit | reset' // Default: "button".
+// Default: none.
+const ariaControls = '...'
+
+// Default: none.
+const disabled = true
+
+// Default: none.
+const href = 'http://example.com/'
+
+// Default: "default".
+const mode = 'info | negative | positive | warn'
+
+// Default: "default".
+const size = 'small | big'
+
+// Default: none.
+const text = 'Button text'
+
+// Default: none.
+const target = '_blank | ...'
+
+// Default: none.
+const title = '...'
+
+// Default: "button".
+const type = 'submit | reset'
 
 /*
   Data you might want to associate
