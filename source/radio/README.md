@@ -4,9 +4,9 @@ This component can be used like so.
 // Event callback.
 const handleChange = (e, value, checked) => {
   /*
-    `e` is the event.
+    `e` = browser event.
 
-    `value` is the *.value of the checkbox.
+    `value` = string value of the input.
 
     `checked` is a boolean.
   */
@@ -15,10 +15,10 @@ const handleChange = (e, value, checked) => {
 const autofocus = true // Default: false.
 const disabled = true // Default: false.
 const id = '...' // Ensured unique, if blank.
-const label = 'Individual radio label' // Accompanying text.
-const name = '...' // Uses id, if blank.
+const label = 'Radio label' // Text for `label`.
+const name = '...' // Default: blank.
 const required = true // Default: false.
-const value = '...' // Uses label, if blank.
+const value = '...' // Default: blank.
 
 // Checked state.
 const checked = true // Default: false.

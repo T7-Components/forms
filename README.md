@@ -23,3 +23,21 @@ View demo page:
 View test coverage:
 
 [https://t7-components.github.io/forms/coverage/lcov-report/](https://t7-components.github.io/forms/coverage/lcov-report/)
+
+---
+
+Documentation for each component:
+
+- [Button](https://github.com/T7-Components/forms/tree/master/source/button)
+
+- [Checkbox](https://github.com/T7-Components/forms/tree/master/source/checkbox)
+
+- [Input](https://github.com/T7-Components/forms/tree/master/source/input)
+
+- [Label](https://github.com/T7-Components/forms/tree/master/source/label)
+
+- [Radio](https://github.com/T7-Components/forms/tree/master/source/radio)
+
+- [Textarea](https://github.com/T7-Components/forms/tree/master/source/textarea)
+
+- [Textdiv](https://github.com/T7-Components/forms/tree/master/source/textdiv)
