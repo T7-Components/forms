@@ -26,6 +26,16 @@ class Demo extends React.Component {
     return (
       <React.Fragment>
 
+        <h1>
+          @t7/forms
+        </h1>
+
+        <p>
+          <a href='./coverage/lcov-report/index.html'>
+            View test coverage
+          </a>
+        </p>
+
         <p>
           <Input
             required // true
