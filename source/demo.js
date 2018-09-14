@@ -79,6 +79,7 @@ class Demo extends React.Component {
         </p>
 
         <Textdiv
+          required // true
           label='Textdiv'
           placeholder='Textdiv placeholder'
         />
