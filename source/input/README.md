@@ -1,4 +1,6 @@
-This is a multi-purpose component for all textual inputs. By changing the `type` you can make use it as a `"text"`, `"password"`, etc.
+This is a multi-purpose component for all textual inputs.
+
+By changing the `type` you can use it as `"text"`, `"password"`, etc.
 
 It accepts the following `props`.
 
