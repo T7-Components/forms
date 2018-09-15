@@ -121,6 +121,7 @@ class Select extends React.Component {
     const {
       autofocus,
       disabled,
+      label,
       name,
       readonly,
       required,
@@ -140,8 +141,15 @@ class Select extends React.Component {
     // Convert to string.
     className = className.join(' ')
 
-    // Bundle.
-    const bundle = {
+    // Props for label.
+    const propsForLabel = {
+      id,
+      label,
+      required
+    }
+
+    // Props for input.
+    const propsForInput = {
       className,
       disabled,
       id,
@@ -158,11 +166,10 @@ class Select extends React.Component {
       <React.Fragment>
 
         <Label
-          {...this.props}
-          id={id}
+          {...propsForLabel}
         />
 
-        <select {...bundle}>
+        <select {...propsForInput}>
           {this.buildList()}
         </select>
 
@@ -176,6 +183,7 @@ Select.propTypes = {
   autofocus: PropTypes.bool,
   disabled: PropTypes.bool,
   id: PropTypes.string,
+  label: PropTypes.string,
   name: PropTypes.string,
   options: PropTypes.array,
   readonly: PropTypes.bool,
@@ -194,20 +202,7 @@ Select.propTypes = {
 
 // Prop defaults.
 Select.defaultProps = {
-  options: [
-    {
-      value: '',
-      name: 'Select...'
-    },
-    {
-      value: '1',
-      name: 'Uno'
-    },
-    {
-      value: '2',
-      name: 'Dos'
-    }
-  ],
+  options: [],
 
   // Events.
   handleChange: () => {}

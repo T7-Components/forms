@@ -4,7 +4,7 @@ import { Label } from '@t7/forms'
 
 The `<Label>` component is used by other form element components.
 
-It is typically included alongside a form element, with the parent `props` spread.
+It is typically included alongside a form element, with the parent `props` passed down.
 
 It accepts the following `props`.
 
@@ -24,11 +24,13 @@ return (
   <React.Fragment>
 
     <Label
-      {...this.props}
+      id={id}
+      label={label}
+      required={required}
     />
 
-    <textarea
-      {...bundle}
+    <input
+      {...propsForInput}
     />
 
   </React.Fragment>

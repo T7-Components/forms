@@ -100,6 +100,7 @@ class Input extends React.Component {
     const {
       autofocus,
       disabled,
+      label,
       maxlength,
       name,
       placeholder,
@@ -126,8 +127,15 @@ class Input extends React.Component {
     // Convert to string.
     className = className.join(' ')
 
-    // Bundle.
-    const bundle = {
+    // Props for label.
+    const propsForLabel = {
+      id,
+      label,
+      required
+    }
+
+    // Props for input.
+    const propsForInput = {
       className,
       disabled,
       id,
@@ -149,12 +157,11 @@ class Input extends React.Component {
       <React.Fragment>
 
         <Label
-          {...this.props}
-          id={id}
+          {...propsForLabel}
         />
 
         <input
-          {...bundle}
+          {...propsForInput}
         />
 
       </React.Fragment>
@@ -167,6 +174,7 @@ Input.propTypes = {
   autofocus: PropTypes.bool,
   disabled: PropTypes.bool,
   id: PropTypes.string,
+  label: PropTypes.string,
   maxlength: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,

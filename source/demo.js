@@ -52,6 +52,22 @@ class Demo extends React.Component {
           <Select
             required // true
             label='Select'
+            options={
+              [
+                {
+                  value: '',
+                  name: 'Select...'
+                },
+                {
+                  value: '1',
+                  name: 'Uno'
+                },
+                {
+                  value: '2',
+                  name: 'Dos'
+                }
+              ]
+            }
           />
         </p>
 
@@ -59,6 +75,22 @@ class Demo extends React.Component {
           <Select
             disabled // true
             label='Select (disabled)'
+            options={
+              [
+                {
+                  value: '',
+                  name: 'Select...'
+                },
+                {
+                  value: '1',
+                  name: 'Uno'
+                },
+                {
+                  value: '2',
+                  name: 'Dos'
+                }
+              ]
+            }
           />
         </p>
 

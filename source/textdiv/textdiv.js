@@ -171,6 +171,7 @@ class Textdiv extends React.Component {
     const {
       autofocus,
       disabled,
+      label,
       name,
       placeholder,
       required
@@ -199,8 +200,15 @@ class Textdiv extends React.Component {
       handlePaste
     } = this
 
-    // Bundle.
-    const bundle = {
+    // Props for label.
+    const propsForLabel = {
+      id,
+      label,
+      required
+    }
+
+    // Props for input.
+    const propsForInput = {
       dangerouslySetInnerHTML,
       disabled,
       id,
@@ -224,12 +232,11 @@ class Textdiv extends React.Component {
       <React.Fragment>
 
         <Label
-          {...this.props}
-          id={id}
+          {...propsForLabel}
         />
 
         <div
-          {...bundle}
+          {...propsForInput}
         />
 
       </React.Fragment>
@@ -242,6 +249,7 @@ Textdiv.propTypes = {
   autofocus: PropTypes.bool,
   disabled: PropTypes.bool,
   id: PropTypes.string,
+  label: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,

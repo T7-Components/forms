@@ -118,8 +118,8 @@ class Checkbox extends React.Component {
       spanClassName = 't7-radio__fake'
     }
 
-    // Bundle.
-    const bundle = {
+    // Props for input.
+    const propsForInput = {
       disabled,
       id,
       name,
@@ -133,11 +133,11 @@ class Checkbox extends React.Component {
 
     // Radio?
     if (type === 'radio') {
-      bundle.defaultChecked = checked
+      propsForInput.defaultChecked = checked
 
     // Checkbox?
     } else {
-      bundle.checked = checked
+      propsForInput.checked = checked
     }
 
     // Expose UI.
@@ -147,7 +147,7 @@ class Checkbox extends React.Component {
         className={labelClassName}
       >
         <input
-          {...bundle}
+          {...propsForInput}
         />
         <span
           aria-hidden // true

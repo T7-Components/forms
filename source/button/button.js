@@ -58,8 +58,8 @@ class Button extends React.Component {
       }
     }
 
-    // Bundle.
-    const bundle = {
+    // Props for both.
+    const propsForBoth = {
       disabled,
       tabIndex,
       title,
@@ -81,9 +81,9 @@ class Button extends React.Component {
       )
     }
 
-    // Link props.
-    const linkProps = {
-      ...bundle,
+    // Props for link.
+    const propsForLink = {
+      ...propsForBoth,
       rel,
       href: (
         disabled
@@ -97,16 +97,16 @@ class Button extends React.Component {
       )
     }
 
-    // Button props.
-    const buttonProps = {
-      ...bundle,
+    // Props for button.
+    const propsForButton = {
+      ...propsForBoth,
       type,
       'aria-controls': ariaControls
     }
 
     // Presuppose `<button>`.
     let button = (
-      <button {...buttonProps}>
+      <button {...propsForButton}>
         {text}
       </button>
     )
@@ -115,7 +115,7 @@ class Button extends React.Component {
     if (href) {
       // Build link.
       button = (
-        <a {...linkProps}>
+        <a {...propsForLink}>
           {text}
         </a>
       )

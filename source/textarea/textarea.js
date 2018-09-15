@@ -105,6 +105,7 @@ class Textarea extends React.Component {
     const {
       autofocus,
       disabled,
+      label,
       maxlength,
       name,
       placeholder,
@@ -115,8 +116,15 @@ class Textarea extends React.Component {
     // Events.
     const { handleChange } = this
 
-    // Bundle.
-    const bundle = {
+    // Props for label.
+    const propsForLabel = {
+      id,
+      label,
+      required
+    }
+
+    // Props for input.
+    const propsForInput = {
       disabled,
       id,
       name,
@@ -136,12 +144,11 @@ class Textarea extends React.Component {
       <React.Fragment>
 
         <Label
-          {...this.props}
-          id={id}
+          {...propsForLabel}
         />
 
         <textarea
-          {...bundle}
+          {...propsForInput}
         />
 
       </React.Fragment>
@@ -154,6 +161,7 @@ Textarea.propTypes = {
   autofocus: PropTypes.bool,
   disabled: PropTypes.bool,
   id: PropTypes.string,
+  label: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,
   readonly: PropTypes.bool,
