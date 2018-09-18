@@ -13,7 +13,7 @@ By passing `href`, the component will be used as an `<a>` link, otherwise a `<bu
 const ariaControls = 'string'
 
 // Default: none.
-const children = 'string' or element(s)
+const children = 'string' // or element(s)
 
 // Default: none.
 const disabled = true
