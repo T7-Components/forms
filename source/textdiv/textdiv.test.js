@@ -183,32 +183,6 @@ describe('Textdiv', () => {
       .toBeCalledWith('data-has-placeholder', !AFTER)
   })
 
-  // ======================
-  // Test for "blur" event.
-  // ======================
-
-  it('handles "blur" event', () => {
-    // Dummy value.
-    const BEFORE = ' <br>FOO<br><br><br>BAR<br> '
-    const AFTER = 'FOO\n\nBAR'
-
-    // Dummy event.
-    const e = {
-      currentTarget: {
-        innerHTML: BEFORE
-      }
-    }
-
-    // Dummy object.
-    const o = expect.any(Object)
-
-    // Fire event.
-    el.handleBlur(e)
-
-    expect(props.handleChange)
-      .toBeCalledWith(o, AFTER)
-  })
-
   // =======================
   // Test for "focus" event.
   // =======================
@@ -231,20 +205,25 @@ describe('Textdiv', () => {
   // ========================
 
   it('handles "key up" event', () => {
-    // Spy.
-    const handleChange =
-      jest.spyOn(el, 'handleChange')
+    // Dummy value.
+    const BEFORE = ' <br>FOO<br><br><br>BAR<br> '
+    const AFTER = 'FOO\n\nBAR'
 
     // Dummy event.
     const e = {
-      foo: true
+      currentTarget: {
+        innerHTML: BEFORE
+      }
     }
+
+    // Dummy object.
+    const o = expect.any(Object)
 
     // Fire event.
     el.handleKeyUp(e)
 
-    expect(handleChange)
-      .toBeCalledWith(e)
+    expect(props.handleChange)
+      .toBeCalledWith(o, AFTER)
   })
 
   // =======================

@@ -72,7 +72,7 @@ class Textdiv extends React.Component {
     return newState
   }
 
-  // Automatically called after `render`.
+  // Called after `render`.
   componentDidMount () {
     document.body.setAttribute('spellcheck', false)
   }
@@ -80,12 +80,6 @@ class Textdiv extends React.Component {
   // Focus event.
   handleFocus (e) {
     contentOnFocus(e)
-  }
-
-  // When input loses focus.
-  handleBlur (e = {}) {
-    contentOnChange(e)
-    this.handleChange(e)
   }
 
   // When user types.
@@ -164,7 +158,6 @@ class Textdiv extends React.Component {
 
     // Events.
     const {
-      handleBlur,
       handleChange,
       handleFocus,
       handleKeyUp,
@@ -192,7 +185,7 @@ class Textdiv extends React.Component {
       readOnly: readonly,
 
       // Events.
-      onBlur: handleBlur,
+      onBlur: handleKeyUp,
       onFocus: handleFocus,
       onInput: handleChange,
       onKeyUp: handleKeyUp,
