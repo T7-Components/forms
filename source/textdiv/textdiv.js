@@ -189,6 +189,9 @@ class Textdiv extends React.Component {
       value,
       autoFocus: autofocus,
       className: 't7-textarea',
+      readOnly: readonly,
+
+      // Events.
       onBlur: handleBlur,
       onFocus: handleFocus,
       onInput: handleChange,

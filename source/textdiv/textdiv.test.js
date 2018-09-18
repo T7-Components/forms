@@ -14,6 +14,7 @@ describe('Textdiv', () => {
     label: 'example_label',
     name: 'example_name',
     placeholder: 'example_placeholder',
+    readonly: true,
     required: true,
     value: 'example_value',
 
@@ -63,13 +64,22 @@ describe('Textdiv', () => {
       .toBe(props.disabled)
   })
 
+  // ==================
+  // Test for disabled.
+  // ==================
+
+  it('is disabled', () => {
+    expect(textdiv.hasAttribute('readonly'))
+      .toBe(props.readonly)
+  })
+
   // ===================
   // Test for edit mode.
   // ===================
 
   it('edit mode is off', () => {
     expect(textdiv.getAttribute('contenteditable'))
-      .toBe('' + !props.disabled)
+      .toBe('' + (!props.disabled && !props.readonly))
   })
 
   // ============
