@@ -65,14 +65,16 @@ class Checkbox extends React.Component {
 
   // Change event.
   handleChange (e = {}) {
-    // Get target.
-    const { target } = e
+    // Get element.
+    const {
+      currentTarget: el = {}
+    } = e
 
     // Get value.
     const {
       checked,
       value = ''
-    } = target
+    } = el
 
     this.setState({
       checked: !!checked
@@ -151,14 +153,18 @@ class Checkbox extends React.Component {
         htmlFor={id}
         className={labelClassName}
       >
+
         <input
           {...propsForInput}
         />
+
         <span
           aria-hidden // true
           className={spanClassName}
         />
+
         {label}
+
       </label>
     )
   }

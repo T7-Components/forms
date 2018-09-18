@@ -109,7 +109,7 @@ describe('Textarea', () => {
 
     // Dummy event.
     const e = {
-      target: {
+      currentTarget: {
         value: BEFORE
       },
       type: 'blur'

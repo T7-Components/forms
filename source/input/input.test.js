@@ -136,14 +136,14 @@ describe('Input', () => {
 
     // Dummy event.
     const e = {
-      target: {
+      currentTarget: {
         selectionStart: 0,
         setSelectionRange: jest.fn()
       }
     }
 
     // Simulate "active" state.
-    document.activeElement = e.target
+    document.activeElement = e.currentTarget
 
     // Fire event.
     const newValue = el.applyMask(e, value)
@@ -151,7 +151,7 @@ describe('Input', () => {
     // Fast-forward.
     jest.runOnlyPendingTimers()
 
-    expect(e.target.setSelectionRange)
+    expect(e.currentTarget.setSelectionRange)
       .toBeCalledWith(0, 0)
 
     expect(newValue)
@@ -169,7 +169,7 @@ describe('Input', () => {
 
     // Dummy event.
     const e = {
-      target: {
+      currentTarget: {
         value: BEFORE
       },
       type: 'blur'

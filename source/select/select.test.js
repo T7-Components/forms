@@ -130,7 +130,7 @@ describe('Select', () => {
   it('handles "change" event', () => {
     // Dummy event.
     const e = {
-      target: {
+      currentTarget: {
         value: props.options[1].value
       }
     }
@@ -142,7 +142,7 @@ describe('Select', () => {
     el.handleChange(e)
 
     expect(props.handleChange)
-      .toBeCalledWith(o, e.target.value)
+      .toBeCalledWith(o, e.currentTarget.value)
   })
 
   // =====================

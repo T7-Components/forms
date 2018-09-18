@@ -68,15 +68,15 @@ class Select extends React.Component {
 
   // Change event.
   handleChange (e = {}) {
-    // Get target.
+    // Get element.
     const {
-      target = {}
+      currentTarget: el = {}
     } = e
 
     // Get value.
     const {
       value = ''
-    } = target
+    } = el
 
     // Update state.
     this.setState({ value })

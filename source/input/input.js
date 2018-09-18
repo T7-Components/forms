@@ -73,17 +73,17 @@ class Input extends React.Component {
 
   // Apply mask.
   applyMask (e = {}, value = '') {
-    // Get target.
+    // Get element.
     const {
-      target = {}
+      currentTarget: el = {}
     } = e
 
     // Set in conditional.
     let oldCaret
 
     // Supports selection?
-    if (typeof target.selectionStart === 'number') {
-      oldCaret = target.selectionStart
+    if (typeof el.selectionStart === 'number') {
+      oldCaret = el.selectionStart
     }
 
     // Format.
@@ -97,8 +97,8 @@ class Input extends React.Component {
       // Supports selection?
       if (
         exists(oldCaret) &&
-        target === document.activeElement &&
-        typeof target.setSelectionRange === 'function'
+        el === document.activeElement &&
+        typeof el.setSelectionRange === 'function'
       ) {
         const diff =
           newValue.length - value.length
@@ -107,7 +107,7 @@ class Input extends React.Component {
           oldCaret - Math.abs(diff)
 
         // Move caret.
-        target.setSelectionRange(newCaret, newCaret)
+        el.setSelectionRange(newCaret, newCaret)
       }
     }, 0)
 
@@ -117,16 +117,16 @@ class Input extends React.Component {
 
   // Change event.
   handleChange (e = {}) {
-    // Get target.
+    // Get element.
     const {
       type,
-      target = {}
+      currentTarget: el = {}
     } = e
 
     // Get value.
     let {
       value = ''
-    } = target
+    } = el
 
     // Clean up.
     if (type === 'blur') {

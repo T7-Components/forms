@@ -74,16 +74,16 @@ class Textarea extends React.Component {
 
   // Change event.
   handleChange (e = {}) {
-    // Get target.
+    // Get element.
     const {
       type,
-      target = {}
+      currentTarget: el = {}
     } = e
 
     // Get value.
     let {
       value = ''
-    } = target
+    } = el
 
     // Clean up.
     if (type === 'blur') {

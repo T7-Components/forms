@@ -122,7 +122,7 @@ describe('Checkbox', () => {
 
     // Dummy event.
     const e = {
-      target: {
+      currentTarget: {
         checked,
         value
       }
