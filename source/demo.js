@@ -371,7 +371,7 @@ class Demo extends React.Component {
             <Button
               href='https://example.com/'
               target='_blank'
-              text='Open example.com'
+              children='Open example.com'
             />
           </li>
           <li>
@@ -379,7 +379,7 @@ class Demo extends React.Component {
               disabled // true
               href='https://example.com/'
               target='_blank'
-              text='Open example.com'
+              children='Open example.com'
             />
           </li>
         </ListInline>
@@ -392,35 +392,35 @@ class Demo extends React.Component {
           <li>
             <Button
               size='small'
-              text='Button'
+              children='Button'
             />
           </li>
           <li>
             <Button
               mode='primary'
               size='small'
-              text='Button'
+              children='Button'
             />
           </li>
           <li>
             <Button
               mode='positive'
               size='small'
-              text='Button'
+              children='Button'
             />
           </li>
           <li>
             <Button
               mode='negative'
               size='small'
-              text='Button'
+              children='Button'
             />
           </li>
           <li>
             <Button
               mode='warn'
               size='small'
-              text='Button'
+              children='Button'
             />
           </li>
         </ListInline>
@@ -430,7 +430,7 @@ class Demo extends React.Component {
             <Button
               disabled // true
               size='small'
-              text='Button'
+              children='Button'
             />
           </li>
           <li>
@@ -438,7 +438,7 @@ class Demo extends React.Component {
               disabled // true
               mode='primary'
               size='small'
-              text='Button'
+              children='Button'
             />
           </li>
           <li>
@@ -446,7 +446,7 @@ class Demo extends React.Component {
               disabled // true
               mode='positive'
               size='small'
-              text='Button'
+              children='Button'
             />
           </li>
           <li>
@@ -454,7 +454,7 @@ class Demo extends React.Component {
               disabled // true
               mode='negative'
               size='small'
-              text='Button'
+              children='Button'
             />
           </li>
           <li>
@@ -462,7 +462,7 @@ class Demo extends React.Component {
               disabled // true
               mode='warn'
               size='small'
-              text='Button'
+              children='Button'
             />
           </li>
         </ListInline>
@@ -470,105 +470,31 @@ class Demo extends React.Component {
         <ListInline>
           <li>
             <Button
-              text='Button'
+              children='Button'
             />
           </li>
           <li>
             <Button
               mode='primary'
-              text='Button'
+              children='Button'
             />
           </li>
           <li>
             <Button
               mode='positive'
-              text='Button'
+              children='Button'
             />
           </li>
           <li>
             <Button
               mode='negative'
-              text='Button'
+              children='Button'
             />
           </li>
           <li>
             <Button
               mode='warn'
-              text='Button'
-            />
-          </li>
-        </ListInline>
-
-        <ListInline>
-          <li>
-            <Button
-              disabled // true
-              text='Button'
-            />
-          </li>
-          <li>
-            <Button
-              disabled // true
-              mode='primary'
-              text='Button'
-            />
-          </li>
-          <li>
-            <Button
-              disabled // true
-              mode='positive'
-              text='Button'
-            />
-          </li>
-          <li>
-            <Button
-              disabled // true
-              mode='negative'
-              text='Button'
-            />
-          </li>
-          <li>
-            <Button
-              disabled // true
-              mode='warn'
-              text='Button'
-            />
-          </li>
-        </ListInline>
-
-        <ListInline>
-          <li>
-            <Button
-              size='big'
-              text='Button'
-            />
-          </li>
-          <li>
-            <Button
-              mode='primary'
-              size='big'
-              text='Button'
-            />
-          </li>
-          <li>
-            <Button
-              mode='positive'
-              size='big'
-              text='Button'
-            />
-          </li>
-          <li>
-            <Button
-              mode='negative'
-              size='big'
-              text='Button'
-            />
-          </li>
-          <li>
-            <Button
-              mode='warn'
-              size='big'
-              text='Button'
+              children='Button'
             />
           </li>
         </ListInline>
@@ -577,8 +503,82 @@ class Demo extends React.Component {
           <li>
             <Button
               disabled // true
+              children='Button'
+            />
+          </li>
+          <li>
+            <Button
+              disabled // true
+              mode='primary'
+              children='Button'
+            />
+          </li>
+          <li>
+            <Button
+              disabled // true
+              mode='positive'
+              children='Button'
+            />
+          </li>
+          <li>
+            <Button
+              disabled // true
+              mode='negative'
+              children='Button'
+            />
+          </li>
+          <li>
+            <Button
+              disabled // true
+              mode='warn'
+              children='Button'
+            />
+          </li>
+        </ListInline>
+
+        <ListInline>
+          <li>
+            <Button
               size='big'
-              text='Button'
+              children='Button'
+            />
+          </li>
+          <li>
+            <Button
+              mode='primary'
+              size='big'
+              children='Button'
+            />
+          </li>
+          <li>
+            <Button
+              mode='positive'
+              size='big'
+              children='Button'
+            />
+          </li>
+          <li>
+            <Button
+              mode='negative'
+              size='big'
+              children='Button'
+            />
+          </li>
+          <li>
+            <Button
+              mode='warn'
+              size='big'
+              children='Button'
+            />
+          </li>
+        </ListInline>
+
+        <ListInline>
+          <li>
+            <Button
+              disabled // true
+              size='big'
+              children='Button'
             />
           </li>
           <li>
@@ -586,7 +586,7 @@ class Demo extends React.Component {
               disabled // true
               mode='primary'
               size='big'
-              text='Button'
+              children='Button'
             />
           </li>
           <li>
@@ -594,7 +594,7 @@ class Demo extends React.Component {
               disabled // true
               mode='positive'
               size='big'
-              text='Button'
+              children='Button'
             />
           </li>
           <li>
@@ -602,7 +602,7 @@ class Demo extends React.Component {
               disabled // true
               mode='negative'
               size='big'
-              text='Button'
+              children='Button'
             />
           </li>
           <li>
@@ -610,7 +610,7 @@ class Demo extends React.Component {
               disabled // true
               mode='warn'
               size='big'
-              text='Button'
+              children='Button'
             />
           </li>
         </ListInline>

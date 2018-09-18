@@ -32,11 +32,11 @@ class Button extends React.Component {
     const {
       ariaControls,
       disabled,
+      children,
       href,
       mode,
       size,
       target,
-      text,
       title,
       type
     } = this.props
@@ -60,6 +60,7 @@ class Button extends React.Component {
 
     // Props for both.
     const propsForBoth = {
+      children,
       disabled,
       tabIndex,
       title,
@@ -106,18 +107,18 @@ class Button extends React.Component {
 
     // Presuppose `<button>`.
     let button = (
-      <button {...propsForButton}>
-        {text}
-      </button>
+      <button
+        {...propsForButton}
+      />
     )
 
     // Is it a link?
     if (href) {
       // Build link.
       button = (
-        <a {...propsForLink}>
-          {text}
-        </a>
+        <a
+          {...propsForLink}
+        />
       )
     }
 
@@ -130,10 +131,10 @@ class Button extends React.Component {
 Button.propTypes = {
   ariaControls: PropTypes.string,
   buttonData: PropTypes.any,
+  children: PropTypes.any,
   disabled: PropTypes.bool,
   href: PropTypes.string,
   mode: PropTypes.string,
-  text: PropTypes.string,
   size: PropTypes.string,
   target: PropTypes.string,
   title: PropTypes.string,

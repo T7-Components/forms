@@ -15,10 +15,10 @@ describe('Button', () => {
   // Dummy props.
   const props = {
     ariaControls: 'example_id',
+    children: 'CHILDREN',
     disabled: true,
     mode: 'warn',
     size: 'small',
-    text: 'GO',
     title: 'example_title',
     type: 'submit'
   }
@@ -67,7 +67,7 @@ describe('Button', () => {
 
   it('has correct text', () => {
     expect(button.textContent)
-      .toBe(props.text)
+      .toBe(props.children)
   })
 
   // ===============
@@ -116,11 +116,11 @@ describe('Button', () => {
 describe('Button -- link', () => {
   // Dummy props.
   const props = {
+    children: 'CHILDREN',
     href: 'https://example.com',
     mode: 'positive',
     size: 'big',
     target: '_blank',
-    text: 'GO',
     title: 'example_title',
 
     // Button data.
@@ -188,7 +188,7 @@ describe('Button -- link', () => {
 
   it('has correct text', () => {
     expect(button.textContent)
-      .toBe(props.text)
+      .toBe(props.children)
   })
 
   // ===============

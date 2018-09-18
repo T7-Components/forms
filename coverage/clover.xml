@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1537288098420" clover="3.2.0">
-  <project timestamp="1537288098420" name="All files">
+<coverage generated="1537290853921" clover="3.2.0">
+  <project timestamp="1537290853921" name="All files">
     <metrics statements="195" coveredstatements="195" conditionals="106" coveredconditionals="59" methods="47" coveredmethods="41" elements="348" coveredelements="295" complexity="0" loc="195" ncloc="195" packages="9" files="9" classes="9">
       <package name="source">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -23,14 +23,14 @@
           <line num="56" count="1" type="cond" truecount="3" falsecount="1"/>
           <line num="57" count="1" type="stmt"/>
           <line num="62" count="2" type="stmt"/>
-          <line num="85" count="2" type="stmt"/>
-          <line num="101" count="2" type="stmt"/>
-          <line num="109" count="2" type="stmt"/>
-          <line num="115" count="2" type="cond" truecount="2" falsecount="0"/>
-          <line num="117" count="1" type="stmt"/>
-          <line num="125" count="2" type="stmt"/>
-          <line num="130" count="9" type="stmt"/>
-          <line num="147" count="9" type="stmt"/>
+          <line num="86" count="2" type="stmt"/>
+          <line num="102" count="2" type="stmt"/>
+          <line num="110" count="2" type="stmt"/>
+          <line num="116" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="118" count="1" type="stmt"/>
+          <line num="126" count="2" type="stmt"/>
+          <line num="131" count="9" type="stmt"/>
+          <line num="148" count="9" type="stmt"/>
         </file>
       </package>
       <package name="source.checkbox">

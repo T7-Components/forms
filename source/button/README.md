@@ -13,6 +13,9 @@ By passing `href`, the component will be used as an `<a>` link, otherwise a `<bu
 const ariaControls = 'string'
 
 // Default: none.
+const children = 'string' or element(s)
+
+// Default: none.
 const disabled = true
 
 // Default: none.
@@ -23,9 +26,6 @@ const mode = 'info | negative | positive | warn'
 
 // Default: "default".
 const size = 'small | big'
-
-// Default: none.
-const text = 'Button text'
 
 // Default: none.
 const target = '_blank | ...'
@@ -63,13 +63,16 @@ const handleClick = (e, buttonData) => {
   href={href}
   mode={mode}
   size={size}
-  text={text}
   target={target}
   title={title}
 
   // Events.
   handleClick={handleClick}
-/>
+>
+  Text and/or elements
+
+  (aka children={…})
+</Button>
 ```
 
 ```jsx
@@ -80,11 +83,14 @@ const handleClick = (e, buttonData) => {
   disabled={disabled}
   mode={mode}
   size={size}
-  text={text}
   title={title}
   type={type}
 
   // Events.
   handleClick={handleClick}
-/>
+>
+  Text and/or elements
+
+  (aka children={…})
+</Button>
 ```
