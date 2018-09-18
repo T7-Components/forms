@@ -32,6 +32,9 @@ const name = 'string'
 const placeholder = 'string'
 
 // Default: none.
+const readonly = true
+
+// Default: none.
 const required = true
 
 // Default: none.
@@ -54,6 +57,7 @@ const handleChange = (e, value) => {
   id={id}
   name={name}
   placeholder={placeholder}
+  readonly={readonly}
   required={required}
   value={value}
 
