@@ -28,7 +28,7 @@ const mode = 'info | negative | positive | warn'
 const size = 'small | big'
 
 // Default: none.
-const target = '_blank | ...'
+const target = 'string'
 
 // Default: none.
 const title = 'string'
