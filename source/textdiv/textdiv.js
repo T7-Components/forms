@@ -35,41 +35,36 @@ class Textdiv extends React.Component {
   defaultState () {
     // Props.
     const {
-      placeholder,
       id = unique(),
       value = ''
     } = this.props
 
-    // Placeholder?
-    const hasPlaceholder = (
-      !value &&
-      exists(placeholder)
-    )
-
     this.state = {
-      hasPlaceholder,
       id,
-      value
+      value,
+      oldValue: value
     }
   }
 
   // Update state.
-  static getDerivedStateFromProps (props, state) {
-    // Get values.
-    const newValue = props.value
-    const oldValue = state.value
+  static getDerivedStateFromProps (props = {}, state = {}) {
+    // Props.
+    const { value } = props
+
+    // State.
+    const { oldValue } = state
 
     // Set in conditional.
     let newState = null
 
     // Update?
     if (
-      exists(newValue) &&
-      newValue !== oldValue
+      exists(value) &&
+      value !== oldValue
     ) {
       newState = {
-        hasPlaceholder: false,
-        value: newValue
+        value,
+        oldValue: value
       }
     }
 
@@ -84,38 +79,11 @@ class Textdiv extends React.Component {
 
   // Focus event.
   handleFocus (e) {
-    if (!this.state.hasPlaceholder) {
-      return
-    }
-
     contentOnFocus(e)
-
-    this.setState({
-      hasPlaceholder: false
-    })
   }
 
   // When input loses focus.
   handleBlur (e = {}) {
-    // Props.
-    const { placeholder } = this.props
-
-    // Get target.
-    const { target } = e
-
-    // Get value.
-    const {
-      innerHTML: value
-    } = target
-
-    // Placeholder?
-    const hasPlaceholder = (
-      !trim(value) &&
-      exists(placeholder)
-    )
-
-    this.setState({ hasPlaceholder })
-
     contentOnChange(e)
     this.handleChange(e)
   }
@@ -137,22 +105,27 @@ class Textdiv extends React.Component {
     // Props.
     const { placeholder } = this.props
 
-    // Get target.
+    // Get element.
     const {
-      target = {}
+      currentTarget: el = {}
     } = e
 
     // Get value.
     let {
       innerHTML: value
-    } = target
+    } = el
 
     // Format.
     value = contentToText(value)
 
-    // Is placeholder?
+    // Clear value?
     if (value === placeholder) {
       value = ''
+    }
+
+    // Set attribute.
+    if (typeof el.setAttribute === 'function') {
+      el.setAttribute('data-has-placeholder', !value)
     }
 
     // Callback.
@@ -162,10 +135,7 @@ class Textdiv extends React.Component {
   // Render method.
   render () {
     // State.
-    const {
-      hasPlaceholder,
-      id
-    } = this.state
+    const { id } = this.state
 
     // Props.
     const {
@@ -224,7 +194,10 @@ class Textdiv extends React.Component {
       onInput: handleChange,
       onKeyUp: handleKeyUp,
       onPaste: handlePaste,
-      'data-has-placeholder': hasPlaceholder
+      'data-has-placeholder': (
+        !value ||
+        trim(value) === trim(placeholder)
+      )
     }
 
     // Expose UI.

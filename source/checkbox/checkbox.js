@@ -32,26 +32,30 @@ class Checkbox extends React.Component {
 
     this.state = {
       id,
-      checked: !!checked
+      checked: !!checked,
+      oldChecked: checked
     }
   }
 
   // Update state.
-  static getDerivedStateFromProps (props, state) {
-    // Get values.
-    const newChecked = props.checked
-    const oldChecked = state.checked
+  static getDerivedStateFromProps (props = {}, state = {}) {
+    // Props.
+    const { checked } = props
+
+    // State.
+    const { oldChecked } = state
 
     // Set in conditional.
     let newState = null
 
     // Update?
     if (
-      exists(newChecked) &&
-      newChecked !== oldChecked
+      exists(checked) &&
+      checked !== oldChecked
     ) {
       newState = {
-        checked: newChecked
+        checked,
+        oldChecked: checked
       }
     }
 
@@ -128,7 +132,8 @@ class Checkbox extends React.Component {
       value,
       autoFocus: autofocus,
       className: inputClassName,
-      onChange: handleChange
+      onChange: handleChange,
+      onFocus: handleChange
     }
 
     // Radio?

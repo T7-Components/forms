@@ -30,37 +30,88 @@ class Input extends React.Component {
   defaultState () {
     // Props.
     const {
+      mask,
       id = unique(),
       value = ''
     } = this.props
 
     this.state = {
       id,
-      value
+      oldValue: value,
+      value: mask(value)
     }
   }
 
   // Update state.
-  static getDerivedStateFromProps (props, state) {
-    // Get values.
-    const newValue = props.value
-    const oldValue = state.value
+  static getDerivedStateFromProps (props = {}, state = {}) {
+    // Props.
+    const {
+      mask,
+      value
+    } = props
+
+    // State.
+    const { oldValue } = state
 
     // Set in conditional.
     let newState = null
 
     // Update?
     if (
-      exists(newValue) &&
-      newValue !== oldValue
+      exists(value) &&
+      value !== oldValue
     ) {
       newState = {
-        value: newValue
+        oldValue: value,
+        value: mask(value)
       }
     }
 
     // Expose object.
     return newState
+  }
+
+  // Apply mask.
+  applyMask (e = {}, value = '') {
+    // Get target.
+    const {
+      target = {}
+    } = e
+
+    // Set in conditional.
+    let oldCaret
+
+    // Supports selection?
+    if (typeof target.selectionStart === 'number') {
+      oldCaret = target.selectionStart
+    }
+
+    // Format.
+    const newValue = this.props.mask(value)
+
+    // Wait for re-render.
+    const timer = setTimeout(() => {
+      // Clear.
+      clearTimeout(timer)
+
+      // Supports selection?
+      if (
+        exists(oldCaret) &&
+        typeof target.setSelectionRange === 'function'
+      ) {
+        const diff =
+          newValue.length - value.length
+
+        const newCaret =
+          oldCaret - Math.abs(diff)
+
+        // Move caret.
+        target.setSelectionRange(newCaret, newCaret)
+      }
+    }, 0)
+
+    // Expose string.
+    return newValue
   }
 
   // Change event.
@@ -80,6 +131,9 @@ class Input extends React.Component {
     if (type === 'blur') {
       value = trim(value)
     }
+
+    // Apply mask.
+    value = this.applyMask(e, value)
 
     // Update state.
     this.setState({ value })
@@ -194,7 +248,10 @@ Input.propTypes = {
   ]),
 
   // Events.
-  handleChange: PropTypes.func
+  handleChange: PropTypes.func,
+
+  // Mask value.
+  mask: PropTypes.func
 }
 
 // Prop defaults.
@@ -202,7 +259,12 @@ Input.defaultProps = {
   type: 'text',
 
   // Events.
-  handleChange: () => {}
+  handleChange: () => {},
+
+  // Mask value.
+  mask: (value) => {
+    return value
+  }
 }
 
 // Export.

@@ -128,7 +128,7 @@ describe('Textdiv', () => {
 
     // Dummy event.
     const e = {
-      target: {
+      currentTarget: {
         innerHTML: BEFORE
       }
     }
@@ -154,8 +154,9 @@ describe('Textdiv', () => {
 
     // Dummy event.
     const e = {
-      target: {
-        innerHTML: BEFORE
+      currentTarget: {
+        innerHTML: BEFORE,
+        setAttribute: jest.fn()
       }
     }
 
@@ -167,6 +168,9 @@ describe('Textdiv', () => {
 
     expect(props.handleChange)
       .toBeCalledWith(o, AFTER)
+
+    expect(e.currentTarget.setAttribute)
+      .toBeCalledWith('data-has-placeholder', !AFTER)
   })
 
   // ======================
@@ -180,7 +184,7 @@ describe('Textdiv', () => {
 
     // Dummy event.
     const e = {
-      target: {
+      currentTarget: {
         innerHTML: BEFORE
       }
     }
@@ -201,22 +205,15 @@ describe('Textdiv', () => {
 
   it('handles "focus" event', () => {
     // Spy.
-    const setState =
-      jest.spyOn(el, 'setState')
+    const handleChange =
+      jest.spyOn(el, 'handleChange')
 
     // Fire event.
     el.handleFocus()
 
-    // Update state.
-    el.state.hasPlaceholder = true
-
-    // Fire event.
-    el.handleFocus()
-
-    expect(setState)
-      .toBeCalledWith({
-        hasPlaceholder: false
-      })
+    expect(handleChange)
+      .not
+      .toBeCalled()
   })
 
   // ========================
@@ -277,8 +274,5 @@ describe('Textdiv', () => {
 
     expect(newState.value)
       .toBe(props.value)
-
-    expect(newState.hasPlaceholder)
-      .toBe(false)
   })
 })

@@ -155,6 +155,11 @@ Shared styles.
   height: 2em;
 }
 
+.t7-input,
+.t7-textarea {
+  caret-color: #000;
+}
+
 .t7-input:not([disabled]):active,
 .t7-select:not([disabled]):active,
 .t7-textarea:not([disabled]):active,

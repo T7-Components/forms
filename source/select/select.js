@@ -35,26 +35,30 @@ class Select extends React.Component {
 
     this.state = {
       id,
-      value
+      value,
+      oldValue: value
     }
   }
 
   // Update state.
-  static getDerivedStateFromProps (props, state) {
-    // Get values.
-    const newValue = props.value
-    const oldValue = state.value
+  static getDerivedStateFromProps (props = {}, state = {}) {
+    // Props.
+    const { value } = props
+
+    // State.
+    const { oldValue } = state
 
     // Set in conditional.
     let newState = null
 
     // Update?
     if (
-      exists(newValue) &&
-      newValue !== oldValue
+      exists(value) &&
+      value !== oldValue
     ) {
       newState = {
-        value: newValue
+        value,
+        oldValue: value
       }
     }
 

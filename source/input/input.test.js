@@ -5,6 +5,9 @@ import T from 'react-dom/test-utils'
 // UI components.
 import { Input } from '../'
 
+// Fake timers.
+jest.useFakeTimers()
+
 // Describe `<Component/>` name.
 describe('Input', () => {
   // Dummy props.
@@ -115,6 +118,35 @@ describe('Input', () => {
       .toContain('t7-input--width-auto')
   })
 
+  // ============================
+  // Test for "apply mask" event.
+  // ============================
+
+  it('handles "apply mask" event', () => {
+    // Dummy value.
+    const value = 'VALUE'
+
+    // Dummy event.
+    const e = {
+      target: {
+        selectionStart: 0,
+        setSelectionRange: jest.fn()
+      }
+    }
+
+    // Fire event.
+    const newValue = el.applyMask(e, value)
+
+    // Fast-forward.
+    jest.runOnlyPendingTimers()
+
+    expect(e.target.setSelectionRange)
+      .toBeCalledWith(0, 0)
+
+    expect(newValue)
+      .toBe(value)
+  })
+
   // ========================
   // Test for "change" event.
   // ========================
@@ -147,16 +179,26 @@ describe('Input', () => {
   // =====================
 
   it('handles props/state change', () => {
+    // Dummy props.
+    const newProps = {
+      value: 'new_value',
+
+      // Mask value.
+      mask: (value) => {
+        return value
+      }
+    }
+
     // Dummy state.
-    const state = {
+    const oldState = {
       value: 'old_value'
     }
 
     // Fire event.
     const newState =
-      Input.getDerivedStateFromProps(props, state)
+      Input.getDerivedStateFromProps(newProps, oldState)
 
     expect(newState.value)
-      .toBe(props.value)
+      .toBe(newProps.value)
   })
 })
