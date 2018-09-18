@@ -112,11 +112,11 @@ class Demo extends React.Component {
         </h2>
 
         <p>
-          The following form elements are examples of a hybrid approach to form elements, which involves treating all elements as if they have a <code>defaultValue</code>, while still allowing them to be overridden by a change in props.
+          The following form elements are examples of a hybrid approach, which involves treating all elements as if they have a <code>defaultValue</code>, while still allowing them to be overridden by a change to <code>this.props.value</code>.
         </p>
 
         <p>
-          This is made possible each component having its own internal state, but also watching for changes via <code>getDerivedStateFromProps</code>. It has been our experience that this most closely mirrors how one might expect form elements to work in a non-React environment.
+          This is made possible each component having its own internal <code>this.state.value</code>, but also watching for changes via <code>getDerivedStateFromProps</code>. It has been our experience that this most closely aligns conceptually, with how one might expect form elements to work in a non-React environment.
         </p>
 
         <p>
