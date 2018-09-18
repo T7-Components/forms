@@ -144,6 +144,7 @@ class Textdiv extends React.Component {
       label,
       name,
       placeholder,
+      readonly,
       required
     } = this.props
 
@@ -188,12 +189,23 @@ class Textdiv extends React.Component {
       value,
       autoFocus: autofocus,
       className: 't7-textarea',
-      contentEditable: !disabled,
       onBlur: handleBlur,
       onFocus: handleFocus,
       onInput: handleChange,
       onKeyUp: handleKeyUp,
       onPaste: handlePaste,
+
+      contentEditable: (
+        !disabled &&
+        !readonly
+      ),
+
+      tabIndex: (
+        disabled
+          ? null
+          : 0
+      ),
+
       'data-has-placeholder': (
         !value ||
         trim(value) === trim(placeholder)
@@ -225,6 +237,7 @@ Textdiv.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,
+  readonly: PropTypes.bool,
   required: PropTypes.bool,
 
   // Forced value.
