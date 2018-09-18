@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1537250485627" clover="3.2.0">
-  <project timestamp="1537250485627" name="All files">
-    <metrics statements="195" coveredstatements="195" conditionals="102" coveredconditionals="57" methods="47" coveredmethods="41" elements="344" coveredelements="293" complexity="0" loc="195" ncloc="195" packages="9" files="9" classes="9">
+<coverage generated="1537287681650" clover="3.2.0">
+  <project timestamp="1537287681651" name="All files">
+    <metrics statements="195" coveredstatements="195" conditionals="106" coveredconditionals="59" methods="47" coveredmethods="41" elements="348" coveredelements="295" complexity="0" loc="195" ncloc="195" packages="9" files="9" classes="9">
       <package name="source">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="index.js" path="/Users/tandemseven/T7/t7-components/forms/source/index.js">
@@ -207,14 +207,14 @@
         </file>
       </package>
       <package name="source.textdiv">
-        <metrics statements="39" coveredstatements="39" conditionals="19" coveredconditionals="12" methods="11" coveredmethods="10"/>
+        <metrics statements="39" coveredstatements="39" conditionals="23" coveredconditionals="14" methods="11" coveredmethods="10"/>
         <file name="textdiv.js" path="/Users/tandemseven/T7/t7-components/forms/source/textdiv/textdiv.js">
-          <metrics statements="39" coveredstatements="39" conditionals="19" coveredconditionals="12" methods="11" coveredmethods="10"/>
+          <metrics statements="39" coveredstatements="39" conditionals="23" coveredconditionals="14" methods="11" coveredmethods="10"/>
           <line num="25" count="1" type="stmt"/>
           <line num="28" count="1" type="stmt"/>
           <line num="31" count="1" type="stmt"/>
-          <line num="40" count="16" type="stmt"/>
-          <line num="42" count="16" type="stmt"/>
+          <line num="40" count="17" type="stmt"/>
+          <line num="42" count="17" type="stmt"/>
           <line num="52" count="2" type="stmt"/>
           <line num="55" count="2" type="stmt"/>
           <line num="58" count="2" type="stmt"/>
@@ -239,16 +239,16 @@
           <line num="128" count="1" type="stmt"/>
           <line num="132" count="5" type="stmt"/>
           <line num="138" count="1" type="stmt"/>
-          <line num="148" count="1" type="stmt"/>
-          <line num="151" count="1" type="stmt"/>
-          <line num="154" count="1" type="stmt"/>
-          <line num="160" count="1" type="stmt"/>
-          <line num="171" count="1" type="stmt"/>
-          <line num="174" count="1" type="stmt"/>
-          <line num="181" count="1" type="stmt"/>
-          <line num="204" count="1" type="stmt"/>
-          <line num="221" count="9" type="stmt"/>
-          <line num="241" count="9" type="stmt"/>
+          <line num="149" count="1" type="stmt"/>
+          <line num="152" count="1" type="stmt"/>
+          <line num="155" count="1" type="stmt"/>
+          <line num="161" count="1" type="stmt"/>
+          <line num="172" count="1" type="stmt"/>
+          <line num="175" count="1" type="stmt"/>
+          <line num="182" count="1" type="stmt"/>
+          <line num="219" count="1" type="stmt"/>
+          <line num="236" count="9" type="stmt"/>
+          <line num="257" count="9" type="stmt"/>
         </file>
       </package>
     </metrics>

@@ -105,6 +105,12 @@ class Demo extends React.Component {
           @t7/forms
         </h1>
 
+        <p>
+          <a href='https://github.com/T7-Components/forms/blob/master/source/demo.js'>
+            View "demo.js" on GitHub
+          </a>
+        </p>
+
         <hr />
 
         <h2>
