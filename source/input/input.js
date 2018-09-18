@@ -97,6 +97,7 @@ class Input extends React.Component {
       // Supports selection?
       if (
         exists(oldCaret) &&
+        target === document.activeElement &&
         typeof target.setSelectionRange === 'function'
       ) {
         const diff =

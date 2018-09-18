@@ -10,6 +10,14 @@ jest.useFakeTimers()
 
 // Describe `<Component/>` name.
 describe('Input', () => {
+  // Reset.
+  beforeEach(() => {
+    Object.defineProperty(document, 'activeElement', {
+      writable: true,
+      value: null
+    })
+  })
+
   // Dummy props.
   const props = {
     disabled: true,
@@ -133,6 +141,9 @@ describe('Input', () => {
         setSelectionRange: jest.fn()
       }
     }
+
+    // Simulate "active" state.
+    document.activeElement = e.target
 
     // Fire event.
     const newValue = el.applyMask(e, value)
