@@ -79,7 +79,7 @@ describe('Textdiv', () => {
 
   it('edit mode is off', () => {
     expect(textdiv.getAttribute('contenteditable'))
-      .toBe('' + (!props.disabled && !props.readonly))
+      .toBe(String(!props.disabled && !props.readonly))
   })
 
   // ============

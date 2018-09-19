@@ -5,9 +5,6 @@ import T from 'react-dom/test-utils'
 // UI components.
 import { Input } from '../'
 
-// Fake timers.
-jest.useFakeTimers()
-
 // Describe `<Component/>` name.
 describe('Input', () => {
   // Reset.
@@ -15,6 +12,13 @@ describe('Input', () => {
     Object.defineProperty(document, 'activeElement', {
       writable: true,
       value: null
+    })
+
+    Object.defineProperty(window, 'requestAnimationFrame', {
+      writable: true,
+      value: (f) => {
+        f()
+      }
     })
   })
 
@@ -148,9 +152,6 @@ describe('Input', () => {
     // Fire event.
     const newValue = el.applyMask(e, value)
 
-    // Fast-forward.
-    jest.runOnlyPendingTimers()
-
     expect(e.currentTarget.setSelectionRange)
       .toBeCalledWith(0, 0)
 
@@ -164,8 +165,8 @@ describe('Input', () => {
 
   it('handles "change" event', () => {
     // Dummy value.
-    const BEFORE = ' FOO  BAR '
-    const AFTER = 'FOO BAR'
+    const BEFORE = ' FOO,  BAR '
+    const AFTER = 'FOO, BAR'
 
     // Dummy event.
     const e = {

@@ -249,12 +249,321 @@ class Demo extends React.Component {
 
         <p>
           <Input
-            label='Numeric input (with mask)'
-            placeholder='Numbers only, please'
-            value='0123456789'
+            label='Date input (with mask)'
+            placeholder='MM/DD/YYYY'
+            mask={(value = '') => {
+              // Clean up.
+              value = value.replace(/^\//g, '')
+              value = value.replace(/[^0-9/]/g, '')
+              value = value.replace(/\/+/g, '/')
+
+              // Numbers only.
+              const numbersOnly =
+                value.replace(/\D/g, '').slice(0, 10)
+
+              // Close enough?
+              if (numbersOnly.length === 10) {
+                value = numbersOnly
+              }
+
+              // Two slashes?
+              if ((value.match(/\//g) || []).length >= 2) {
+                // Split apart.
+                const arr = value.split('/')
+
+                // Month.
+                let M = (arr[0] || '').slice(0, 2)
+
+                // Day.
+                let D = (arr[1] || '').slice(0, 2)
+
+                // Year.
+                const Y = (arr[2] || '').slice(0, 4)
+
+                // Valid?
+                if (
+                  M.length &&
+                  D.length &&
+                  Y.length === 4
+                ) {
+                  // Pad month.
+                  if (M.length === 1) {
+                    M = '0' + M
+                  }
+
+                  // Pad day.
+                  if (D.length === 1) {
+                    D = '0' + D
+                  }
+
+                  // Build string.
+                  value = [
+                    M,
+                    D,
+                    Y
+                  ].join('')
+                }
+              }
+
+              // Format.
+              value = value.replace(
+                /^(\d{2})(\d{2})(\d{4})/,
+                '$1/$2/$3'
+              )
+
+              // Cap length.
+              value = value.slice(0, 10)
+
+              // Expose string.
+              return value
+            }}
+          />
+        </p>
+
+        <p>
+          <Input
+            label='Phone input (with mask)'
+            placeholder='000-000-0000'
+            mask={(value = '') => {
+              // Clean up.
+              value = value.replace(/^-/, '')
+              value = value.replace(/[^0-9-]/, '')
+              value = value.replace(/-+/g, '-')
+
+              // Numbers only.
+              const numbersOnly =
+                value.replace(/\D/g, '').slice(0, 10)
+
+              // Close enough?
+              if (numbersOnly.length === 10) {
+                value = numbersOnly
+              }
+
+              // Format.
+              value = value.replace(
+                /^(\d{3})(\d{3})(\d{4})/,
+                '$1-$2-$3'
+              )
+
+              // Cap length.
+              value = value.slice(0, 12)
+
+              // Expose string.
+              return value
+            }}
+          />
+        </p>
+
+        <p>
+          <Input
+            label='Alphanumeric input (with mask)'
+            placeholder='Letters and numbers only'
+            mask={(value = '') => {
+              return value.replace(/[^A-Z0-9]/gi, '')
+            }}
+          />
+        </p>
+
+        <p>
+          <Input
+            label='Integer input (with mask)'
+            placeholder='Integer only'
             mask={(value = '') => {
               return value.replace(/\D/g, '')
             }}
+          />
+        </p>
+
+        <p>
+          <Input
+            label='German currency (with mask)'
+            mask={(value = '') => {
+              // To string.
+              value = String(value)
+
+              // Ensure numeric.
+              value = value.replace(/[^0-9,]/g, '')
+              value = value.replace(/,([^,]*)$/, '.' + '$1')
+
+              // To number.
+              value = parseFloat(value)
+
+              // Not numeric?
+              if (isNaN(value)) {
+                return ''
+              }
+
+              // Format.
+              value = value.toLocaleString('de-de', {
+                currency: 'eur',
+                style: 'currency'
+              })
+
+              // Expose string.
+              return value
+            }}
+            maxlength={20}
+            value={1000}
+          />
+        </p>
+
+        <p>
+          <Input
+            label='Indian currency (with mask)'
+            mask={(value = '') => {
+              // To string.
+              value = String(value)
+
+              // Ensure numeric.
+              value = value.replace(/[^0-9.]/g, '')
+
+              // To number.
+              value = parseFloat(value)
+
+              // Not numeric?
+              if (isNaN(value)) {
+                return ''
+              }
+
+              // Format.
+              value = value.toLocaleString('en-in', {
+                currency: 'inr',
+                style: 'currency'
+              })
+
+              // Expose string.
+              return value
+            }}
+            maxlength={20}
+            value={1000}
+          />
+        </p>
+
+        <p>
+          <Input
+            label='Japanese currency (with mask)'
+            mask={(value = '') => {
+              // To string.
+              value = String(value)
+
+              // Ensure numeric.
+              value = value.replace(/[^0-9.]/g, '')
+
+              // To number.
+              value = parseFloat(value)
+
+              // Not numeric?
+              if (isNaN(value)) {
+                return ''
+              }
+
+              // Format.
+              value = value.toLocaleString('en-jp', {
+                currency: 'jpy',
+                style: 'currency'
+              })
+
+              // Expose string.
+              return value
+            }}
+            maxlength={20}
+            value={1000}
+          />
+        </p>
+
+        <p>
+          <Input
+            label='Korean currency (with mask)'
+            mask={(value = '') => {
+              // To string.
+              value = String(value)
+
+              // Ensure numeric.
+              value = value.replace(/[^0-9.]/g, '')
+
+              // To number.
+              value = parseFloat(value)
+
+              // Not numeric?
+              if (isNaN(value)) {
+                return ''
+              }
+
+              // Format.
+              value = value.toLocaleString('ko-kr', {
+                currency: 'krw',
+                style: 'currency'
+              })
+
+              // Expose string.
+              return value
+            }}
+            maxlength={20}
+            value={1000}
+          />
+        </p>
+
+        <p>
+          <Input
+            label='US currency (with mask)'
+            mask={(value = '') => {
+              // To string.
+              value = String(value)
+
+              // Ensure numeric.
+              value = value.replace(/[^0-9.]/g, '')
+
+              // To number.
+              value = parseFloat(value)
+
+              // Not numeric?
+              if (isNaN(value)) {
+                return ''
+              }
+
+              // Format.
+              value = value.toLocaleString('en-us', {
+                currency: 'usd',
+                style: 'currency'
+              })
+
+              // Expose string.
+              return value
+            }}
+            maxlength={20}
+            value={1000}
+          />
+        </p>
+
+        <p>
+          <Input
+            label='UK currency (with mask)'
+            mask={(value = '') => {
+              // To string.
+              value = String(value)
+
+              // Ensure numeric.
+              value = value.replace(/[^0-9.]/g, '')
+
+              // To number.
+              value = parseFloat(value)
+
+              // Not numeric?
+              if (isNaN(value)) {
+                return ''
+              }
+
+              // Format.
+              value = value.toLocaleString('en-gb', {
+                currency: 'gbp',
+                style: 'currency'
+              })
+
+              // Expose string.
+              return value
+            }}
+            maxlength={20}
+            value={1000}
           />
         </p>
 

@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import {
   bind,
   exists,
+  regex,
   trim,
   unique
 } from '@t7/utils'
@@ -38,7 +39,7 @@ class Input extends React.Component {
     this.state = {
       id,
       oldValue: value,
-      value: mask(value)
+      value: mask(String(value))
     }
   }
 
@@ -63,7 +64,7 @@ class Input extends React.Component {
     ) {
       newState = {
         oldValue: value,
-        value: mask(value)
+        value: mask(String(value))
       }
     }
 
@@ -78,41 +79,76 @@ class Input extends React.Component {
       currentTarget: el = {}
     } = e
 
+    // To string.
+    value = String(value)
+
     // Set in conditional.
     let oldCaret
+    let oldSlice
 
     // Supports selection?
     if (typeof el.selectionStart === 'number') {
+      /*
+        Value: from start,
+        to caret position.
+      */
       oldCaret = el.selectionStart
+      oldSlice = value.slice(0, oldCaret)
     }
 
     // Format.
-    const newValue = this.props.mask(value)
+    value = this.props.mask(value)
 
     // Wait for re-render.
-    const timer = setTimeout(() => {
-      // Clear.
-      clearTimeout(timer)
-
+    window.requestAnimationFrame(() => {
       // Supports selection?
       if (
         exists(oldCaret) &&
         el === document.activeElement &&
         typeof el.setSelectionRange === 'function'
       ) {
-        const diff =
-          newValue.length - value.length
+        /*
+          Caret: Based on the diff
+          between old/new values.
+        */
+        const newSlice = value.slice(0, oldCaret)
 
-        const newCaret =
-          oldCaret - Math.abs(diff)
+        // Characters to match.
+        const rMatch = regex([
+          ',',
+          '.'
+        ])
 
-        // Move caret.
-        el.setSelectionRange(newCaret, newCaret)
+        // Characters to ignore.
+        const rIgnore = regex([
+          '/',
+          '-'
+        ])
+
+        // Check for special characters.
+        const newMatch = newSlice.match(rMatch) || []
+        const oldMatch = oldSlice.match(rMatch) || []
+
+        // Use value diff.
+        let diff = newSlice.length - oldSlice.length
+
+        // Use mask diff?
+        if (newMatch.length && oldMatch.length) {
+          diff = newMatch.length - oldMatch.length
+        }
+
+        // New caret.
+        const newCaret = oldCaret + diff
+
+        // Move caret?
+        if (!value.match(rIgnore)) {
+          el.setSelectionRange(newCaret, newCaret)
+        }
       }
-    }, 0)
+    })
 
     // Expose string.
-    return newValue
+    return value
   }
 
   // Change event.
@@ -230,13 +266,17 @@ Input.propTypes = {
   disabled: PropTypes.bool,
   id: PropTypes.string,
   label: PropTypes.string,
-  maxlength: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,
   readonly: PropTypes.bool,
   required: PropTypes.bool,
   type: PropTypes.string,
   width: PropTypes.string,
+
+  maxlength: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
 
   size: PropTypes.oneOfType([
     PropTypes.string,
