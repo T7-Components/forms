@@ -113,13 +113,13 @@ class Input extends React.Component {
         */
         const newSlice = value.slice(0, oldCaret)
 
-        // Characters to match.
+        // Match list.
         const rMatch = regex([
           ',',
           '.'
         ])
 
-        // Characters to ignore.
+        // Ignore list.
         const rIgnore = regex([
           '/',
           '-'
@@ -129,13 +129,13 @@ class Input extends React.Component {
         const newMatch = newSlice.match(rMatch) || []
         const oldMatch = oldSlice.match(rMatch) || []
 
-        // Use value diff.
-        let diff = newSlice.length - oldSlice.length
-
-        // Use mask diff?
-        if (newMatch.length && oldMatch.length) {
-          diff = newMatch.length - oldMatch.length
-        }
+        // Get diff.
+        const diff = (
+          newMatch.length ||
+          oldMatch.length
+            ? newMatch.length - oldMatch.length
+            : newSlice.length - oldSlice.length
+        )
 
         // New caret.
         const newCaret = oldCaret + diff

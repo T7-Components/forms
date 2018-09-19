@@ -2,6 +2,9 @@
 import React from 'react'
 import T from 'react-dom/test-utils'
 
+// Utility methods.
+import { trim } from '@t7/utils'
+
 // UI components.
 import { Input } from '../'
 
@@ -31,7 +34,7 @@ describe('Input', () => {
     required: true,
     size: 10,
     type: 'search',
-    value: 'example_value',
+    value: '$500.00',
     width: 'auto',
 
     // Events.
@@ -136,12 +139,12 @@ describe('Input', () => {
 
   it('handles "apply mask" event', () => {
     // Dummy value.
-    const value = 'VALUE'
+    const value = '$1,000.00'
 
     // Dummy event.
     const e = {
       currentTarget: {
-        selectionStart: 0,
+        selectionStart: 99,
         setSelectionRange: jest.fn()
       }
     }
@@ -152,29 +155,35 @@ describe('Input', () => {
     // Fire event.
     const newValue = el.applyMask(e, value)
 
+    const n = expect.any(Number)
+
     expect(e.currentTarget.setSelectionRange)
-      .toBeCalledWith(0, 0)
+      .toBeCalledWith(n, n)
 
     expect(newValue)
       .toBe(value)
   })
 
-  // ========================
-  // Test for "change" event.
-  // ========================
+  // ======================
+  // Test for "blur" event.
+  // ======================
 
   it('handles "change" event', () => {
     // Dummy value.
-    const BEFORE = ' FOO,  BAR '
-    const AFTER = 'FOO, BAR'
+    const value = ' FOO  BAR '
 
     // Dummy event.
     const e = {
       currentTarget: {
-        value: BEFORE
+        value,
+        selectionStart: 99,
+        setSelectionRange: jest.fn()
       },
       type: 'blur'
     }
+
+    // Simulate "active" state.
+    document.activeElement = e.currentTarget
 
     // Dummy object.
     const o = expect.any(Object)
@@ -183,7 +192,38 @@ describe('Input', () => {
     el.handleChange(e)
 
     expect(props.handleChange)
-      .toBeCalledWith(o, AFTER)
+      .toBeCalledWith(o, trim(value))
+  })
+
+  // ========================
+  // Test for "change" event.
+  // ========================
+
+  it('handles "change" event', () => {
+    // Dummy value.
+    const value = ' FOO  BAR '
+
+    // Dummy event.
+    const e = {
+      currentTarget: {
+        value,
+        selectionStart: 99,
+        setSelectionRange: jest.fn()
+      },
+      type: 'Not "blur" event'
+    }
+
+    // Simulate "active" state.
+    document.activeElement = e.currentTarget
+
+    // Dummy object.
+    const o = expect.any(Object)
+
+    // Fire event.
+    el.handleChange(e)
+
+    expect(props.handleChange)
+      .toBeCalledWith(o, value)
   })
 
   // =====================
@@ -196,8 +236,8 @@ describe('Input', () => {
       value: 'new_value',
 
       // Mask value.
-      mask: (value) => {
-        return value
+      mask: (value = '') => {
+        return value + '.'
       }
     }
 
@@ -211,6 +251,6 @@ describe('Input', () => {
       Input.getDerivedStateFromProps(newProps, oldState)
 
     expect(newState.value)
-      .toBe(newProps.value)
+      .toBe(newProps.mask(newProps.value))
   })
 })
