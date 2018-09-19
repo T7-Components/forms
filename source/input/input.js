@@ -209,7 +209,7 @@ class Input extends React.Component {
     let className = ['t7-input']
 
     if (
-      size ||
+      size > 0 ||
       width === 'auto'
     ) {
       className.push('t7-input--width-auto')
