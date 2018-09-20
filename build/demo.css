@@ -715,9 +715,13 @@ Form element "reset."
   }
 }
 
-.t7-input::-webkit-input-placeholder,
-.t7-textarea::-webkit-input-placeholder,
 .t7-textarea[data-has-placeholder="true"] {
+  color: #ccc;
+  opacity: 1;
+}
+
+.t7-input::-webkit-input-placeholder,
+.t7-textarea::-webkit-input-placeholder {
   color: #ccc;
   opacity: 1;
 }

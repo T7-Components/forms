@@ -71,7 +71,7 @@
   },
   "dependencies": {
     "@t7/render": "0.0.7",
-    "@t7/utils": "0.0.9",
+    "@t7/utils": "0.0.10",
     "prop-types": "^15.5.0",
     "react": "^16.5.1"
   }
