@@ -7,7 +7,6 @@ import ListInline from '@t7/list-inline'
 import {
   bind,
   formatAlphanumeric,
-  formatDate,
   formatInteger,
   formatMoneyDE,
   formatMoneyIN,
@@ -29,6 +28,8 @@ import {
   Button,
   Checkbox,
   Input,
+  InputDateUK,
+  InputDateUS,
   Radio,
   Select,
   Textarea,
@@ -259,10 +260,26 @@ class Demo extends React.Component {
         </p>
 
         <p>
-          <Input
-            label='Date input (with mask)'
-            placeholder='MM/DD/YYYY'
-            mask={formatDate}
+          <InputDateUK
+            label='UK date input (with mask)'
+            value='2018-12-31'
+            handleChange={(e, value, apiValue) => {
+              window.console.log(
+                'UK API date = "' + apiValue + '"'
+              )
+            }}
+          />
+        </p>
+
+        <p>
+          <InputDateUS
+            label='US date input (with mask)'
+            value='2018-12-31'
+            handleChange={(e, value, apiValue) => {
+              window.console.log(
+                'US API date = "' + apiValue + '"'
+              )
+            }}
           />
         </p>
 
