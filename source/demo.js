@@ -71,6 +71,7 @@ class Demo extends React.Component {
   // Set default state.
   defaultState () {
     this.state = {
+      controlledCheckboxBool: false,
       controlledInputValue: 'TEST',
       controlledSelectValue: ''
     }
