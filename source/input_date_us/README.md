@@ -4,9 +4,9 @@ import { InputDateUS } from '@t7/forms'
 
 This component handles formatting `"MMDDYYYY"` into `"MM/DD/YYYY"`.
 
-It supports the same props as a typical `<Input>` component, but the way it fires `handleChange` is slightly different. It includes an additional parameter, which represents an "API" format if the date is value.
+It supports the same props as a typical `<Input>` component, but the way it fires `handleChange` is slightly different. It includes an additional parameter, which represents an "API" format if the date is valid.
 
-In the following example, `apiValue` would be `""` if the date is invalid.
+In the following example, `apiValue` would be `""` if the value is invalid.
 
 ```js
 // Event callback.

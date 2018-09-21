@@ -4,18 +4,7 @@ import ReactDOM from 'react-dom'
 import ListInline from '@t7/list-inline'
 
 // Utility methods.
-import {
-  bind,
-  formatAlphanumeric,
-  formatInteger,
-  formatMoneyDE,
-  formatMoneyIN,
-  formatMoneyJP,
-  formatMoneyKR,
-  formatMoneyUK,
-  formatMoneyUS,
-  formatPhoneUS
-} from '@t7/utils'
+import { bind } from '@t7/utils'
 
 // CSS.
 import '../node_modules/@t7/list-inline/dist/index.css'
@@ -28,8 +17,17 @@ import {
   Button,
   Checkbox,
   Input,
+  InputAlphanumeric,
   InputDateUK,
   InputDateUS,
+  InputInteger,
+  InputMoneyDE,
+  InputMoneyIN,
+  InputMoneyJP,
+  InputMoneyKR,
+  InputMoneyUK,
+  InputMoneyUS,
+  InputPhoneUS,
   Radio,
   Select,
   Textarea,
@@ -284,80 +282,94 @@ class Demo extends React.Component {
         </p>
 
         <p>
-          <Input
+          <InputPhoneUS
             label='US phone input (with mask)'
-            placeholder='000-000-0000'
-            mask={formatPhoneUS}
           />
         </p>
 
         <p>
-          <Input
+          <InputAlphanumeric
             label='Alphanumeric input (with mask)'
             placeholder='Letters and numbers only'
-            mask={formatAlphanumeric}
           />
         </p>
 
         <p>
-          <Input
+          <InputInteger
             label='Integer input (with mask)'
             placeholder='Integers only'
-            mask={formatInteger}
           />
         </p>
 
         <p>
-          <Input
+          <InputMoneyDE
             label='German currency (with mask)'
-            mask={formatMoneyDE}
-            maxlength={20}
             value={1000}
+            handleChange={(e, value, apiValue) => {
+              window.console.log(
+                'DE API currency = ' + apiValue
+              )
+            }}
           />
         </p>
 
         <p>
-          <Input
+          <InputMoneyIN
             label='Indian currency (with mask)'
-            mask={formatMoneyIN}
-            maxlength={20}
             value={1000}
+            handleChange={(e, value, apiValue) => {
+              window.console.log(
+                'IN API currency = ' + apiValue
+              )
+            }}
           />
         </p>
 
         <p>
-          <Input
+          <InputMoneyJP
             label='Japanese currency (with mask)'
-            mask={formatMoneyJP}
-            maxlength={20}
             value={1000}
+            handleChange={(e, value, apiValue) => {
+              window.console.log(
+                'JP API currency = ' + apiValue
+              )
+            }}
           />
         </p>
 
         <p>
-          <Input
+          <InputMoneyKR
             label='Korean currency (with mask)'
-            mask={formatMoneyKR}
-            maxlength={20}
             value={1000}
+            handleChange={(e, value, apiValue) => {
+              window.console.log(
+                'KR API currency = ' + apiValue
+              )
+            }}
           />
         </p>
 
         <p>
-          <Input
+          <InputMoneyUK
             label='UK currency (with mask)'
-            mask={formatMoneyUK}
-            maxlength={20}
             value={1000}
+            handleChange={(e, value, apiValue) => {
+              window.console.log(
+                'UK API currency = ' + apiValue
+              )
+            }}
           />
         </p>
 
         <p>
-          <Input
+          <InputMoneyUS
             label='US currency (with mask)'
-            mask={formatMoneyUS}
-            maxlength={20}
             value={1000}
+            handleChange={(e, value, apiValue) => {
+              window.console.log(
+                'US API currency = ' + apiValue
+              )
+            }}
           />
         </p>
 

@@ -586,6 +586,7 @@ textarea,
   display: inherit;
   position: absolute;
 }
+
 /*
 Body.
 ==================================================
@@ -635,6 +636,7 @@ blockquote {
   margin: 0;
   margin-bottom: 20px;
 }
+
 /*
 Form element "reset."
 ============================================================
@@ -1077,3 +1079,4 @@ Disabled state.
 .t7-textarea[disabled] {
   resize: none;
 }
+
