@@ -23,6 +23,9 @@ const classNameForLabel = 'string'
 // Default: none.
 const disabled = true
 
+// Default: none.
+const errorMessage = 'string'
+
 // Ensured unique, if blank.
 const id = 'string'
 
@@ -84,6 +87,7 @@ const handleChange = (e, value) => {
   ariaControls={ariaControls}
   autofocus={autofocus}
   disabled={disabled}
+  errorMessage={errorMessage}
   id={id}
   name={name}
   options={options}

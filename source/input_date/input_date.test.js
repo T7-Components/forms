@@ -199,4 +199,25 @@ describe('InputDate -- "DD/MM/YYYY"', () => {
     expect(newState.errorMessage)
       .toBe('Date is invalid')
   })
+
+  // =====================
+  // Test for props error.
+  // =====================
+
+  it('handles props error', () => {
+    // Dummy props.
+    const props = {
+      errorMessage: 'CUSTOM ERROR'
+    }
+
+    // Dummy state.
+    const state = {}
+
+    // Fire event.
+    const newState =
+      InputDate.getDerivedStateFromProps(props, state)
+
+    expect(newState.errorMessage)
+      .toBe(props.errorMessage)
+  })
 })

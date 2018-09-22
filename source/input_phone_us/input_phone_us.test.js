@@ -67,4 +67,49 @@ describe('InputPhoneUS', () => {
         ''
       )
   })
+
+  // ============================
+  // Test for props/state change.
+  // ============================
+
+  it('handles props/state change', () => {
+    // Dummy props.
+    const props = {
+      value: '1-2-3-4-5-6-'
+    }
+
+    // Dummy state.
+    const state = {
+      errorMessage: '',
+      oldValue: '555-867-5309'
+    }
+
+    // Fire event.
+    const newState =
+      InputPhoneUS.getDerivedStateFromProps(props, state)
+
+    expect(newState.errorMessage)
+      .toBe('Phone format is invalid')
+  })
+
+  // =====================
+  // Test for props error.
+  // =====================
+
+  it('handles props error', () => {
+    // Dummy props.
+    const props = {
+      errorMessage: 'CUSTOM ERROR'
+    }
+
+    // Dummy state.
+    const state = {}
+
+    // Fire event.
+    const newState =
+      InputPhoneUS.getDerivedStateFromProps(props, state)
+
+    expect(newState.errorMessage)
+      .toBe(props.errorMessage)
+  })
 })

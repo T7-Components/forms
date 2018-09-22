@@ -145,11 +145,14 @@ Error message.
 
 .t7-input__error {
   color: #f00;
-  display: inline-block;
+  display: block;
   font-family: Verdana, sans-serif;
   font-size: 11px;
+  overflow: hidden;
   padding-top: 5px;
   padding-left: 7px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .t7-input__error::before {
@@ -157,6 +160,17 @@ Error message.
 
   /* Equal to: "▲". */
   content: "\25B2";
+}
+
+/*
+  Add offset, because `Textdiv` has its own margin.
+
+  This is due to the fact that a `<div>` cannot be
+  put inside a typical wrapping element like `<p>`.
+*/
+div.t7-textarea + .t7-input__error {
+  margin-top: -20px;
+  margin-bottom: 20px;
 }
 
 /*

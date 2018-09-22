@@ -46,6 +46,9 @@ describe('ErrorMessage', () => {
   it('has correct error message', () => {
     expect(span.textContent)
       .toBe(trim(props.errorMessage))
+
+    expect(span.title)
+      .toBe(trim(props.errorMessage))
   })
 
   // ======================

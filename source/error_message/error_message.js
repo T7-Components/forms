@@ -23,6 +23,7 @@ class ErrorMessage extends React.Component {
     const propsForError = {
       children: errorMessage,
       style: styleForError,
+      title: errorMessage,
 
       // Build class name.
       className: trim(

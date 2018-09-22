@@ -158,12 +158,15 @@ class InputDate extends React.Component {
     // Props.
     const {
       dateFormat,
-      value
+      value,
+      errorMessage: propsErrorMessage
     } = this.props
 
     // Error message.
-    const errorMessage =
+    const errorMessage = (
+      propsErrorMessage ||
       that.getErrorMessage(value, dateFormat)
+    )
 
     // Update.
     this.state = {
@@ -183,7 +186,8 @@ class InputDate extends React.Component {
     // Props.
     const {
       dateFormat,
-      value
+      value,
+      errorMessage: propsErrorMessage
     } = props
 
     // New error.
@@ -194,7 +198,11 @@ class InputDate extends React.Component {
     let newState = null
 
     // Update?
-    if (
+    if (propsErrorMessage) {
+      newState = {
+        errorMessage: propsErrorMessage
+      }
+    } else if (
       value !== oldValue &&
       exists(newErrorMessage) &&
       newErrorMessage !== oldErrorMessage
@@ -211,15 +219,20 @@ class InputDate extends React.Component {
   // Change event.
   handleChange (e, value = '') {
     // Props.
-    const { dateFormat } = this.props
+    const {
+      dateFormat,
+      errorMessage: propsErrorMessage
+    } = this.props
 
     // Get API value.
     const apiValue =
       that.convertToApiValue(value, dateFormat)
 
     // Get error message.
-    const errorMessage =
+    const errorMessage = (
+      propsErrorMessage ||
       that.getErrorMessage(value, dateFormat)
+    )
 
     // Update.
     this.setState({ errorMessage })
@@ -272,6 +285,7 @@ class InputDate extends React.Component {
 // Validation.
 InputDate.propTypes = {
   dateFormat: PropTypes.string,
+  errorMessage: PropTypes.string,
   value: PropTypes.string,
 
   // Events.

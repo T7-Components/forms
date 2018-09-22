@@ -172,6 +172,7 @@ class Demo extends React.Component {
 
         <p>
           <Select
+            required // true
             label='Master select'
             options={OPTIONS}
             value={controlledSelectValue}
@@ -202,6 +203,7 @@ class Demo extends React.Component {
 
         <p>
           <Input
+            required // true
             label='Master input'
             value={controlledInputValue}
             handleChange={handleChangeControlledInput}
@@ -250,26 +252,9 @@ class Demo extends React.Component {
         </h2>
 
         <p>
-          <Input
-            required // true
-            label='Input'
-            placeholder='Input placeholder'
-          />
-        </p>
-
-        <p>
-          <Input
-            required // true
-            errorMessage='Error: Something is wrong!'
-            label='Input with error'
-            placeholder='Input placeholder'
-          />
-        </p>
-
-        <p>
           <InputDateUK
             label='UK date input (with mask)'
-            value='2018-12-31'
+            value='2018-13-32'
             handleChange={(e, value, apiValue) => {
               window.console.log(
                 'UK API date = "' + apiValue + '"'
@@ -281,7 +266,7 @@ class Demo extends React.Component {
         <p>
           <InputDateUS
             label='US date input (with mask)'
-            value='2018-12-31'
+            value='2018-13-32'
             handleChange={(e, value, apiValue) => {
               window.console.log(
                 'US API date = "' + apiValue + '"'
@@ -293,6 +278,12 @@ class Demo extends React.Component {
         <p>
           <InputPhoneUS
             label='US phone input (with mask)'
+            value='1-2-3-4-5-6-'
+            handleChange={(e, value, apiValue) => {
+              window.console.log(
+                'US API phone = ' + apiValue
+              )
+            }}
           />
         </p>
 
@@ -401,6 +392,7 @@ class Demo extends React.Component {
         <p>
           <Select
             disabled // true
+            errorMessage='Select: Example error'
             label='Select (disabled)'
             options={OPTIONS}
           />
@@ -426,6 +418,7 @@ class Demo extends React.Component {
         <p>
           <Textarea
             disabled // true
+            errorMessage='Textarea: Example error'
             label='Textarea (disabled)'
             placeholder='Textarea placeholder'
           />
@@ -446,6 +439,7 @@ class Demo extends React.Component {
 
         <Textdiv
           disabled // true
+          errorMessage='Textdiv: Example error'
           label='Textdiv (disabled)'
           placeholder='Textdiv placeholder'
         />
