@@ -7,6 +7,7 @@ describe('T7 Forms -- index.js', () => {
   const componentList = [
     'Button',
     'Checkbox',
+    'ErrorMessage',
     'Input',
     'InputAlphanumeric',
     'InputDate',

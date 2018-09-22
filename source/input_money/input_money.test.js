@@ -30,7 +30,7 @@ describe('InputMoney', () => {
     />
   )
 
-  // Get input.
+  // Get content.
   const input =
     T.findRenderedDOMComponentWithTag(el, 'input')
 

@@ -10,7 +10,10 @@ import {
 } from '@t7/utils'
 
 // UI components.
-import { Label } from '../'
+import {
+  ErrorMessage,
+  Label
+} from '../'
 
 // Define class.
 class Select extends React.Component {
@@ -124,19 +127,31 @@ class Select extends React.Component {
     // Props.
     const {
       autofocus,
+      classNameForAbbr,
+      classNameForError,
+      classNameForInput,
+      classNameForLabel,
       disabled,
+      errorMessage,
       label,
       name,
       readonly,
       required,
+      styleForAbbr,
+      styleForError,
+      styleForInput,
+      styleForLabel,
       width
     } = this.props
 
     // Events.
     const { handleChange } = this
 
-    // Default class="…".
-    let className = ['t7-select']
+    // Build class name.
+    let className = [
+      't7-select',
+      classNameForInput
+    ]
 
     if (width === 'auto') {
       className.push('t7-select--width-auto')
@@ -145,11 +160,22 @@ class Select extends React.Component {
     // Convert to string.
     className = className.join(' ')
 
+    // Props for error.
+    const propsForError = {
+      classNameForError,
+      errorMessage,
+      styleForError
+    }
+
     // Props for label.
     const propsForLabel = {
+      classNameForAbbr,
+      classNameForLabel,
       id,
       label,
-      required
+      required,
+      styleForAbbr,
+      styleForLabel
     }
 
     // Props for input.
@@ -162,7 +188,8 @@ class Select extends React.Component {
       value,
       autoFocus: autofocus,
       onChange: handleChange,
-      readOnly: readonly
+      readOnly: readonly,
+      style: styleForInput
     }
 
     // Expose UI.
@@ -177,6 +204,10 @@ class Select extends React.Component {
           {this.buildList()}
         </select>
 
+        <ErrorMessage
+          {...propsForError}
+        />
+
       </React.Fragment>
     )
   }
@@ -185,6 +216,10 @@ class Select extends React.Component {
 // Validation.
 Select.propTypes = {
   autofocus: PropTypes.bool,
+  classNameForAbbr: PropTypes.string,
+  classNameForError: PropTypes.string,
+  classNameForInput: PropTypes.string,
+  classNameForLabel: PropTypes.string,
   disabled: PropTypes.bool,
   id: PropTypes.string,
   label: PropTypes.string,
@@ -192,6 +227,10 @@ Select.propTypes = {
   options: PropTypes.array,
   readonly: PropTypes.bool,
   required: PropTypes.bool,
+  styleForAbbr: PropTypes.object,
+  styleForError: PropTypes.object,
+  styleForInput: PropTypes.object,
+  styleForLabel: PropTypes.object,
   width: PropTypes.string,
 
   // Forced value.

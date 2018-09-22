@@ -13,6 +13,18 @@ It accepts the following `props`.
 const autofocus = true
 
 // Default: none.
+const classNameForAbbr = 'string'
+
+// Default: none.
+const classNameForError = 'string'
+
+// Default: none.
+const classNameForInput = 'string'
+
+// Default: none.
+const classNameForLabel = 'string'
+
+// Default: none.
 const disabled = true
 
 // Ensured unique, if blank.
@@ -32,6 +44,18 @@ const required = true
 
 // Default: none.
 const size = 10
+
+// Default: none.
+const styleForAbbr = {color: 'red'}
+
+// Default: none.
+const styleForError = {color: 'red'}
+
+// Default: none.
+const styleForInput = {color: 'red'}
+
+// Default: none.
+const styleForLabel = {color: 'red'}
 
 // Default: "text".
 const type = 'password'
@@ -58,6 +82,18 @@ const handleChange = (e, value) => {
   placeholder={placeholder}
   required={required}
   type={type}
+
+  // Extra class names.
+  classNameForAbbr={classNameForAbbr}
+  classNameForError={classNameForError}
+  classNameForInput={classNameForInput}
+  classNameForLabel={classNameForLabel}
+
+  // Inline styles.
+  styleNameForAbbr={styleNameForAbbr}
+  styleNameForError={styleNameForError}
+  styleNameForInput={styleNameForInput}
+  styleNameForLabel={styleNameForLabel}
 
   // Width overrides.
   size={size}

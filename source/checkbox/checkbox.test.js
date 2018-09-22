@@ -7,8 +7,18 @@ import { Checkbox } from '../'
 
 // Describe `<Component/>` name.
 describe('Checkbox', () => {
+  // Dummy class name.
+  const className = 'CLASS_NAME'
+
+  // Dummy style.
+  const style = {
+    fontWeight: 'bold'
+  }
+
   // Props.
   const props = {
+    classNameForInput: className,
+    classNameForLabel: className,
     checked: true,
     disabled: true,
     id: 'example_id',
@@ -16,6 +26,8 @@ describe('Checkbox', () => {
     name: 'example_name',
     required: true,
     value: 'example_value',
+    styleForInput: style,
+    styleForLabel: style,
 
     // Events.
     handleChange: jest.fn()
@@ -32,9 +44,36 @@ describe('Checkbox', () => {
   const parent =
     T.findRenderedDOMComponentWithTag(el, 'label')
 
-  // Get input.
+  // Get content.
   const input =
     parent.querySelector('input')
+
+  const fakeInput =
+    parent.querySelector('input + span')
+
+  // ====================
+  // Test for class name.
+  // ====================
+
+  it('has correct class name', () => {
+    expect(fakeInput.className)
+      .toContain(className)
+
+    expect(parent.className)
+      .toContain(className)
+  })
+
+  // ======================
+  // Test for inline style.
+  // ======================
+
+  it('has correct class names', () => {
+    expect(fakeInput.style.fontWeight)
+      .toBe(style.fontWeight)
+
+    expect(parent.style.fontWeight)
+      .toBe(style.fontWeight)
+  })
 
   // ===============
   // Test for label.

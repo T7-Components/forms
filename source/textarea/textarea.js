@@ -6,12 +6,16 @@ import PropTypes from 'prop-types'
 import {
   bind,
   exists,
+  trim,
   trimMultiLine,
   unique
 } from '@t7/utils'
 
 // UI components.
-import { Label } from '../'
+import {
+  ErrorMessage,
+  Label
+} from '../'
 
 // Define class.
 class Textarea extends React.Component {
@@ -108,27 +112,56 @@ class Textarea extends React.Component {
     // Props.
     const {
       autofocus,
+      classNameForAbbr,
+      classNameForError,
+      classNameForInput,
+      classNameForLabel,
       disabled,
+      errorMessage,
       label,
       maxlength,
       name,
       placeholder,
       readonly,
-      required
+      required,
+      styleForAbbr,
+      styleForError,
+      styleForInput,
+      styleForLabel
     } = this.props
 
     // Events.
     const { handleChange } = this
 
+    // Build class name.
+    const className = trim(
+      [
+        't7-textarea',
+        classNameForInput
+      ].join(' ')
+    )
+
+    // Props for error.
+    const propsForError = {
+      classNameForError,
+      errorMessage,
+      styleForError
+    }
+
     // Props for label.
     const propsForLabel = {
+      classNameForAbbr,
+      classNameForLabel,
       id,
       label,
-      required
+      required,
+      styleForAbbr,
+      styleForLabel
     }
 
     // Props for input.
     const propsForInput = {
+      className,
       disabled,
       id,
       name,
@@ -136,11 +169,11 @@ class Textarea extends React.Component {
       required,
       value,
       autoFocus: autofocus,
-      className: 't7-textarea',
       maxLength: maxlength,
       onBlur: handleChange,
       onChange: handleChange,
-      readOnly: readonly
+      readOnly: readonly,
+      style: styleForInput
     }
 
     // Expose UI.
@@ -155,6 +188,10 @@ class Textarea extends React.Component {
           {...propsForInput}
         />
 
+        <ErrorMessage
+          {...propsForError}
+        />
+
       </React.Fragment>
     )
   }
@@ -163,6 +200,10 @@ class Textarea extends React.Component {
 // Validation.
 Textarea.propTypes = {
   autofocus: PropTypes.bool,
+  classNameForAbbr: PropTypes.string,
+  classNameForError: PropTypes.string,
+  classNameForInput: PropTypes.string,
+  classNameForLabel: PropTypes.string,
   disabled: PropTypes.bool,
   id: PropTypes.string,
   label: PropTypes.string,
@@ -170,6 +211,10 @@ Textarea.propTypes = {
   placeholder: PropTypes.string,
   readonly: PropTypes.bool,
   required: PropTypes.bool,
+  styleForAbbr: PropTypes.object,
+  styleForError: PropTypes.object,
+  styleForInput: PropTypes.object,
+  styleForLabel: PropTypes.object,
 
   maxlength: PropTypes.oneOfType([
     PropTypes.string,

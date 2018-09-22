@@ -258,6 +258,15 @@ class Demo extends React.Component {
         </p>
 
         <p>
+          <Input
+            required // true
+            errorMessage='Error: Something is wrong!'
+            label='Input with error'
+            placeholder='Input placeholder'
+          />
+        </p>
+
+        <p>
           <InputDateUK
             label='UK date input (with mask)'
             value='2018-12-31'

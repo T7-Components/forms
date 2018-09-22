@@ -30,6 +30,7 @@ Form element "reset."
   outline: 0;
   padding: 0;
 
+  font-family: Arial, sans-serif;
   font-size: inherit;
   vertical-align: middle;
 }
@@ -123,18 +124,39 @@ Labels.
 ============================================================
 */
 
-.t7-label {
+.t7-input__label {
   display: inline-block;
   padding-bottom: 5px;
 }
 
-.t7-label__abbr[title="Required"] {
+.t7-input__label__abbr[title="Required"] {
   color: #c96;
   font-family: "Courier New", monospace;
   font-size: 16px;
   font-weight: bold;
   line-height: 0;
   text-decoration: none;
+}
+
+/*
+Error message.
+============================================================
+*/
+
+.t7-input__error {
+  color: #f00;
+  display: inline-block;
+  font-family: Verdana, sans-serif;
+  font-size: 11px;
+  padding-top: 5px;
+  padding-left: 7px;
+}
+
+.t7-input__error::before {
+  padding-right: 3px;
+
+  /* Equal to: "▲". */
+  content: "\25B2";
 }
 
 /*
@@ -149,7 +171,7 @@ Shared styles.
   border: 1px solid #999;
   border-radius: 3px;
   color: #000;
-  padding: 0.2em 0.5em;
+  padding: 3px 6px;
   width: 100%;
 }
 

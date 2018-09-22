@@ -25,10 +25,24 @@ describe('Input', () => {
     })
   })
 
+  // Dummy class name.
+  const className = 'CLASS_NAME'
+
+  // Dummy style.
+  const style = {
+    fontWeight: 'bold'
+  }
+
   // Dummy props.
   const props = {
+    classNameForAbbr: className,
+    classNameForError: className,
+    classNameForInput: className,
+    classNameForLabel: className,
     disabled: true,
+    errorMessage: 'example_error',
     id: 'example_id',
+    label: 'example_label',
     name: 'example_name',
     placeholder: 'example_placeholder',
     required: true,
@@ -36,6 +50,10 @@ describe('Input', () => {
     type: 'search',
     value: '$500.00',
     width: 'auto',
+    styleForAbbr: style,
+    styleForError: style,
+    styleForInput: style,
+    styleForLabel: style,
 
     // Events.
     handleChange: jest.fn()
@@ -48,9 +66,63 @@ describe('Input', () => {
     />
   )
 
-  // Get input.
+  // Get content.
+  const abbr =
+    T.findRenderedDOMComponentWithTag(el, 'abbr')
+
+  const errorMessage =
+    T.findRenderedDOMComponentWithTag(el, 'span')
+
   const input =
     T.findRenderedDOMComponentWithTag(el, 'input')
+
+  const label =
+    T.findRenderedDOMComponentWithTag(el, 'label')
+
+  // ====================
+  // Test for class name.
+  // ====================
+
+  it('has correct class name', () => {
+    expect(abbr.className)
+      .toContain(className)
+
+    expect(errorMessage.className)
+      .toContain(className)
+
+    expect(input.className)
+      .toContain(className)
+
+    expect(label.className)
+      .toContain(className)
+  })
+
+  // ======================
+  // Test for inline style.
+  // ======================
+
+  it('has correct class names', () => {
+    expect(abbr.style.fontWeight)
+      .toBe(style.fontWeight)
+
+    expect(errorMessage.style.fontWeight)
+      .toBe(style.fontWeight)
+
+    expect(input.style.fontWeight)
+      .toBe(style.fontWeight)
+
+    expect(label.style.fontWeight)
+      .toBe(style.fontWeight)
+  })
+
+  // ===============
+  // Test for label.
+  // ===============
+
+  it('is has correct label', () => {
+    expect(label.textContent)
+      .toBe(props.label + ' *')
+  })
 
   // ==================
   // Test for disabled.

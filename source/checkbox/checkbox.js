@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import {
   bind,
   exists,
+  trim,
   unique
 } from '@t7/utils'
 
@@ -95,33 +96,56 @@ class Checkbox extends React.Component {
     // Props
     const {
       autofocus,
+      classNameForInput,
+      classNameForLabel,
       disabled,
       label,
       name,
       required,
       type,
-      value
+      value,
+      styleForInput,
+      styleForLabel
     } = this.props
 
     // Events.
     const { handleChange } = this
 
-    // Set in conditional.
-    let inputClassName
-    let labelClassName
-    let spanClassName
+    // Is radio?
+    const isRadio = (
+      type === 'radio'
+    )
 
-    // Checkbox?
-    if (type === 'checkbox') {
-      inputClassName = 't7-checkbox'
-      labelClassName = 't7-checkbox__label'
-      spanClassName = 't7-checkbox__fake'
+    // Props for label.
+    const propsForLabel = {
+      htmlFor: id,
+      style: styleForLabel,
 
-    // Radio?
-    } else if (type === 'radio') {
-      inputClassName = 't7-radio'
-      labelClassName = 't7-radio__label'
-      spanClassName = 't7-radio__fake'
+      // Build class name.
+      className: trim(
+        [
+          isRadio
+            ? 't7-radio__label'
+            : 't7-checkbox__label',
+          classNameForLabel
+        ].join(' ')
+      )
+    }
+
+    // Props for span.
+    const propsForSpan = {
+      'aria-hidden': true,
+      style: styleForInput,
+
+      // Build class name.
+      className: trim(
+        [
+          isRadio
+            ? 't7-radio__fake'
+            : 't7-checkbox__fake',
+          classNameForInput
+        ].join(' ')
+      )
     }
 
     // Props for input.
@@ -133,9 +157,15 @@ class Checkbox extends React.Component {
       type,
       value,
       autoFocus: autofocus,
-      className: inputClassName,
       onChange: handleChange,
-      onFocus: handleChange
+      onFocus: handleChange,
+
+      // Build class name.
+      className: (
+        isRadio
+          ? 't7-radio'
+          : 't7-checkbox'
+      )
     }
 
     // Radio?
@@ -149,18 +179,14 @@ class Checkbox extends React.Component {
 
     // Expose UI.
     return (
-      <label
-        htmlFor={id}
-        className={labelClassName}
-      >
+      <label {...propsForLabel}>
 
         <input
           {...propsForInput}
         />
 
         <span
-          aria-hidden // true
-          className={spanClassName}
+          {...propsForSpan}
         />
 
         {label}
@@ -173,12 +199,16 @@ class Checkbox extends React.Component {
 // Validation.
 Checkbox.propTypes = {
   autofocus: PropTypes.bool,
+  classNameForInput: PropTypes.string,
+  classNameForLabel: PropTypes.string,
   disabled: PropTypes.bool,
   id: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string,
   required: PropTypes.bool,
   type: PropTypes.string,
+  styleForInput: PropTypes.object,
+  styleForLabel: PropTypes.object,
 
   // Alphanumeric.
   value: PropTypes.oneOfType([

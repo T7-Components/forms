@@ -27,7 +27,7 @@ describe('Radio', () => {
   const parent =
     T.findRenderedDOMComponentWithTag(el, 'label')
 
-  // Get input.
+  // Get content.
   const input =
     parent.querySelector('input')
 

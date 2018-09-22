@@ -7,15 +7,32 @@ import { Textarea } from '../'
 
 // Describe `<Component/>` name.
 describe('Textarea', () => {
+  // Dummy class name.
+  const className = 'CLASS_NAME'
+
+  // Dummy style.
+  const style = {
+    fontWeight: 'bold'
+  }
+
   // Dummy props.
   const props = {
+    classNameForAbbr: className,
+    classNameForError: className,
+    classNameForInput: className,
+    classNameForLabel: className,
     disabled: true,
+    errorMessage: 'example_error',
     id: 'example_id',
     label: 'example_label',
     name: 'example_name',
     placeholder: 'example_placeholder',
     required: true,
     value: 'example_value',
+    styleForAbbr: style,
+    styleForError: style,
+    styleForInput: style,
+    styleForLabel: style,
 
     // Events.
     handleChange: jest.fn()
@@ -29,11 +46,53 @@ describe('Textarea', () => {
   )
 
   // Get content.
+  const abbr =
+    T.findRenderedDOMComponentWithTag(el, 'abbr')
+
+  const errorMessage =
+    T.findRenderedDOMComponentWithTag(el, 'span')
+
   const label =
     T.findRenderedDOMComponentWithTag(el, 'label')
 
   const textarea =
     T.findRenderedDOMComponentWithTag(el, 'textarea')
+
+  // ====================
+  // Test for class name.
+  // ====================
+
+  it('has correct class name', () => {
+    expect(abbr.className)
+      .toContain(className)
+
+    expect(errorMessage.className)
+      .toContain(className)
+
+    expect(textarea.className)
+      .toContain(className)
+
+    expect(label.className)
+      .toContain(className)
+  })
+
+  // ======================
+  // Test for inline style.
+  // ======================
+
+  it('has correct class names', () => {
+    expect(abbr.style.fontWeight)
+      .toBe(style.fontWeight)
+
+    expect(errorMessage.style.fontWeight)
+      .toBe(style.fontWeight)
+
+    expect(textarea.style.fontWeight)
+      .toBe(style.fontWeight)
+
+    expect(label.style.fontWeight)
+      .toBe(style.fontWeight)
+  })
 
   // ===============
   // Test for label.

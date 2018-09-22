@@ -3,34 +3,65 @@ import React from 'react'
 import Render from '@t7/render'
 import PropTypes from 'prop-types'
 
+// Utility methods.
+import { trim } from '@t7/utils'
+
 // Define class.
 class Label extends React.Component {
   // Render method.
   render () {
     // Props.
     const {
-      id,
+      classNameForAbbr,
+      classNameForLabel,
       label,
-      required
+      required,
+      styleForAbbr,
+      styleForLabel,
+      id: htmlFor
     } = this.props
+
+    // Props for label.
+    const propsForLabel = {
+      htmlFor,
+      style: styleForLabel,
+
+      // Build class name.
+      className: trim(
+        [
+          't7-input__label',
+          classNameForLabel
+        ].join(' ')
+      )
+    }
+
+    // Props for abbr.
+    const propsForAbbr = {
+      children: '*',
+      title: 'Required',
+      style: styleForAbbr,
+
+      // Build class name.
+      className: trim(
+        [
+          't7-input__label__abbr',
+          classNameForAbbr
+        ].join(' ')
+      )
+    }
 
     // Expose UI.
     return (
       <Render if={label}>
 
-        <label
-          className='t7-label'
-          htmlFor={id}
-        >
+        <label {...propsForLabel}>
 
           {label}
 
           <Render if={required}>
             {' '}
             <abbr
-              children='*'
-              className='t7-label__abbr'
-              title='Required'
+              {...propsForAbbr}
             />
           </Render>
 
@@ -43,9 +74,13 @@ class Label extends React.Component {
 
 // Validation.
 Label.propTypes = {
+  classNameForAbbr: PropTypes.string,
+  classNameForLabel: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  styleForAbbr: PropTypes.object,
+  styleForLabel: PropTypes.object
 }
 
 // Export.

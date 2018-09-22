@@ -1,6 +1,7 @@
 // Import all.
 import Button from './button/button'
 import Checkbox from './checkbox/checkbox'
+import ErrorMessage from './error_message/error_message'
 import Input from './input/input'
 import InputAlphanumeric from './input_alphanumeric/input_alphanumeric'
 import InputDate from './input_date/input_date'
@@ -25,6 +26,7 @@ import Textdiv from './textdiv/textdiv'
 export {
   Button,
   Checkbox,
+  ErrorMessage,
   Input,
   InputAlphanumeric,
   InputDate,

@@ -16,7 +16,10 @@ import {
 } from '@t7/utils'
 
 // UI components.
-import { Label } from '../'
+import {
+  ErrorMessage,
+  Label
+} from '../'
 
 // Define class.
 class Textdiv extends React.Component {
@@ -134,12 +137,21 @@ class Textdiv extends React.Component {
     // Props.
     const {
       autofocus,
+      classNameForAbbr,
+      classNameForError,
+      classNameForInput,
+      classNameForLabel,
       disabled,
+      errorMessage,
       label,
       name,
       placeholder,
       readonly,
-      required
+      required,
+      styleForAbbr,
+      styleForError,
+      styleForInput,
+      styleForLabel
     } = this.props
 
     // Get value.
@@ -164,15 +176,35 @@ class Textdiv extends React.Component {
       handlePaste
     } = this
 
+    // Build class name.
+    const className = trim(
+      [
+        't7-textarea',
+        classNameForInput
+      ].join(' ')
+    )
+
+    // Props for error.
+    const propsForError = {
+      classNameForError,
+      errorMessage,
+      styleForError
+    }
+
     // Props for label.
     const propsForLabel = {
+      classNameForAbbr,
+      classNameForLabel,
       id,
       label,
-      required
+      required,
+      styleForAbbr,
+      styleForLabel
     }
 
     // Props for input.
     const propsForInput = {
+      className,
       dangerouslySetInnerHTML,
       disabled,
       id,
@@ -181,15 +213,13 @@ class Textdiv extends React.Component {
       required,
       value,
       autoFocus: autofocus,
-      className: 't7-textarea',
-      readOnly: readonly,
-
-      // Events.
       onBlur: handleKeyUp,
       onFocus: handleFocus,
       onInput: handleChange,
       onKeyUp: handleKeyUp,
       onPaste: handlePaste,
+      readOnly: readonly,
+      style: styleForInput,
 
       contentEditable: (
         !disabled &&
@@ -220,6 +250,10 @@ class Textdiv extends React.Component {
           {...propsForInput}
         />
 
+        <ErrorMessage
+          {...propsForError}
+        />
+
       </React.Fragment>
     )
   }
@@ -228,6 +262,10 @@ class Textdiv extends React.Component {
 // Validation.
 Textdiv.propTypes = {
   autofocus: PropTypes.bool,
+  classNameForAbbr: PropTypes.string,
+  classNameForError: PropTypes.string,
+  classNameForInput: PropTypes.string,
+  classNameForLabel: PropTypes.string,
   disabled: PropTypes.bool,
   id: PropTypes.string,
   label: PropTypes.string,
@@ -235,6 +273,10 @@ Textdiv.propTypes = {
   placeholder: PropTypes.string,
   readonly: PropTypes.bool,
   required: PropTypes.bool,
+  styleForAbbr: PropTypes.object,
+  styleForError: PropTypes.object,
+  styleForInput: PropTypes.object,
+  styleForLabel: PropTypes.object,
 
   // Forced value.
   value: PropTypes.oneOfType([

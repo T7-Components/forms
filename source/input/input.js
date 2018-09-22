@@ -12,7 +12,10 @@ import {
 } from '@t7/utils'
 
 // UI components.
-import { Label } from '../'
+import {
+  ErrorMessage,
+  Label
+} from '../'
 
 // Define class.
 class Input extends React.Component {
@@ -190,7 +193,12 @@ class Input extends React.Component {
     // Props.
     const {
       autofocus,
+      classNameForAbbr,
+      classNameForError,
+      classNameForInput,
+      classNameForLabel,
       disabled,
+      errorMessage,
       label,
       maxlength,
       name,
@@ -198,6 +206,10 @@ class Input extends React.Component {
       readonly,
       required,
       size,
+      styleForAbbr,
+      styleForError,
+      styleForInput,
+      styleForLabel,
       type,
       width
     } = this.props
@@ -205,8 +217,11 @@ class Input extends React.Component {
     // Events.
     const { handleChange } = this
 
-    // Default class name.
-    let className = ['t7-input']
+    // Build class name.
+    let className = [
+      't7-input',
+      classNameForInput
+    ]
 
     if (
       size > 0 ||
@@ -216,13 +231,26 @@ class Input extends React.Component {
     }
 
     // Convert to string.
-    className = className.join(' ')
+    className = trim(
+      className.join(' ')
+    )
+
+    // Props for error.
+    const propsForError = {
+      classNameForError,
+      errorMessage,
+      styleForError
+    }
 
     // Props for label.
     const propsForLabel = {
+      classNameForAbbr,
+      classNameForLabel,
       id,
       label,
-      required
+      required,
+      styleForAbbr,
+      styleForLabel
     }
 
     // Props for input.
@@ -240,7 +268,8 @@ class Input extends React.Component {
       maxLength: maxlength,
       onBlur: handleChange,
       onChange: handleChange,
-      readOnly: readonly
+      readOnly: readonly,
+      style: styleForInput
     }
 
     // Expose UI.
@@ -255,6 +284,10 @@ class Input extends React.Component {
           {...propsForInput}
         />
 
+        <ErrorMessage
+          {...propsForError}
+        />
+
       </React.Fragment>
     )
   }
@@ -263,13 +296,22 @@ class Input extends React.Component {
 // Validation.
 Input.propTypes = {
   autofocus: PropTypes.bool,
+  classNameForAbbr: PropTypes.string,
+  classNameForError: PropTypes.string,
+  classNameForInput: PropTypes.string,
+  classNameForLabel: PropTypes.string,
   disabled: PropTypes.bool,
+  errorMessage: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,
   readonly: PropTypes.bool,
   required: PropTypes.bool,
+  styleForAbbr: PropTypes.object,
+  styleForError: PropTypes.object,
+  styleForInput: PropTypes.object,
+  styleForLabel: PropTypes.object,
   type: PropTypes.string,
   width: PropTypes.string,
 
