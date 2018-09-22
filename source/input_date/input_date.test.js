@@ -91,7 +91,7 @@ describe('InputDate -- "MM/DD/YYYY"', () => {
     }
 
     // Dummy value.
-    const BEFORE = '11/30/202'
+    const BEFORE = '99/99/202'
     const AFTER = ''
 
     // Fire event.
@@ -173,5 +173,30 @@ describe('InputDate -- "DD/MM/YYYY"', () => {
 
     expect(props.handleChange)
       .toBeCalledWith(e, BEFORE, AFTER)
+  })
+
+  // ============================
+  // Test for props/state change.
+  // ============================
+
+  it('handles props/state change', () => {
+    // Dummy props.
+    const props = {
+      dateFormat: 'MM/DD/YYYY',
+      value: '2018-99-99'
+    }
+
+    // Dummy state.
+    const state = {
+      errorMessage: '',
+      oldValue: '2018-12-31'
+    }
+
+    // Fire event.
+    const newState =
+      InputDate.getDerivedStateFromProps(props, state)
+
+    expect(newState.errorMessage)
+      .toBe('Date is invalid')
   })
 })

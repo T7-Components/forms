@@ -228,16 +228,6 @@ class InputDate extends React.Component {
     this.props.handleChange(e, value, apiValue)
   }
 
-  // Valid date?
-  isValidDate (x = '') {
-    // Get date.
-    const date = new Date(x)
-    const bool = !isNaN(date.getTime())
-
-    // Expose boolean
-    return bool
-  }
-
   // Placeholder.
   getPlaceholder () {
     const { dateFormat } = this.props

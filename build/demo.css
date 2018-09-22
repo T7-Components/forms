@@ -850,7 +850,7 @@ Text area.
 .t7-textarea {
   clear: both;
   display: block;
-  min-height: 5rem;
+  min-height: 5em;
 }
 
 div.t7-textarea {
