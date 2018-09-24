@@ -33,6 +33,7 @@ Form element "reset."
   font-family: Arial, sans-serif;
   font-size: inherit;
   vertical-align: middle;
+  text-transform: none;
 }
 
 .t7-input::ms-clear {
@@ -112,9 +113,9 @@ Form element "reset."
   cursor: pointer;
   display: inline-block;
   font-weight: normal;
+  overflow: visible;
   text-align: center;
   text-decoration: none;
-  text-transform: none;
   width: auto;
   white-space: nowrap;
 }
@@ -226,6 +227,7 @@ Text area.
   clear: both;
   display: block;
   min-height: 5em;
+  overflow: auto;
 }
 
 div.t7-textarea {

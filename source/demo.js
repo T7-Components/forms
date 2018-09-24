@@ -256,9 +256,18 @@ class Demo extends React.Component {
             label='UK date input (with mask)'
             value='2018-13-32'
             handleChange={(e, value, apiValue) => {
-              window.console.log(
-                'UK API date = "' + apiValue + '"'
-              )
+              // Just for demo.
+              if (window.console) {
+                window.console.clear()
+
+                window.console.log(
+                  'UK UI date = "' + value + '"'
+                )
+
+                window.console.log(
+                  'UK API date = "' + apiValue + '"'
+                )
+              }
             }}
           />
         </p>
@@ -268,9 +277,18 @@ class Demo extends React.Component {
             label='US date input (with mask)'
             value='2018-13-32'
             handleChange={(e, value, apiValue) => {
-              window.console.log(
-                'US API date = "' + apiValue + '"'
-              )
+              // Just for demo.
+              if (window.console) {
+                window.console.clear()
+
+                window.console.log(
+                  'US UI date = "' + value + '"'
+                )
+
+                window.console.log(
+                  'US API date = "' + apiValue + '"'
+                )
+              }
             }}
           />
         </p>
@@ -280,9 +298,18 @@ class Demo extends React.Component {
             label='US phone input (with mask)'
             value='1-2-3-4-5-6-'
             handleChange={(e, value, apiValue) => {
-              window.console.log(
-                'US API phone = ' + apiValue
-              )
+              // Just for demo.
+              if (window.console) {
+                window.console.clear()
+
+                window.console.log(
+                  'US UI phone = "' + value + '"'
+                )
+
+                window.console.log(
+                  'US API phone = "' + apiValue + '"'
+                )
+              }
             }}
           />
         </p>
@@ -306,9 +333,18 @@ class Demo extends React.Component {
             label='German currency (with mask)'
             value={1000}
             handleChange={(e, value, apiValue) => {
-              window.console.log(
-                'DE API currency = ' + apiValue
-              )
+              // Just for demo.
+              if (window.console) {
+                window.console.clear()
+
+                window.console.log(
+                  'DE UI currency = "' + value + '"'
+                )
+
+                window.console.log(
+                  'DE API currency = `' + apiValue + '` (number)'
+                )
+              }
             }}
           />
         </p>
@@ -318,9 +354,18 @@ class Demo extends React.Component {
             label='Indian currency (with mask)'
             value={1000}
             handleChange={(e, value, apiValue) => {
-              window.console.log(
-                'IN API currency = ' + apiValue
-              )
+              // Just for demo.
+              if (window.console) {
+                window.console.clear()
+
+                window.console.log(
+                  'IN UI currency = "' + value + '"'
+                )
+
+                window.console.log(
+                  'IN API currency = `' + apiValue + '` (number)'
+                )
+              }
             }}
           />
         </p>
@@ -330,9 +375,18 @@ class Demo extends React.Component {
             label='Japanese currency (with mask)'
             value={1000}
             handleChange={(e, value, apiValue) => {
-              window.console.log(
-                'JP API currency = ' + apiValue
-              )
+              // Just for demo.
+              if (window.console) {
+                window.console.clear()
+
+                window.console.log(
+                  'JP UI currency = "' + value + '"'
+                )
+
+                window.console.log(
+                  'JP API currency = `' + apiValue + '` (number)'
+                )
+              }
             }}
           />
         </p>
@@ -342,9 +396,18 @@ class Demo extends React.Component {
             label='Korean currency (with mask)'
             value={1000}
             handleChange={(e, value, apiValue) => {
-              window.console.log(
-                'KR API currency = ' + apiValue
-              )
+              // Just for demo.
+              if (window.console) {
+                window.console.clear()
+
+                window.console.log(
+                  'KR UI currency = "' + value + '"'
+                )
+
+                window.console.log(
+                  'KR API currency = `' + apiValue + '` (number)'
+                )
+              }
             }}
           />
         </p>
@@ -354,9 +417,18 @@ class Demo extends React.Component {
             label='UK currency (with mask)'
             value={1000}
             handleChange={(e, value, apiValue) => {
-              window.console.log(
-                'UK API currency = ' + apiValue
-              )
+              // Just for demo.
+              if (window.console) {
+                window.console.clear()
+
+                window.console.log(
+                  'UK UI currency = "' + value + '"'
+                )
+
+                window.console.log(
+                  'UK API currency = `' + apiValue + '` (number)'
+                )
+              }
             }}
           />
         </p>
@@ -366,9 +438,18 @@ class Demo extends React.Component {
             label='US currency (with mask)'
             value={1000}
             handleChange={(e, value, apiValue) => {
-              window.console.log(
-                'US API currency = ' + apiValue
-              )
+              // Just for demo.
+              if (window.console) {
+                window.console.clear()
+
+                window.console.log(
+                  'US UI currency = "' + value + '"'
+                )
+
+                window.console.log(
+                  'US API currency = `' + apiValue + '` (number)'
+                )
+              }
             }}
           />
         </p>
