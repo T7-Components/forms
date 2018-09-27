@@ -7,7 +7,7 @@ import ListInline from '@t7/list-inline'
 import { bind } from '@t7/utils'
 
 // CSS.
-import '../node_modules/@t7/list-inline/dist/index.css'
+import '@t7/list-inline/dist/index.css'
 import './sanitize.css'
 import './demo.css'
 import './index.css'

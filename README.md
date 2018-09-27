@@ -1,10 +1,23 @@
 # @t7/forms
 
-```
+This is a collection of React form element components.
+
+```sh
+# Install via NPM.
 npm install @t7/forms --save-dev
 ```
 
-This is a collection of React form element components.
+To use the CSS, be sure to import it into your project.
+
+```js
+// Example: In a root JS file.
+import '@t7/forms/dist/index.css'
+```
+
+```css
+/* Example: In a root CSS file. */
+@import "./node_modules/@t7/forms/dist/index.css";
+```
 
 ---
 
