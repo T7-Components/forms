@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 
 // Utility methods.
 import {
-  bind
+  bind,
+  trim
 } from '@t7/utils'
 
 // Define class.
@@ -33,9 +34,11 @@ class Button extends React.Component {
       ariaControls,
       disabled,
       children,
+      className,
       href,
       mode,
       size,
+      style,
       target,
       title,
       type
@@ -66,7 +69,14 @@ class Button extends React.Component {
       title,
 
       // Class name.
-      className: 't7-button',
+      className: (
+        trim(
+          [
+            't7-button',
+            className
+          ].join(' ')
+        )
+      ),
 
       // Mode.
       'data-mode': mode,
@@ -79,7 +89,10 @@ class Button extends React.Component {
         disabled
           ? null
           : handleClick
-      )
+      ),
+
+      // Style.
+      style: style
     }
 
     // Props for link.
@@ -132,10 +145,12 @@ Button.propTypes = {
   ariaControls: PropTypes.string,
   buttonData: PropTypes.any,
   children: PropTypes.any,
+  className: PropTypes.string,
   disabled: PropTypes.bool,
   href: PropTypes.string,
   mode: PropTypes.string,
   size: PropTypes.string,
+  style: PropTypes.object,
   target: PropTypes.string,
   title: PropTypes.string,
   type: PropTypes.string,

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1538076864880" clover="3.2.0">
-  <project timestamp="1538076864880" name="All files">
+<coverage generated="1538402298391" clover="3.2.0">
+  <project timestamp="1538402298391" name="All files">
     <metrics statements="332" coveredstatements="332" conditionals="173" coveredconditionals="115" methods="81" coveredmethods="72" elements="586" coveredelements="519" complexity="0" loc="332" ncloc="332" packages="23" files="23" classes="23">
       <package name="source">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -12,25 +12,25 @@
         <metrics statements="19" coveredstatements="19" conditionals="15" coveredconditionals="13" methods="4" coveredmethods="3"/>
         <file name="button.js" path="/Users/tandemseven/T7/t7-components/forms/source/button/button.js">
           <metrics statements="19" coveredstatements="19" conditionals="15" coveredconditionals="13" methods="4" coveredmethods="3"/>
-          <line num="14" count="2" type="stmt"/>
-          <line num="17" count="2" type="stmt"/>
-          <line num="23" count="1" type="stmt"/>
-          <line num="26" count="1" type="stmt"/>
-          <line num="42" count="2" type="stmt"/>
+          <line num="15" count="2" type="stmt"/>
+          <line num="18" count="2" type="stmt"/>
+          <line num="24" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
           <line num="45" count="2" type="stmt"/>
-          <line num="52" count="2" type="cond" truecount="2" falsecount="0"/>
-          <line num="53" count="1" type="stmt"/>
-          <line num="56" count="1" type="cond" truecount="3" falsecount="1"/>
-          <line num="57" count="1" type="stmt"/>
-          <line num="62" count="2" type="stmt"/>
-          <line num="86" count="2" type="stmt"/>
-          <line num="102" count="2" type="stmt"/>
-          <line num="110" count="2" type="stmt"/>
-          <line num="116" count="2" type="cond" truecount="2" falsecount="0"/>
-          <line num="118" count="1" type="stmt"/>
-          <line num="126" count="2" type="stmt"/>
-          <line num="131" count="23" type="stmt"/>
-          <line num="148" count="23" type="stmt"/>
+          <line num="48" count="2" type="stmt"/>
+          <line num="55" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="56" count="1" type="stmt"/>
+          <line num="59" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="60" count="1" type="stmt"/>
+          <line num="65" count="2" type="stmt"/>
+          <line num="99" count="2" type="stmt"/>
+          <line num="115" count="2" type="stmt"/>
+          <line num="123" count="2" type="stmt"/>
+          <line num="129" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="131" count="1" type="stmt"/>
+          <line num="139" count="2" type="stmt"/>
+          <line num="144" count="23" type="stmt"/>
+          <line num="163" count="23" type="stmt"/>
         </file>
       </package>
       <package name="source.checkbox">

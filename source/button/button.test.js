@@ -16,11 +16,17 @@ describe('Button', () => {
   const props = {
     ariaControls: 'example_id',
     children: 'CHILDREN',
+    className: 'CLASS_NAME_FOR_BUTTON',
     disabled: true,
     mode: 'warn',
     size: 'small',
     title: 'example_title',
-    type: 'submit'
+    type: 'submit',
+
+    // Style.
+    style: {
+      fontFamily: 'monospace'
+    }
   }
 
   // Insert the component into DOM.
@@ -41,6 +47,15 @@ describe('Button', () => {
   it('has `<button>` tag', () => {
     expect(button.tagName.toLowerCase())
       .toBe('button')
+  })
+
+  // ======================
+  // Test for `class` name.
+  // ======================
+
+  it('has correct `class` name', () => {
+    expect(button.className)
+      .toContain(props.className)
   })
 
   // ==============
@@ -97,6 +112,15 @@ describe('Button', () => {
       .toBe(props.size)
   })
 
+  // ===============
+  // Test for style.
+  // ===============
+
+  it('has correct style', () => {
+    expect(button.style.fontFamily)
+      .toBe(props.style.fontFamily)
+  })
+
   // ==============
   // Test for type.
   // ==============
@@ -117,6 +141,7 @@ describe('Button -- link', () => {
   // Dummy props.
   const props = {
     children: 'CHILDREN',
+    className: 'CLASS_NAME_FOR_BUTTON',
     href: 'https://example.com',
     mode: 'positive',
     size: 'big',
@@ -129,7 +154,12 @@ describe('Button -- link', () => {
     },
 
     // Events.
-    handleClick: jest.fn()
+    handleClick: jest.fn(),
+
+    // Style.
+    style: {
+      fontFamily: 'monospace'
+    }
   }
 
   // Insert the component into DOM.
@@ -150,6 +180,15 @@ describe('Button -- link', () => {
   it('is `<a>` tag', () => {
     expect(button.tagName.toLowerCase())
       .toBe('a')
+  })
+
+  // ======================
+  // Test for `class` name.
+  // ======================
+
+  it('has correct `class` name', () => {
+    expect(button.className)
+      .toContain(props.className)
   })
 
   // ==============
@@ -216,6 +255,15 @@ describe('Button -- link', () => {
   it('has correct size', () => {
     expect(button.getAttribute('data-size'))
       .toBe(props.size)
+  })
+
+  // ===============
+  // Test for style.
+  // ===============
+
+  it('has correct style', () => {
+    expect(button.style.fontFamily)
+      .toBe(props.style.fontFamily)
   })
 
   // =======================
