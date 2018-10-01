@@ -16,6 +16,7 @@ import InputMoneyKR from './input_money_kr/input_money_kr'
 import InputMoneyUK from './input_money_uk/input_money_uk'
 import InputMoneyUS from './input_money_us/input_money_us'
 import InputPhoneUS from './input_phone_us/input_phone_us'
+import InputSSN from './input_ssn/input_ssn'
 import Label from './label/label'
 import Radio from './radio/radio'
 import Select from './select/select'
@@ -41,6 +42,7 @@ export {
   InputMoneyUK,
   InputMoneyUS,
   InputPhoneUS,
+  InputSSN,
   Label,
   Radio,
   Select,

@@ -28,6 +28,7 @@ import {
   InputMoneyUK,
   InputMoneyUS,
   InputPhoneUS,
+  InputSSN,
   Radio,
   Select,
   Textarea,
@@ -116,7 +117,7 @@ class Demo extends React.Component {
         </h1>
 
         <p>
-          <a href='https://github.com/T7-Components/forms/blob/master/source/demo.js'>
+          <a href='https://github.com/t7-components/forms/blob/master/source/demo.js'>
             View "demo.js" on GitHub
           </a>
         </p>
@@ -308,6 +309,27 @@ class Demo extends React.Component {
 
                 window.console.log(
                   'US API phone = "' + apiValue + '"'
+                )
+              }
+            }}
+          />
+        </p>
+
+        <p>
+          <InputSSN
+            label='Social security number (with mask)'
+            value='1-2-3-4-5-6'
+            handleChange={(e, value, apiValue) => {
+              // Just for demo.
+              if (window.console) {
+                window.console.clear()
+
+                window.console.log(
+                  'UI SSN = "' + value + '"'
+                )
+
+                window.console.log(
+                  'API SSN = "' + apiValue + '"'
                 )
               }
             }}

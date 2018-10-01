@@ -22,6 +22,7 @@ describe('T7 Forms -- index.js', () => {
     'InputMoneyUK',
     'InputMoneyUS',
     'InputPhoneUS',
+    'InputSSN',
     'Label',
     'Radio',
     'Select',

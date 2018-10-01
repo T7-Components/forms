@@ -73,6 +73,8 @@ Component documentation:
 
 - [InputPhoneUS](https://github.com/t7-components/forms/tree/master/source/input_phone_us/README.md)
 
+- [InputSSN](https://github.com/t7-components/forms/tree/master/source/input_ssn/README.md)
+
 - [Label](https://github.com/t7-components/forms/tree/master/source/label/README.md)
 
 - [Radio](https://github.com/t7-components/forms/tree/master/source/radio/README.md)
