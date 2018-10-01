@@ -67,6 +67,8 @@ class Label extends React.Component {
 
         </label>
 
+        <br />
+
       </Render>
     )
   }

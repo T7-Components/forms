@@ -253,6 +253,20 @@ class Demo extends React.Component {
         </h2>
 
         <p>
+          <Input
+            label='Input with size="5"'
+            size={5}
+          />
+        </p>
+
+        <p>
+          <Input
+            label='Input with width="auto"'
+            width='auto'
+          />
+        </p>
+
+        <p>
           <InputDateUK
             label='UK date input (with mask)'
             value='2018-13-32'
@@ -481,6 +495,14 @@ class Demo extends React.Component {
             disabled // true
             label='Input (disabled)'
             placeholder='Input placeholder'
+          />
+        </p>
+
+        <p>
+          <Select
+            width='auto'
+            label='Select with width="auto"'
+            options={OPTIONS}
           />
         </p>
 
