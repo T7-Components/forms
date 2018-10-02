@@ -30,7 +30,7 @@ const handleChange = (e, value, apiValue) => {
     are similar to `Input`.
   */
 
- // Automatic, if omitted.
+  // Automatic, if omitted.
   errorMessage={errorMessage}
 
   // Formats to "555-867-5309".
